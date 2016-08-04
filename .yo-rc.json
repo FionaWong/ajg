@@ -1,0 +1,8 @@
+{
+  "generator-react-webpack": {
+    "appName": "ajg",
+    "style": "scss",
+    "postcss": true,
+    "generatedWithVersion": 3
+  }
+}
