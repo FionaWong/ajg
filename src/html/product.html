@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>安金购后管</title>
+    <link rel="stylesheet" href="../styles/ajg.css"/>
+    <script src="../js/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--头部 Start-->
+<div class="header">
+    <span>安金购管理系统</span>
+</div>
+<!--头部 End-->
+
+<!--Wrap Start-->
+<div class="wrap">
+    <!--Sidebar Start-->
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">广告位管理</a></li>
+            <li><a href="product.html" class="active">商品管理</a></li>
+            <li><a href="label.html">商品标签管理</a></li>
+            <li><a href="order.html">订单管理</a></li>
+            <li><a href="supplier.html">供应商管理</a></li>
+        </ul>
+    </div>
+    <!--Sidebar End-->
+    <!--Right Start-->
+    <div class="right">
+        <div class="panel">
+            <div class="panel-heading">
+                商品管理
+            </div>
+            <div class="panel-body">
+                <ul class="nav-tabs">
+                    <li class="active"><a href="javascript:void(0);">全部</a></li>
+                    <li><a href="javascript:void(0);">未上架</a></li>
+                    <li><a href="javascript:void(0);">已上架</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="home">
+                        <div class="upload-link" style="width: 100%;">
+                                        <span>
+                                            <label>上架状态：</label>
+                                            <select style="margin-right: 60px;" name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
+                                                <option value="10">全部</option>
+                                                <option value="10">未上架</option>
+                                                <option value="10">已上架</option>
+                                            </select>
+                                            <label>商品ID：</label> <input class="form-control" type="text"/>
+                                        </span>
+                                        <span>
+                                            <label>商品名称：</label> <input class="form-control" type="text"/>
+                                            <label>上架时间：</label> <input class="form-control" type="text"/>
+                                        </span>
+                                        <span>
+                                            <label>标签：</label>
+                                            <select style="margin-right: 60px;" name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
+                                                <option value="10">男性</option>
+                                                <option value="10">女性</option>
+                                            </select>
+                                            <button type="button" class="btn btn-default">筛选</button>
+                                            <button type="button" class="btn btn-default" onclick="window.location.href='newproduct.html'">新建商品</button>
+                                        </span>
+                        </div>
+                        <table class="table mt20" cellspacing="1" >
+                            <thead>
+                            <tr role="row">
+                                <th class="sorting_asc">全选</th>
+                                <th class="sorting">商品ID</th>
+                                <th class="sorting">商品标题</th>
+                                <th class="sorting">市场价格</th>
+                                <th class="sorting">抢购价格</th>
+                                <th class="sorting">状态</th>
+                                <th class="sorting">标签</th>
+                                <th class="sorting">操作</th>
+                            </tr></thead>
+                            <tbody>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox" class="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>男性</td>
+                                <td class="center "><a href="javascript:;" class="edit">下架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox" class="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>女性</td>
+                                <td class="center "><a href="javascript:;" class="edit">下架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox" class="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>家庭</td>
+                                <td class="center "><a href="javascript:;" class="edit">上架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox" class="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>主推</td>
+                                <td class="center "><a href="javascript:;" class="edit">上架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <ul class="pagination mt20" >
+                            <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" >
+                                <a href="#">上一页</a>
+                            </li>
+                            <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">1</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">2</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">3</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">4</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">5</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">6</a>
+                            </li>
+                            <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" >
+                                <a href="#">下一页</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade">
+                        <table class="table mt20" cellspacing="1" >
+                            <thead>
+                            <tr role="row">
+                                <th class="sorting_asc">全选</th>
+                                <th class="sorting">商品ID</th>
+                                <th class="sorting">商品标题</th>
+                                <th class="sorting">市场价格</th>
+                                <th class="sorting">抢购价格</th>
+                                <th class="sorting">状态</th>
+                                <th class="sorting">标签</th>
+                                <th class="sorting">操作</th>
+                            </tr></thead>
+                            <tbody>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>男性</td>
+                                <td class="center "><a href="javascript:;" class="edit">上架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>女性</td>
+                                <td class="center "><a href="javascript:;" class="edit">上架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>家庭</td>
+                                <td class="center "><a href="javascript:;" class="edit">上架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>主推</td>
+                                <td class="center "><a href="javascript:;" class="edit">上架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <ul class="pagination mt20" >
+                            <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" >
+                                <a href="#">上一页</a>
+                            </li>
+                            <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">1</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">2</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">3</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">4</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">5</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">6</a>
+                            </li>
+                            <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" >
+                                <a href="#">下一页</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane fade">
+                        <table class="table mt20" cellspacing="1" >
+                            <thead>
+                            <tr role="row">
+                                <th class="sorting_asc">全选</th>
+                                <th class="sorting">商品ID</th>
+                                <th class="sorting">商品标题</th>
+                                <th class="sorting">市场价格</th>
+                                <th class="sorting">抢购价格</th>
+                                <th class="sorting">状态</th>
+                                <th class="sorting">标签</th>
+                                <th class="sorting">操作</th>
+                            </tr></thead>
+                            <tbody>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>男性</td>
+                                <td class="center "><a href="javascript:;" class="edit">下架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>女性</td>
+                                <td class="center "><a href="javascript:;" class="edit">下架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>家庭</td>
+                                <td class="center "><a href="javascript:;" class="edit">下架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            <tr class="gradeA even">
+                                <td class="sorting_1"><input type="checkbox" value="checkbox"></td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>已上架</td>
+                                <td>主推</td>
+                                <td class="center "><a href="javascript:;" class="edit">下架</a><a href="newproduct.html">编辑</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <ul class="pagination mt20" >
+                            <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" >
+                                <a href="#">上一页</a>
+                            </li>
+                            <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">1</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">2</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">3</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">4</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">5</a>
+                            </li>
+                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                <a href="#">6</a>
+                            </li>
+                            <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" >
+                                <a href="#">下一页</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Right End-->
+</div>
+<!--Wrap End-->
+
+<script type="text/javascript">
+    $(function () {
+        $(".nav-tabs li").click(function () {
+            var index = $(this).index();
+            $(this).addClass("active");
+            $(this).siblings().removeClass("active");
+            $(".tab-content .tab-pane").eq(index).addClass("active");
+            $(".tab-content .tab-pane").eq(index).siblings().removeClass("active");
+        })
+    })
+</script>
+</body>
+</html>
