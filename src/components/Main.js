@@ -1,22 +1,25 @@
-require('normalize.css/normalize.css');
-require('styles/App.css');
+import React from 'react'
+import { render } from 'react-dom'
+import createHistory from 'history/lib/createHashHistory'
+import configureStore from './stores/configureStore'
+import Root from './containers/root'
+import 'styles/index.less'
+import { syncReduxAndRouter } from 'redux-simple-router'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+// import Oxygen from 'hooks/oxygen'
 
-import React from 'react';
+const store = configureStore()
+const history = createHistory({
+  queryKey: false
+})
+// inject oxygen services
+// Oxygen.init()
+// inject tap event system
+injectTapEventPlugin()
 
-let yeomanImage = require('../images/yeoman.png');
+syncReduxAndRouter(history, store)
 
-class AppComponent extends React.Component {
-  render() {
-    return (
-      <div className="index">
-        <img src={yeomanImage} alt="Yeoman Generator" />
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
-      </div>
-    );
-  }
-}
-
-AppComponent.defaultProps = {
-};
-
-export default AppComponent;
+render(
+  <Root store={store} history={history} />,
+  document.getElementById('root')
+)

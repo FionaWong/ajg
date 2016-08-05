@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>安金购后管--订单管理</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/anjingou.css"/>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">安金购管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="index.html">广告位管理</a></li>
+                <li><a href="product.html">商品管理</a></li>
+                <li><a href="label.html">商品标签管理</a></li>
+                <li class="active"><a href="order.html">订单管理</a></li>
+                <li><a href="supplier.html">供应商管理</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            订单管理
+                        </div>
+                        <div class="panel-body">
+                            <div class="upload-link upload-link2" style="width: 100%;">
+                                <span>
+                                    <label>下单时间：</label>
+                                    <input class="form-control" type="text">-<input class="form-control" type="text">
+                                    <label>支付时间：</label> <input class="form-control" type="text">-<input class="form-control" type="text">
+                                </span>
+                                <span>
+                                    <label>商品ID：</label><input class="form-control" type="text">
+                                    <label>商品名称：</label><input class="form-control" type="text">
+                                    <label>用户ID：</label><input class="form-control" type="text">
+                                </span>
+                                <span>
+                                    <label>姓名：</label><input class="form-control" type="text">
+                                    <label>电话：</label><input class="form-control" type="text">
+                                    <label>支付状态：</label>
+                                    <select style="margin-right: 60px;" name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
+                                        <option value="10">支付成功</option>
+                                        <option value="10">未支付</option>
+                                        <option value="10">已失效</option>
+                                    </select>
+                                </span>
+                                <span>
+                                    <label>订单号：</label><input class="form-control" type="text">
+                                    <button type="button" class="btn btn-default" style="margin-right: 20px;">筛选</button>
+                                </span>
+                            </div>
+                            <table class="table mt20 fl table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                                <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc">订单号</th>
+                                    <th class="sorting">商品ID</th>
+                                    <th class="sorting">商品名称</th>
+                                    <th class="sorting">用户ID</th>
+                                    <th class="sorting">姓名</th>
+                                    <th class="sorting">电话</th>
+                                    <th class="sorting">下单时间</th>
+                                    <th class="sorting">支付时间</th>
+                                    <th class="sorting">支付状态</th>
+                                    <th class="sorting">金额</th>
+                                    <th class="sorting">详情</th>
+                                </tr></thead>
+                                <tbody>
+                                <tr class="gradeA even">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="center "><a href="javascript:;" class="edit">查看</a></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--弹层-->
+<div class="layer-box">
+    <div class="layer-bg"></div>
+    <div class="layer-cont" style="height: 380px;width:800px;margin-top:-190px;margin-left:-400px;">
+        <!--<a href="javascript:;" class="layer-close">&times;</a>-->
+        <p>订单详情页</p>
+        <div class="upload-link upload-link3" style="padding-top: 0;">
+            <span>
+                <label>订单号：</label><input class="form-control" type="text">
+                <label>商品ID：</label><input class="form-control" type="text">
+                <label>商品名称：</label><input class="form-control" type="text">
+            </span>
+            <span>
+                <label>User ID：</label><input class="form-control" type="text">
+                <label>收货人姓名：</label><input class="form-control" type="text">
+                <label>收货人手机号：</label><input class="form-control" type="text">
+            </span>
+            <span>
+                <label>收货人地址：</label><input class="form-control" type="text">
+                <label>下单时间：</label><input class="form-control" type="text">
+                <label>支付时间：</label><input class="form-control" type="text">
+            </span>
+            <span>
+                <label>失效时间：</label><input class="form-control" type="text">
+                <label>支付状态：</label><input class="form-control" type="text">
+                <label>商品主标签：</label><input class="form-control" type="text">
+            </span>
+            <span>
+                <label>商品属性标签：</label><input class="form-control" type="text">
+                <label>属性品牌：</label><input class="form-control" type="text">
+                <label>属性供应商：</label><input class="form-control" type="text">
+            </span>
+            <span>
+                <label>购买数量：</label><input class="form-control" type="text">
+                <label>合计金额：</label><input class="form-control" type="text">
+                <label>物流信息：</label><input class="form-control" type="text">
+            </span>
+            <span>
+                <label>物流单号：</label><input class="form-control" type="text">
+                <label></label>
+                <button type="button" class="btn btn-default" style="margin-right: 20px;">保存修改</button>
+                <button type="button" class="btn btn-default" id="close" style="margin-right: 20px;">关闭</button>
+            </span>
+        </div>
+    </div>
+</div>
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".layer-box").hide();
+        $(".edit").bind('click',function () {
+            $(".layer-box").fadeIn(500);
+        });
+        $("#close").click(function(){
+            $(".layer-box").fadeOut(500);
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>安金购后管--商品管理--商品属性标签</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/anjingou.css"/>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">安金购管理系统</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Settings</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="nav nav-sidebar">
+                <li><a href="index.html">广告位管理</a></li>
+                <li class="active"><a href="product.html">商品管理</a></li>
+                <li><a href="label.html">商品标签管理</a></li>
+                <li><a href="order.html">订单管理</a></li>
+                <li><a href="supplier.html">供应商管理</a></li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            商品属性标签
+                        </div>
+                        <div class="labelattr">
+                            <p class="fb">请选择需要勾选的子标签</p>
+                            <div>
+                                <button type="button" class="btn btn-default" id="save">保存</button>
+                            </div>
+                            <table class="table table-striped table-bordered table-hover dataTable no-footer mt20" id="dataTables-example" aria-describedby="dataTables-example_info">
+                                <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc" >属性标签编码</th>
+                                    <th class="sorting">属性标签名称</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeA even">
+                                    <td class="sorting_1">1</td>
+                                    <td class=" ">颜色</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <table class="table table-striped table-bordered table-hover dataTable no-footer mt20" id="dataTables-example" aria-describedby="dataTables-example_info">
+                                <thead>
+                                <tr role="row">
+                                    <th class="sorting_asc">子标签编码</th>
+                                    <th class="sorting">子标签名称</th>
+                                    <th class="sorting">勾选</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr class="gradeA even">
+                                    <td class="sorting_1">1-1</td>
+                                    <td>红色</td>
+                                    <td><input type="checkbox" value=""></td>
+                                </tr>
+                                <tr class="gradeA even">
+                                    <td class="sorting_1">1-2</td>
+                                    <td>蓝色</td>
+                                    <td><input type="checkbox" value=""></td>
+                                </tr>
+                                <tr class="gradeA even">
+                                    <td class="sorting_1">1-3</td>
+                                    <td>绿色</td>
+                                    <td><input type="checkbox" value=""></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <ul class="pagination" style="margin:0;">
+                                <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
+                                    <a href="#">上一页</a>
+                                </li>
+                                <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
+                                    <a href="#">1</a>
+                                </li>
+                                <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                    <a href="#">2</a>
+                                </li>
+                                <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                    <a href="#">3</a>
+                                </li>
+                                <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                    <a href="#">4</a>
+                                </li>
+                                <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                    <a href="#">5</a>
+                                </li>
+                                <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                                    <a href="#">6</a>
+                                </li>
+                                <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_next">
+                                    <a href="#">下一页</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/jquery-1.10.2.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</body>
+</html>

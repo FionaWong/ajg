@@ -1,7 +1,25 @@
-import 'core-js/fn/object/assign';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './components/Main';
+import React from 'react'
+import { render } from 'react-dom'
+import createHistory from 'history/lib/createHashHistory'
+import configureStore from './store/configureStore'
+import Root from './containers/root'
+import 'styles/index.less'
+import { syncReduxAndRouter } from 'redux-simple-router'
+import injectTapEventPlugin from 'react-tap-event-plugin'
+// import Oxygen from 'hooks/oxygen'
 
-// Render the main component into the dom
-ReactDOM.render(<App />, document.getElementById('app'));
+const store = configureStore()
+const history = createHistory({
+  queryKey: false
+})
+// inject oxygen services
+// Oxygen.init()
+// inject tap event system
+injectTapEventPlugin()
+
+syncReduxAndRouter(history, store)
+
+render(
+  <Root store={store} history={history} />,
+  document.getElementById('root')
+)
