@@ -1,12 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { resetAccount } from 'actions'
-import { App } from 'utils/native'
-
+import {Header} from 'views/components/header'
 @connect( state => ({
-  account: state.account
+
 }), {
-  resetAccount
+
 })
 
 export default class CoreLayout extends React.Component {
@@ -14,26 +13,28 @@ export default class CoreLayout extends React.Component {
     children : React.PropTypes.element
   }
   componentWillReceiveProps(nextProps) {
-    if(!nextProps.account.isLogin){
-        if(App.isNative) {
-          App.call("neonLogin")
-          nextProps.resetAccount()
-          location.reload()
-          return
-       }
-      window.location.href = process.env.DEV_ENV === 'production'
-        ? "http://m.pingan.com/chaoshi/wap/login.do?appid=10183&ptag=http://m.pingan.com/chaoshi/dqlc/index.shtml#/"
-        : "http://pa18-wapmall-dmzstg1.pingan.com.cn:5380/chaoshi/wap/login.do?appid=10183&ptag=http://pa18-wapmall-dmzstg1.pingan.com.cn:5380/chaoshi/dqlc/index.shtml#/"
-      // window.location.href =  "http://m.pingan.com/chaoshi/wap/login.do?appid=10183&ptag=http://m.pingan.com/chaoshi/dqlc/index.shtml#/"
 
-    }
+
   }
   render () {
     return (
-      <div className='page-container' style={{marginTop: !App.isHighVersion ? '0' : '-42px'}}>
-        <div className='view-container'>
+      <Header></Header>
+      <div class="wrap">
+
+          <div class="sidebar">
+              <ul>
+                  <li><a href="index.html" class="active">广告位管理</a></li>
+                  <li><a href="product.html">商品管理</a></li>
+                  <li><a href="label.html">商品标签管理</a></li>
+                  <li><a href="order.html">订单管理</a></li>
+                  <li><a href="supplier.html">供应商管理</a></li>
+              </ul>
+          </div>
+
+          <!--Right Start-->
+          <div class="right">
           {this.props.children}
-        </div>
+          </div>
       </div>
     );
   }

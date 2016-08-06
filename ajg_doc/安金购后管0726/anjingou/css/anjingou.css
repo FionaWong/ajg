@@ -1,0 +1,229 @@
+.mt20 {
+    margin-top: 20px;
+}
+.fl {
+    float: left;
+}
+
+.col-md-6 {
+    width: 100%;
+}
+.fb {
+    font-weight: bold;
+}
+
+/** 广告位管理  **/
+.tab-content {
+    overflow: hidden;
+    padding-top: 20px;
+}
+.imgbox {
+    width: 100%;
+    float: left;
+}
+.upload-link {
+    width: 90%;
+    float: left;
+    overflow: hidden;
+    padding-top: 10px;
+}
+.upload-link span {
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    margin-top: 10px;
+}
+.upload-link label {
+    font: normal 14px/24px Microsoft Yahei;
+    width: 100px;
+    text-align: right;
+}
+.upload-link input {
+    width: 200px;
+    display: inline-block;
+    margin-right: 60px;
+}
+.upload-btn-box {
+    width: 89%;
+    float: left;
+    padding-left: 11%;
+}
+.upload-btn-box button {
+    margin-right: 20px;
+}
+.table-striped td,.table-striped th {
+    text-align: center;
+}
+.table-striped a {
+    margin: 0 10px;
+}
+.color-red {
+    color: red;
+}
+
+/* layer style */
+.layer-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    width: 100%;
+    height: 100%;
+}
+.layer-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .3;
+}
+
+.layer-cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 20px;
+    border:#ccc 1px solid;
+    width: 400px;
+    height: 460px;
+    margin-left: -200px;
+    margin-top: -230px;
+}
+.layer-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font: normal 24px/24px Arial;
+}
+.layer-close:hover {
+    text-decoration: none;
+}
+
+select.input-sm {
+    display: inline-block;
+    width: 200px;
+}
+
+textarea.form-control {
+    height: auto;
+    width: 67%;
+    display: inline-block;
+}
+
+.label-box {
+    padding: 10px 0 0;
+}
+.label-box p {
+    margin: 0;
+    width: 43%;
+    float: left;
+    line-height: 34px;
+}
+.label-box p b {
+    font-weight: normal;
+    width: 100px;
+    display: inline-block;
+    text-align: right;
+}
+
+.thumbnail {
+    margin-bottom: 10px;
+}
+.col-md-3 p {
+    padding: 0;
+    height: 20px;
+}
+.col-md-3 p a {
+    display: none;
+}
+.col-md-3:hover p a {
+    display: inline-block;
+} 
+/* 标签属性 */
+.labelattr {
+    overflow: hidden;
+    padding: 20px;
+}
+.label-left {
+    float: left;
+    width: 49%;
+    padding: 1%;
+}
+
+.label-right {
+    float: left;
+    width: 51%;
+    border-left: #eee 1px solid;
+    padding: 1%;
+}
+
+.td-line>tbody>tr>td {
+    line-height: 50px;
+}
+.checkbox label {
+    margin: 0 40px 10px;
+    border: #ccc 1px solid;
+    width: 80px;
+    height: 24px;
+    border-radius: 5px;
+    text-align: center;
+}
+.Symbol {
+    font: normal 21px/23px Arial;
+    width: 70%;
+    display: block;
+    text-align: center;
+}
+
+.addimg-exit-sty {
+    display: inline-block;
+    margin-left: 10px;
+    overflow: hidden;
+    width: 40px;
+}
+.addimg-exit-sty a {
+    margin-right: 10px;
+}
+.input-sty {
+    border: none;
+    border-bottom: #ccc 1px solid;
+    color: #ccc;
+}
+
+
+.upload-link2 {
+    width: 100%;
+}
+.upload-link2 input,.upload-link2 select {
+    margin: 0;
+    width: 160px;
+}
+.upload-link3 {
+    width: 100%;
+}
+.upload-link3 input,.upload-link2 select {
+    margin: 0;
+    width: 140px;
+}
+.upload-link3 label {
+    width: 110px;
+}
+
+.upload-link .input-w140 label{
+    width: 140px;
+}
+
+
+
+
+
+
+
+
+
