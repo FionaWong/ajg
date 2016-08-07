@@ -1,7 +1,6 @@
 import React from 'react'
-import uxcore from 'uxcore'
 
-class Header extends React.component{
+class Header extends React.Component{
    render(){
      return (
        <div className="header">
@@ -10,3 +9,4 @@ class Header extends React.component{
      )
    }
 }
+export default Header

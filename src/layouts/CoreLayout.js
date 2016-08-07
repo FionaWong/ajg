@@ -1,22 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {Header,LeftMenu} from 'views/components'
-
+import Header from '../views/components/header'
+import LeftMenu from '../views/components/leftMenu'
 
 export default class CoreLayout extends React.Component {
   static propTypes = {
-    children : React.PropTypes.element
+   children : React.PropTypes.element
   }
   render () {
     return (
-      <Header></Header>
-      <div class="wrap">
-        <LeftMenu></LeftMenu>
-          <!--Right Start-->
-          <div class="right">
-          {this.props.children}
+      <div>
+        <Header/>
+        <div className="wrap">
+          <LeftMenu />
+          <div className="right">
+            {this.props.children}
           </div>
+        </div>
       </div>
-    );
+    )
   }
 }

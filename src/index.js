@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 import createHistory from 'history/lib/createHashHistory'
 import configureStore from './store/configureStore'
 import Root from './containers/root'
-import 'styles/ajg.scss'
+import './styles/ajg.scss'
 import { syncReduxAndRouter } from 'redux-simple-router'
 // import Oxygen from 'hooks/oxygen'
 
@@ -14,8 +14,8 @@ const history = createHistory({
 
 
 syncReduxAndRouter(history, store)
-
+ 
 render(
   <Root store={store} history={history} />,
-  document.getElementById('root')
+  document.getElementById('app')
 )

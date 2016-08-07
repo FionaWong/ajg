@@ -102,7 +102,7 @@ export function getGoodDetail(goodId){
   let good = {};
   for(var x in goods){
     if(x.goodId == goodId){
-      good = var[x];
+      good = goods[x];
       break;
     }
   }

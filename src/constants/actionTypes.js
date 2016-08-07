@@ -1,5 +1,22 @@
 //modules names
-exports const ADVERTS_MENU = 'ADVERTS_MENU';
-exports const GOODS_MENU = 'GOODS_MENU';
-exports const LABELS_MENU = 'LABELS_MENU';
-exports const SUPPLIERS_MENU = 'SUPPLIERS_MENU';
+export const ADVERTS_MENU = 'ADVERTS_MENU';
+export const GOODS_MENU = 'GOODS_MENU';
+export const LABELS_MENU = 'LABELS_MENU';
+export const SUPPLIERS_MENU = 'SUPPLIERS_MENU';
+
+
+//accountUnlogin
+export const ACCOUNT_UNLOGIN = "ACCOUNT_UNLOGIN";
+//GOODS
+export const GET_GOODS_BEGIN = 'GET_GOODS_BEGIN';
+export const GET_GOODS_SUCCESS = 'GET_GOODS_SUCCESS';
+export const GET_GOODS_FAIL = 'GET_GOODS_FAIL';
+export const RESET_GOODS = 'RESET_GOODS';
+//GOOD
+
+//ADVERTS
+
+//Orders
+
+
+//SUPPLIERS

@@ -1,0 +1,1 @@
+export goods from './goods'

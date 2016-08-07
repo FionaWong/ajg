@@ -5,10 +5,10 @@ const dfltPort = 8000;
 function getDefaultModules() {
   return {
     preLoaders: [{
-        test: /\.(js|jsx)$/,
-        include: srcPath,
-        loader: 'eslint-loader'
-      }],
+			test: /\.(js|jsx)?$/,
+			exclude: /node_modules/,
+			loaders: ['babel?optional=runtime&stage=0']
+		}],
     loaders: [
       {
         test: /\.css$/,
