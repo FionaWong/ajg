@@ -1,17 +1,33 @@
 import React from 'react'
 import uxcore from 'uxcore'
-
-class Header extends React.component{
+import menu from 'api/menu'
+class LeftMenu extends React.component{
+  constructor(props, context) {
+    super(props, context)
+    this.state = { filter: 'GOODS_MENU'}
+  }
    render(){
-     
+     let elm
+
+     statesHover(x){
+       if(this.state.filter == x){
+         return 'active';
+       }else{
+         return '';
+       }
+     }
+     handleClick(x){
+       this.setState( { filter: x});
+     }
+
      return (
        <div class="sidebar">
            <ul>
-               <li><a href="adverts" className="active">广告位管理</a></li>
-               <li><a href="goods">商品管理</a></li>
-               <li><a href="labels">商品标签管理</a></li>
-               <li><a href="orders">订单管理</a></li>
-               <li><a href="suppliers">供应商管理</a></li>
+           {
+             for(var x in menu){
+               <li><a href={x.href} className={statesHover(x)} onClick={handleClick(x)}>{x.name}</a></li>
+             }
+           }
            </ul>
        </div>
      )
