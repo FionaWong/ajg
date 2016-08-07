@@ -30,8 +30,12 @@ function getGoodsFail(errorCode,errorMsg){
     errorMsg : errorMsg
   }
 }
-function getGoodsReset(param){
-
+export function resetGoods(param){
+  return function(dispatch,getState){
+    return ()=> dispatch.bind(this,{
+      type:types.RESET_GOODS
+    })
+  }
 }
 export function getGoods(param){
   return function(dispatch,getState){
