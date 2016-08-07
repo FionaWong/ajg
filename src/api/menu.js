@@ -1,5 +1,5 @@
 
-export const  menu = [
+export const  menus = [
     {
       id:'ADVERTS_MENU',
       href:'adverts',

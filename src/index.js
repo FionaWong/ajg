@@ -14,8 +14,8 @@ const history = createHistory({
 
 
 syncReduxAndRouter(history, store)
- 
+
 render(
-  <Root store={store} history={history} />,
+  <Root store={store} history={history} key="root"/>,
   document.getElementById('app')
 )

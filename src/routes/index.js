@@ -18,8 +18,8 @@ const loadContainerAsync = bundle => (location, cb) => {
 
 export default (
   <Route        component={CoreLayout} path='/'>
-    <IndexRoute getComponent={loadContainerAsync(Goods)} title='商品管理'/>
-    
+    <IndexRoute getComponent={loadContainerAsync(Goods)}  title='商品管理'/>
+    <Route getComponent={loadContainerAsync(Goods)} path='/goods' title='商品管理'/>
 
   </Route>
 );

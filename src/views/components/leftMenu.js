@@ -1,7 +1,9 @@
 import React from 'react'
-//import menu from '../../api/menu'
+//import menus from '../../api/menu'
 
-const  menu = [
+
+
+ const  menus = [
     {
       id:'ADVERTS_MENU',
       href:'adverts',
@@ -29,29 +31,28 @@ const  menu = [
       name:'供应商管理'
     }
 ];
+
+
 class LeftMenu extends React.Component{
   constructor(props, context) {
     super(props, context)
-    this.state = { filter: 'GOODS_MENU'}
-  }
-  statesHover(x){
-    if(this.state.filter == x){
-      return 'active';
-    }else{
-      return '';
-    }
-  }
-  handleClick(x){
-    this.setState( { filter: x});
+
   }
 
+  state = {filter:'GOODS_MENU'}
+
    render(){
+     var me = this;
      return (
+
        <div className="sidebar">
            <ul>
+           {me.state.filter}
            {
-             menu.map((x,i)=>{
-               <li key={x.id}><a href={x.href} className={this.statesHover(x.id)} onClick={this.handleClick(x.id)}>{x.name}</a></li>
+             menus.map((e,i)=>{
+               let id = e.id;
+               return <li key={e.id}><a href={'#'+e.href} className ={me.state.filter === e.id ? 'active':''}
+                onClick={()=>me.setState({filter:id})}>{e.name}</a></li>
              })
            }
            </ul>

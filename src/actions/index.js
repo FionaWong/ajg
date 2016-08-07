@@ -30,7 +30,7 @@ function getGoodsFail(errorCode,errorMsg){
     errorMsg : errorMsg
   }
 }
-export function getGoodsReset(param){
+function getGoodsReset(param){
 
 }
 export function getGoods(param){

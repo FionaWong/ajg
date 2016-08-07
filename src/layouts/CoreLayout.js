@@ -3,6 +3,12 @@ import { connect } from 'react-redux'
 import Header from '../views/components/header'
 import LeftMenu from '../views/components/leftMenu'
 
+@connect( state => ({
+  menu: state.menu
+}), {
+  
+})
+
 export default class CoreLayout extends React.Component {
   static propTypes = {
    children : React.PropTypes.element
