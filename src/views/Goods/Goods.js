@@ -135,7 +135,7 @@ class Goods extends React.Component {
                         <InputFormField
                          labelMatchInputHeight
                          jsxname="name"
-                         autoTrim={false}
+                         autoTrim={true}
                          jsxlabel="商品名称"
                          validateOnBlur={false}>
                         </InputFormField>
