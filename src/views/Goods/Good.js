@@ -1,5 +1,8 @@
 import React, { PropTypes } from 'react'
-import Uxcore,{Form,Button,Table} from 'uxcore'
+import Form from 'uxcore-form'
+import Tabs from 'uxcore-tabs'
+import Button from 'uxcore-button'
+
 import {
   connect
 } from 'react-redux'
@@ -14,23 +17,7 @@ import 'uxcore/assets/iconfont.css';
 import 'uxcore/assets/blue.css';
 
 const {
-    Constants,
-    FormRowTitle,
-    FormRow,
-    FormField,
-    InputFormField,
-    Validators,
-    RadioGroupFormField,
-    SelectFormField,
-    TextAreaFormField,
-    NumberInputFormField,
-    DateFormField,
-    CheckboxGroupFormField,
-    CascadeSelectFormField,
-    OtherFormField,
-    ButtonGroupFormField,
-    EditorFormField,
-    SwitchFormField,
+
 } =  Form
 
 class Good extends React.Component {

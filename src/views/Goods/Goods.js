@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import Uxcore,{Form,Button,Table} from 'uxcore'
+import {Form,Button,Table} from 'uxcore'
 import {
   connect
 } from 'react-redux'
@@ -114,8 +114,7 @@ class Goods extends React.Component {
           <div className="tab-content">
             <div className="tab-pane fade active in" id="home">
               <div className="upload-link" style= { { width: '100%' } }>
-                <Form ref="form" instantValidate={true} jsxmode={Constants.MODE.EDIT} jsxvalues={me.state.jsxvalues}>
-                  <FormRow>
+
                         <SelectFormField
                          jsxlabel="上架状态"
                          jsxname="onSale"
@@ -130,8 +129,7 @@ class Goods extends React.Component {
                                jsxlabel="商品ID"
                                validateOnBlur={false}>
                         </InputFormField>
-                    </FormRow>
-                    <FormRow>
+
                         <InputFormField
                          labelMatchInputHeight
                          jsxname="name"
@@ -141,8 +139,7 @@ class Goods extends React.Component {
                         </InputFormField>
                         <DateFormField format="yyyy-MM-dd" jsxname="onsaleDate" jsxlabel="上架时间" jsxtype="single" locale="zh-cn" />
 
-                    </FormRow>
-                    <FormRow>
+
                         <SelectFormField
                          jsxlabel="标签"
                          jsxname="labels"
@@ -157,8 +154,7 @@ class Goods extends React.Component {
 
 
                        </ButtonGroupFormField>
-                    </FormRow>
-                </Form>
+
               </div>
               <div>
                 <Table {...renderProps}  ref="grid"/>

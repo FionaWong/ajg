@@ -2,7 +2,8 @@ import {
   GET_GOODS_BEGIN,
   GET_GOODS_FAIL,
   GET_GOODS_SUCCESS,
-  RESET_GOODS
+  RESET_GOODS,
+  
 }
 from '../actions'
 

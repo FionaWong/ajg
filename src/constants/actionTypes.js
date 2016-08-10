@@ -13,7 +13,7 @@ export const GET_GOODS_SUCCESS = 'GET_GOODS_SUCCESS';
 export const GET_GOODS_FAIL = 'GET_GOODS_FAIL';
 export const RESET_GOODS = 'RESET_GOODS';
 //GOOD
-
+export const GET_GOOD_BEGIN = 'GET_GOOD'
 //ADVERTS
 
 //Orders
