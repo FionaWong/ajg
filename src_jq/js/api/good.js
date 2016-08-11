@@ -32,9 +32,7 @@ good.queryAllParentProp= function(cb){
     function(res){
       if(res.code && res.code=='E000'){
         var list = res.data.list;
-        for(var x in list){
-          good.queryChildPropByParentId(list[x]['propertyParentId'],cb);
-        }
+        cb.call(this,list);
       } else{
         alert("系统繁忙");
       }
@@ -47,7 +45,7 @@ good.queryChildPropByParentId = function(parentId,cb){
     function(res){
     if(res.code && res.code=='E000'){
       cb.call(this,res);
-      
+
     } else{
       alert("系统繁忙");
     }
