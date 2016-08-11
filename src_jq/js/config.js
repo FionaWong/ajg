@@ -2,26 +2,21 @@ var p_domain = "";
 var dev_domain ="";
 var evn = "local";
 var config ={};
-if(evn == 'local'){
-  config={
-    getGoodsList:'./datas/goodsList.json'
-  }
-}
-
 
 var domain = evn=='dev'?dev_domain:p_domain;
+domain = "http://10.28.122.11:8080";
 var config ={
   //商品
-  getGoodsList:domain+'gbp-anybuy/manager/goods/getGoodsList',
-  addGood:domain+'/gbp-anybuy/manager/goods/goodsmanage/addGood',
-  update:domain+'/gbp-anybuy/manager/goods/update',
-  getGoodDetail:domain+'/gbp-anybuy/manager/goods/getGoodDetail',
-  shelf:domain+'/gbp-anybuy/manager/goods/shelf',
-  queryAllParentProp:domain+'/gbp-anybuy/manager/goods/property/queryAllParentProp',
-  queryChildPropByParentId:domain+'/gbp-anybuy/manager/goods/property/queryChildPropByParentId',
-  queryAllMainTags:domain+'/gbp-anybuy/manager/goods/tag/main/queryAllMainTags',
-  im_uploadpicture:domain+'/gbp-anybuy/consolemanage/im_uploadpicture',
-  queryAllBrandInfo:domain+'/gbp-anybuy/manager/goods/brand/queryAllBrandInfo',
+  getGoodsList:domain+'/gbd-anybuy/manager/goods/getGoodsList',
+  addGood:domain+'/gbd-anybuy/manager/goods/goodsmanage/addGood',
+  update:domain+'/gbd-anybuy/manager/goods/update',
+  getGoodDetail:domain+'/gbd-anybuy/manager/goods/getGoodDetail',
+  shelf:domain+'/gbd-anybuy/manager/goods/shelf',
+  queryAllParentProp:domain+'/gbd-anybuy/manager/goods/property/queryAllParentProp',
+  queryChildPropByParentId:domain+'/gbd-anybuy/manager/goods/property/queryChildPropByParentId',
+  queryAllMainTags:domain+'/gbd-anybuy/manager/goods/tag/main/queryAllMainTags',
+  im_uploadpicture:domain+'/gbd-anybuy/consolemanage/im_uploadpicture',
+  queryAllBrandInfo:domain+'/gbd-anybuy/manager/goods/brand/queryAllBrandInfo',
 
   //商品标签
 

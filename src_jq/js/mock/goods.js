@@ -1,4 +1,5 @@
-var getGoodsList ={
+var mock ={};
+mock.getGoodsList ={
 	"code" : "E000",
 	"message" : "Success[null]",
 	"data" : {
@@ -820,7 +821,7 @@ var getGoodsList ={
 	}
 };
 
-var goodObj = {
+mock.goodObj = {
     "limitNumber" : 0,
     "tagName" : null,
     "tagId" : null,
@@ -859,7 +860,7 @@ var goodObj = {
     "notOnline" : true
   };
 
-var addGood ={
+mock.addGood ={
   message:'',
   data:{goodId:'0000001'},
   code:'200'
@@ -871,7 +872,7 @@ var modifyGood ={
 };
 var getGoodDetail = {
   message:'',
-  data:goodObj,
+  data:mock.goodObj,
   code:'200'
 };
 //上下架
@@ -880,20 +881,20 @@ var shelf ={
   data:{code:'500'},
   code:'200'
 };
-var queryAllParentProp ={
+mock.queryAllParentProp ={
   data:
   {
     count:2,
     list:[{
       propertyId:'0-1',
-      propertyCode:'0-1'
+      propertyCode:'0-1',
       propertyName:'pandora',
       propertyMark:'',
       propertyParentId:'0'
     },
     {
       propertyId:'0-2',
-      propertyCode:'0-2'
+      propertyCode:'0-2',
       propertyName:'pandora_2',
       propertyMark:'',
       propertyParentId:'0'
@@ -903,30 +904,31 @@ var queryAllParentProp ={
   code:''
 };
 
-var queryChildPropByParentId =[
+mock.queryChildPropByParentId ={
   data:
   {
     count:2,
     list:[{
       propertyId:'0-1',
-      propertyCode:'0-1'
+      propertyCode:'0-1',
       propertyName:'pandora',
       propertyMark:'',
       propertyParentId:'0'
     },
     {
       propertyId:'0-2',
-      propertyCode:'0-2'
+      propertyCode:'0-2',
       propertyName:'pandora_2',
       propertyMark:'',
       propertyParentId:'0'
-    }]
+    }
+    ]
   },
   message:'',
   code:''
-];
+};
 
-var queryAllMainTags ={
+mock.queryAllMainTags ={
   data:
   {
     count:2,
@@ -936,7 +938,7 @@ var queryAllMainTags ={
       mark:'ddd'
     },
     {
-      id:'1123'
+      id:'1123',
       name:'颜色',
       mark:'dd'
     }]
@@ -945,13 +947,13 @@ var queryAllMainTags ={
   code:''
 };
 
-var im_uploadpicture ={
+mock.im_uploadpicture ={
   message:'',
   data:{},
   code:''
 };
 
-var queryAllBrandInfo = {
+mock.queryAllBrandInfo = {
   data:{count:100},	//数据统计
 	list:{
     	id:'',
@@ -960,6 +962,6 @@ var queryAllBrandInfo = {
 			sort:'',
 			brandCode:''
     },
-    message:''
+    message:'',
     code:''
 };

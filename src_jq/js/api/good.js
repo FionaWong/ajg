@@ -25,3 +25,31 @@ good.getGoodDetail= function(url,data){
 good.shelf = function(){
 
 };
+
+good.queryAllParentProp= function(cb){
+  api.resultFun(
+    api.ajaxFun(config.queryAllParentProp,{}),
+    function(res){
+      if(res.code && res.code=='E000'){
+        var list = res.data.list;
+        for(var x in list){
+          good.queryChildPropByParentId(list[x]['propertyParentId'],cb);
+        }
+      } else{
+        alert("系统繁忙");
+      }
+    }
+  );
+};
+
+good.queryChildPropByParentId = function(parentId,cb){
+  api.ajaxFun(config.queryChildPropByParentId,parentId),
+    function(res){
+    if(res.code && res.code=='E000'){
+      cb.call(this,res);
+      
+    } else{
+      alert("系统繁忙");
+    }
+  }
+};

@@ -90,6 +90,8 @@ api.ajaxFun = function(url,data){
   return $.ajax({
     url:url,
     type:'post',
+    dataType:'jsonp',
+    jsonp:'callback',
     data: data ||{}
   });
 };
@@ -97,7 +99,7 @@ api.resultFun = function(promise,successCb,errorCb){
   errorCb = errorCb || function(){
     alert("系统繁忙，请稍后再试!");
   };
-  return promise.then(successCb.bind(this,res),errorCb);
+  return promise.then(function(res){successCb.bind(this,res)},errorCb);
 };
 api.resultCode = function(){
   var code ={
