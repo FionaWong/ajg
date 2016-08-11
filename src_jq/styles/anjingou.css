@@ -15,7 +15,7 @@
 /** 广告位管理  **/
 .tab-content {
     overflow: hidden;
-    padding-top: 20px;
+   
 }
 .imgbox {
     width: 100%;
@@ -91,7 +91,7 @@
     padding: 20px;
     border:#ccc 1px solid;
     width: 400px;
-    height: 460px;
+    
     margin-left: -200px;
     margin-top: -230px;
 }
@@ -218,7 +218,43 @@ textarea.form-control {
 .upload-link .input-w140 label{
     width: 140px;
 }
+/* pagination*/
+.dataTables_paginate a {
+    display:inline-block;
+    padding:6px 12px;
+    margin:1px;
+    color: #777;
+    background-color: #fff;
+    border-color: #ddd;
+    cursor:pointer;
+    text-decoration: none;
+    border: 1px solid #ddd;
 
+}
+.dataTables_paginate a:hover{
+    background-color:#eee;
+}
+.dataTables_paginate a.current{
+    background-color:#337ab7;
+    color:#fff;
+}
+.dataTables_paginate a.disabled{
+    display:inline-block;
+    color: #777;
+    background-color: #fff;
+    border-color: #ddd;
+    cursor:not-allowed;
+}
+.dataTables_paginate a.previous,
+.dataTables_paginate a.next {
+    width: 70px;
+}
+.dataTables_paginate a.first ,
+.dataTables_paginate a.last {
+    width:0px; 
+    border:0;
+    padding:0;
+}
 
 
 

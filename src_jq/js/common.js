@@ -12,25 +12,25 @@ common.modulesList =[
   {
     id:'1',
     name:'商品管理',
-    url:'advert.html',
+    url:'good.html',
     isActive:'false'
   },
   {
     id:'2',
     name:'商品标签管理',
-    url:'advert.html',
+    url:'label.html',
     isActive:'false'
   },
   {
     id:'3',
     name:'订单管理',
-    url:'advert.html',
+    url:'order.html',
     isActive:'false'
   },
   {
     id:'4',
     name:'供应商管理',
-    url:'advert.html',
+    url:'supplier.html',
     isActive:'false'
   }
 ];
