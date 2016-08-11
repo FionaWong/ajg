@@ -1,6 +1,14 @@
 var p_domain = "";
 var dev_domain ="";
-var evn = "dev";
+var evn = "local";
+var config ={};
+if(evn == 'local'){
+  config={
+    getGoodsList:'./datas/goodsList.json'
+  }
+}
+
+
 var domain = evn=='dev'?dev_domain:p_domain;
 var config ={
   //商品
@@ -18,6 +26,6 @@ var config ={
   //商品标签
 
   //供应商
-  
+
   //订单
 };

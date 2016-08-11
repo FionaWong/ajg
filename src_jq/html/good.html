@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>安金购后管</title>
+    <link rel="stylesheet" href="../styles/jquery-ui-1.10.4.custom.min.css">
     <link rel="stylesheet" href="../styles/bootstrap.min.css"/>
     <link rel="stylesheet" href="../styles/dashboard.css"/>
     <link rel="stylesheet" href="../styles/anjingou.css"/>
@@ -77,10 +78,10 @@
                                           <button type="button" id="newGood" class="btn btn-default" onclick="window.location.href='newproduct.html'">新建商品</button>
                                       </span>
                                     </div>
-                                    <table class="table mt20 fl table-striped table-bordered table-hover dataTable no-footer" id="dataTables-example" aria-describedby="dataTables-example_info">
+                                    <table class="table mt20 fl table-striped table-bordered table-hover dataTable no-footer" id="dataTables" aria-describedby="dataTables">
                                        <thead>
                                        <tr role="row">
-                                           <th class="sorting_asc">全选</th>
+                                           
                                            <th class="sorting">商品ID</th>
                                            <th class="sorting">商品标题</th>
                                            <th class="sorting">市场价格</th>
@@ -130,6 +131,7 @@
 </div>
 <!--Wrap End-->
 <script src="../js/libs/DataTables/dataTables.min.js"></script>
+<script src="../js/libs/jquery-ui.js"></script>
 <script src="../js/libs/bootstrap.min.js"></script>
 <script src='../js/config.js'></script>
 <script src='../js/common.js'></script>
