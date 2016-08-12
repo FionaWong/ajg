@@ -10,17 +10,49 @@ good.getGoodsList = function(){
 
 };
 //添加商品
-good.addGood= function(url,data){
-
+good.addGood= function(data,cb){
+  api.resultFun(
+    api.ajaxFun(config.addGood,data),
+    function(res){
+      if(res.code && res.code=='E000'){
+        var list = res.data.list;
+        cb(list);
+      } else{
+        alert("系统繁忙");
+      }
+    }
+  );
 };
 //修改商品
-good.update= function(url,data){
-
+good.update= function(data,cb){
+  api.resultFun(
+    api.ajaxFun(config.update,data),
+    function(res){
+      if(res.code && res.code=='E000'){
+        var list = res.data;
+        cb(list);
+      } else{
+        alert("系统繁忙");
+      }
+    }
+  );
 };
+
 //商品详情
-good.getGoodDetail= function(url,data){
-
+good.getGoodDetail= function(data,cb){
+  api.resultFun(
+    api.ajaxFun(config.getGoodDetail,data),
+    function(res){
+      if(res.code && res.code=='E000'){
+        var list = res.data.goodNewInfo;
+        cb(list);
+      } else{
+        alert("系统繁忙");
+      }
+    }
+  );
 };
+
 //商品上下架
 good.shelf = function(successCb,errorCb){
   api.resultFun(
@@ -30,14 +62,14 @@ good.shelf = function(successCb,errorCb){
     function(res){
       api.resultCode(res)(
         res,
-        //code :E000 正常回调 
+        //code :E000 正常回调
         successCb,
-        //code :非E000 回调 
+        //code :非E000 回调
         errorCb || function(){
           alert("系统繁忙");
         }
       );
-    
+
     },
     //request error
     function(error){
@@ -68,7 +100,7 @@ good.queryChildPropByParentId = function(parentId,cb){
     function(res){
     if(res.code && res.code=='E000'){
       cb.call(this,res);
-      
+
     } else{
       alert("系统繁忙");
     }
@@ -84,14 +116,14 @@ good.queryAllMainTags = function(cb,errorCb){
     function(res){
       api.resultCode(res)(
         res,
-        //code :E000 正常回调 
+        //code :E000 正常回调
         cb,
-        //code :非E000 回调 
+        //code :非E000 回调
         errorCb || function(){
           alert("系统繁忙");
         }
       );
-    
+
     },
     //request error
     function(error){
@@ -100,3 +132,34 @@ good.queryAllMainTags = function(cb,errorCb){
   )
 
 };
+
+
+//拿到所有供应商
+good.listSupplier = function(data,cb){
+  api.resultFun(
+    api.ajaxFun(config.listSupplier,data),
+    function(res){
+      if(res.code && res.code=='E000'){
+        var list = res.data;
+        cb(list);
+      } else{
+        alert("系统繁忙");
+      }
+    }
+  );
+}
+
+//拿到商品品牌
+good.queryAllBrandInfo =function(cb){
+  api.resultFun(
+    api.ajaxFun(config.queryAllBrandInfo,{}),
+    function(res){
+      if(res.code && res.code=='E000'){
+        var list = res.data.list;
+        cb(list);
+      } else{
+        alert("系统繁忙");
+      }
+    }
+  );
+}
