@@ -25,8 +25,6 @@ if(env == 'prd'){
 
 
 var config ={
-  //登陆
-  login : domain_good+"/gbd-anybuy/consolemanage/login",
   //商品
     //列表
   getGoodsList:domain_good+'/gbd-anybuy/manager/goods/getGoodsList',

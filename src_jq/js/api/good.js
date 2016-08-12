@@ -1,7 +1,7 @@
 //商品管理模块
 var good={};
 //所有商品列表
-good.getGoodsList = function(url,data){
+good.getGoodsList = function(){
     resultFun(ajaxFun(url,data),function(res){
       resultCode()(res,function(){//callback
 

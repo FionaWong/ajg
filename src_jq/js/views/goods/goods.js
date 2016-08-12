@@ -6,9 +6,9 @@
     common.appendTo($('.sidebar'));
 
    
-    getTable(config.getGoodsList);
+    pageOperate.getTable(config.getGoodsList);
     $("#search").bind("click",function(e){
-      getTable(config.getGoodsList);
+      pageOperate.getTable(config.getGoodsList);
     })
     //get all main tags
     good.queryAllMainTags(function(list){
@@ -102,12 +102,13 @@ function goodLine(goodId,goodName,marketPriceDisplay,lowestPriceDisplay,status,t
     return status!='0' ? "已上架":"未上架"; 
   };
   this.tagName = function(){
-    if(!tagName){return "";}
-    var _tag = "";
-    for(var x in tagName){
-      _tag += tagName[x]+","; 
-    }
-    return _tag.substring(0,_tag.length);
+    // if(!tagName){return "";}
+    // var _tag = "";
+    // for(var x in tagName){
+    //   _tag += tagName[x]+","; 
+    // }
+    // return _tag.substring(0,_tag.length);
+    return tagName||"";
   };
   this.operator = function(){
     var str ="",next_status;
@@ -128,84 +129,141 @@ function makeDatas(list){
   }
   return datas;
 }
-var getTable = function (url) {
-  var list =[],
-      count =0,
-      pageSize = 100000,
-      pageNum = 0,
-      pageStart = 0,
-      pageEnd = 0;
-    
-  $.ajax({
-    url:url,
-    type:'get',
-    dataType:'jsonp',
-    jsonp:'callback',
-    data: getQueryParam() ||{},
-    success:function(res){
-      //res = mock.getGoodsList;
-       if(res.code && res.code=='E000'){
-        list = res.data.list;
-        count = res.data.count;
-        var table=$('#dataTables').dataTable();
-        if(table){
-          table.fnDestroy();
-        }
-        $('#dataTables').dataTable({
-          "data": makeDatas(list),
-          "columns":[
-            {"data":"goodId"},
-            {"data":"goodName"},
-            {"data":"marketPriceDisplay"},
-            {"data":"lowestPriceDisplay"},
-            {"data":"status()"},
-            {"data":"tagName()"},
-            {"data":"operator()"}
-          ],
-          "aoColumnDefs":[
-            {"sWidth":"200px","aTargets":[]},
-            {"sWidth":"200px","aTargets":[]},
-            {"sWidth":"100px","aTargets":[]},
-            {"sWidth":"100px","aTargets":[]},
-            {"sWidth":"100px","aTargets":[]},
-            {"sWidth":"200px","aTargets":[]},
-            {"sWidth":"200px","aTargets":[]}
-          ],
-          "bSort":false,
-          'bFilter':false,
-          "processing": true,
-          "serverSide": false,
-          'autoWidth': false,
-          'pagingType': 'full_numbers',
-          "language": {
-            'lengthMenu': '',
-            'zeroRecords': '没有数据 - 抱歉',
-            'info': '',
-            'infoEmpty': '',
-            'infoFiltered': '',
-            'paginate': { "first":  " ", "last": "", "next": "下一页","previous": "上一页"}
-           },
-           "retrieve":true,
-           "paging":   true,
-           "ordering": true,
-           "info":     true
-           
-         });
-       } else{
-          var table=$('#dataTables').dataTable();
-          if(table){
-            table.fnDestroy();
-          }
-         alert("系统繁忙");
-       }
-     }
-    
-  });
-     
- }
+
 
 
 window.pageOperate={
+  getTable:function (url) {
+    var list =[],
+        count =0,
+        pageSize = 100000,
+        pageNum = 0,
+        pageStart = 0,
+        pageEnd = 0;
+      
+    $.ajax({
+      url:url,
+      type:'get',
+      dataType:'jsonp',
+      jsonp:'callback',
+      data: getQueryParam() ||{},
+      success:function(res){
+        //res = mock.getGoodsList;
+        api.resultCode()(
+          res,function(){
+            list = res.data.list;
+            count = res.data.count;
+            var table=$('#dataTables').dataTable();
+            if(table){
+              table.fnDestroy();
+            }
+            $('#dataTables').dataTable({
+              "data": makeDatas(list),
+              "columns":[
+                {"data":"goodId"},
+                {"data":"goodName"},
+                {"data":"marketPriceDisplay"},
+                {"data":"lowestPriceDisplay"},
+                {"data":"status()"},
+                {"data":"tagName()"},
+                {"data":"operator()"}
+              ],
+              "aoColumnDefs":[
+                {"sWidth":"200px","aTargets":[]},
+                {"sWidth":"200px","aTargets":[]},
+                {"sWidth":"100px","aTargets":[]},
+                {"sWidth":"100px","aTargets":[]},
+                {"sWidth":"100px","aTargets":[]},
+                {"sWidth":"200px","aTargets":[]},
+                {"sWidth":"200px","aTargets":[]}
+              ],
+              "bSort":false,
+              'bFilter':false,
+              "processing": true,
+              "serverSide": false,
+              'autoWidth': false,
+              'pagingType': 'full_numbers',
+              "language": {
+                'lengthMenu': '',
+                'zeroRecords': '没有数据 - 抱歉',
+                'info': '',
+                'infoEmpty': '',
+                'infoFiltered': '',
+                'paginate': { "first":  " ", "last": "", "next": "下一页","previous": "上一页"}
+               },
+               "retrieve":true,
+               "paging":   true,
+               "ordering": true,
+               "info":     true
+             });
+          },
+          function(){
+            var table=$('#dataTables').dataTable();
+                if(table){
+                  table.fnDestroy();
+                }
+               alert("系统繁忙");
+          }
+        )
+       //  if(res.code && res.code=='E000'){
+       //    list = res.data.list;
+       //    count = res.data.count;
+       //    var table=$('#dataTables').dataTable();
+       //    if(table){
+       //      table.fnDestroy();
+       //    }
+       //    $('#dataTables').dataTable({
+       //      "data": makeDatas(list),
+       //      "columns":[
+       //        {"data":"goodId"},
+       //        {"data":"goodName"},
+       //        {"data":"marketPriceDisplay"},
+       //        {"data":"lowestPriceDisplay"},
+       //        {"data":"status()"},
+       //        {"data":"tagName()"},
+       //        {"data":"operator()"}
+       //      ],
+       //      "aoColumnDefs":[
+       //        {"sWidth":"200px","aTargets":[]},
+       //        {"sWidth":"200px","aTargets":[]},
+       //        {"sWidth":"100px","aTargets":[]},
+       //        {"sWidth":"100px","aTargets":[]},
+       //        {"sWidth":"100px","aTargets":[]},
+       //        {"sWidth":"200px","aTargets":[]},
+       //        {"sWidth":"200px","aTargets":[]}
+       //      ],
+       //      "bSort":false,
+       //      'bFilter':false,
+       //      "processing": true,
+       //      "serverSide": false,
+       //      'autoWidth': false,
+       //      'pagingType': 'full_numbers',
+       //      "language": {
+       //        'lengthMenu': '',
+       //        'zeroRecords': '没有数据 - 抱歉',
+       //        'info': '',
+       //        'infoEmpty': '',
+       //        'infoFiltered': '',
+       //        'paginate': { "first":  " ", "last": "", "next": "下一页","previous": "上一页"}
+       //       },
+       //       "retrieve":true,
+       //       "paging":   true,
+       //       "ordering": true,
+       //       "info":     true
+             
+       //     });
+       //   } else{
+       //      var table=$('#dataTables').dataTable();
+       //      if(table){
+       //        table.fnDestroy();
+       //      }
+       //     alert("系统繁忙");
+       //   }
+       // }
+      }
+    });
+       
+   },
    showLayer:function(id,status){
       $(".layer-box").show();
       // if(status){
@@ -253,10 +311,11 @@ window.pageOperate={
       function(res){
         if(res.code && res.code=='E000'){
           //成功后修改行属性
-          pageOperate.modifyA_text();
+          //pageOperate.modifyA_text();
+          alert("操作成功");
           //关闭
           pageOperate.closeLayer();
-          alert("成功");
+          pageOperate.getTable(config.getGoodsList);
         }else{
          alert("系统繁忙");
        }

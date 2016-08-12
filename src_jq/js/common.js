@@ -77,6 +77,82 @@ common.appendTo = function(target){
   target.append(str);
 }
 
+/*login*/
+common.openlogin = function(target){
+  var loginHtml = function(){
+    return (
+      '<div class="layer-bg_login"></div>'+
+      '<div class="login content ng-scope">'+
+      '<form >'+
+        '<fieldset class="question">'+
+          '<legend>安金购后台管理登录</legend>'+
+          '<div class="row">'+
+            '<div class="col-md-2 labletitle"><label>用户名:</label></div>'+
+            '<div class="col-md-10">'+
+              '<input type="text" maxlength="50" class="form-control login_username">'+
+            '</div>'+
+          '</div>'+
+          '<div class="row">'+
+            '<div class="col-md-2 labletitle"><label>密码:</label></div>'+
+            '<div class="col-md-10">'+
+              '<input type="password" maxlength="100" class="form-control login_password">'+
+            '</div>'+
+          '</div>'+
+          '<p ng-bind="errmessage" class="ng-binding"></p>'+
+          '<div class="row">'+
+            '<div class="col-md-12 text-center" style="line-height: 50px">'+
+              '<button class="btn btn-sm" onClick="common.login()">登录</button>'+
+            '</div>'+
+          '</div>'+
+        '</fieldset>'+
+      '</form>'+
+  '</div>');
+  };
+
+  target.find(".login").length>0 ? target.show() : 
+  (function(){
+    target.append(loginHtml());
+    target.show();
+  } )();
+}
+common.closeLogin= function(target){
+  target.hide();
+}
+common.login = function(){
+
+  alert(0);
+
+  
+    $.ajax({
+        type: "get",
+        url: config.login,
+        dataType: "jsonp",
+        data:{
+          username:$('.login .login_username').val(),
+          password: $('.login .login_password').val()
+        } ,
+        success: function(res) {
+            if("E000" == res.code){
+              alert(1);
+              //common.closeLogin(this);
+              return ;
+            }
+            else if("E210" == res.code) {
+              alert("用户名密码有误");
+              return ;
+            }
+            else {
+              alert("系统繁忙，请稍后再试");
+              return ;
+            }
+            
+        },
+        error: function(err) {
+           alert("系统繁忙，请稍后再试");
+              return ;
+        }
+    })
+}
 //api 模块开始---------
 var api={};
 api.ajaxFun_noExe = function(url,data){
@@ -113,11 +189,18 @@ api.resultCode = function(){
     'E851': '	参数不能空',
     'E000': '	Success'
   };
-  return function(res,cb){
+  return function(res,cb,error_cb){
+    res.code="E254";
     if(res.code == 'E000'){
-      cb.bind(this,res);
+      cb.call(this,res);
+    }else if(res.code == 'E254' || res.code == 'E253' ){
+      //登陆
+      common.openlogin($(".layer-login"));
     }else{
+      error_cb.call(this,res);
       alert(code[res.code]);
     }
   };
 };
+
+
