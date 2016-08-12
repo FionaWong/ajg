@@ -18,17 +18,8 @@ good.update= function(url,data){
 
 };
 //商品详情
-good.getGoodDetail= function(cb){
-  api.resultFun(
-    api.ajaxFun(config.getGoodDetail,{}),
-    function(res){
-      if(res.code && res.code=='E000'){
-        cb.call(this,res);
-      } else{
-        alert("系统繁忙");
-      }
-    }
-  );
+good.getGoodDetail= function(url,data){
+
 };
 //商品上下架
 good.shelf = function(){
@@ -41,9 +32,10 @@ good.queryAllParentProp= function(cb){
     function(res){
       if(res.code && res.code=='E000'){
         var list = res.data.list;
-        for(var x in list){
-          good.queryChildPropByParentId(list[x]['propertyParentId'],cb);
-        }
+        cb(list);
+        // for(var x in list){
+        //   good.queryChildPropByParentId(list[x]['propertyParentId'],cb);
+        // }
       } else{
         alert("系统繁忙");
       }
@@ -56,9 +48,25 @@ good.queryChildPropByParentId = function(parentId,cb){
     function(res){
     if(res.code && res.code=='E000'){
       cb.call(this,res);
-
+      
     } else{
       alert("系统繁忙");
     }
   }
+};
+
+//拿到所有标签信息
+good.queryAllMainTags = function(cb){
+	api.resultFun(
+	    api.ajaxFun(config.queryAllMainTags,{}),
+	    function(res){
+	      if(res.code && res.code=='E000'){
+	        var list = res.data.list;
+	        cb(list);
+	        
+	      } else{
+	        alert("系统繁忙");
+	      }
+	    }
+  );
 };

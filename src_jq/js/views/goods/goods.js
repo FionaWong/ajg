@@ -5,18 +5,22 @@
     common.setActive(moduleId,true);
     common.appendTo($('.sidebar'));
 
-
+   
     getTable(config.getGoodsList);
     $("#search").bind("click",function(e){
       getTable(config.getGoodsList);
     })
-    
-    //get all props
-    good.queryAllParentProp(setOptions);
+    //get all main tags
+    good.queryAllMainTags(function(list){
+      for(var x in list){
+        $("#labels").append("<option value="+list[x].id+">"+list[x].name+"</option>");
+      }
+    });
 
     $( "#dateFrom" ).datepicker({
 
         showSecond: true,
+        //timeFormat:'hh:mm:ss',
 	     	showOtherMonths: true,
 	    	selectOtherMonths: true,
 	    	changeMonth: true,
@@ -31,6 +35,7 @@
 		      showOtherMonths: true,
 		    	selectOtherMonths: true,
           showSecond: true,
+          //timeFormat:'hh:mm:ss',
 		    	changeMonth: true,
 		      changeYear: true,
 		      showAnim:'fadeIn',
@@ -43,6 +48,7 @@
           showOtherMonths: true,
           selectOtherMonths: true,
           showSecond: true,
+          timeFormat:'hh:mm:ss',
           changeMonth: true,
           changeYear: true,
           showAnim:'fadeIn',
@@ -55,6 +61,7 @@
           showOtherMonths: true,
           selectOtherMonths: true,
           showSecond: true,
+          timeFormat:'hh:mm:ss',
           changeMonth: true,
           changeYear: true,
           showAnim:'fadeIn',
@@ -71,12 +78,16 @@
 });
 
 function getQueryParam(){
+  var dateFrom = $('#dateFrom').val();
+  dateFrom = dateFrom ? dateFrom+" 00:00:00" :"";
+  var dateTo = $('#dateTo').val();
+  dateTo = dateTo ? dateTo+" 00:00:00" :"";
   return {
     goodId:$('#id').val()||"",
     goodName:$('#name').val()||"",
     status:$('#status').val()||"",
-    onlineTimeBegin:$('#dateFrom').val()||"",
-    onlineTimeEnd:$('#dateTo').val()||"",
+    onlineTimeBegin: dateFrom,
+    onlineTimeEnd:dateTo,
     tagId:$('#labels').val()||"",
     pageSize:100000,
     pageNum:$('#pageNum').val()|| 1
@@ -88,21 +99,21 @@ function goodLine(goodId,goodName,marketPriceDisplay,lowestPriceDisplay,status,t
   this.marketPriceDisplay = marketPriceDisplay || "";
   this.lowestPriceDisplay = lowestPriceDisplay || "";
   this.status = function(){
-    return status!='0' ? "已上架":"未上架";
+    return status!='0' ? "已上架":"未上架"; 
   };
   this.tagName = function(){
     if(!tagName){return "";}
     var _tag = "";
     for(var x in tagName){
-      _tag += tagName[x]+",";
+      _tag += tagName[x]+","; 
     }
-    return _tag.subString(0,_tag.length);
+    return _tag.substring(0,_tag.length);
   };
   this.operator = function(){
     var str ="",next_status;
     if(status){next_status = 1;}else{next_status=0;}
     str += '<a id="'+ goodId+'" href="#" onClick=\'javascript:pageOperate.showLayer("'+goodId+'",'+next_status +');\'>';
-    str += status ? "上架" :"下架" ;
+    str += status=='0' ? "上架" :"下架" ;
     str += '</a>';
     str += '<a href="./newproduct.html?goodId='+goodId+'" > 编辑</a>';
     return str;
@@ -124,7 +135,7 @@ var getTable = function (url) {
       pageNum = 0,
       pageStart = 0,
       pageEnd = 0;
-
+    
   $.ajax({
     url:url,
     type:'get',
@@ -170,7 +181,7 @@ var getTable = function (url) {
             'lengthMenu': '',
             'zeroRecords': '没有数据 - 抱歉',
             'info': '',
-            'infoEmpty': '没有符合条件的记录',
+            'infoEmpty': '',
             'infoFiltered': '',
             'paginate': { "first":  " ", "last": "", "next": "下一页","previous": "上一页"}
            },
@@ -178,7 +189,7 @@ var getTable = function (url) {
            "paging":   true,
            "ordering": true,
            "info":     true
-
+           
          });
        } else{
           var table=$('#dataTables').dataTable();
@@ -188,19 +199,12 @@ var getTable = function (url) {
          alert("系统繁忙");
        }
      }
-
+    
   });
-
+     
  }
 
-function setOptions(list){
-  for(var x in list){
-    good.queryChildPropByParentId(list[x].propertyId,function(id,name){
-      $("#labels").append("<option value="+id+">"+Name+"</option>");
-    })
-  }
 
-}
 window.pageOperate={
    showLayer:function(id,status){
       $(".layer-box").show();
@@ -222,10 +226,10 @@ window.pageOperate={
       var elm = $("#"+$("#goodId").val());
       if(elm.html() == '上架'){
         elm.html("下架");
-        elm.parent('tr').find("td").get(4).html('已上架');
+        elm.parents('tr').find("td").get(4).innerHTML = '已上架';
       }else{
         elm.html("上架");
-        elm.parent('tr').find("td").get(4).html('已下架');
+        elm.parents('tr').find("td").get(4).innerHTML = '已下架';
       }
       //设置状态值
 
@@ -250,6 +254,8 @@ window.pageOperate={
         if(res.code && res.code=='E000'){
           //成功后修改行属性
           pageOperate.modifyA_text();
+          //关闭
+          pageOperate.closeLayer();
           alert("成功");
         }else{
          alert("系统繁忙");

@@ -99,7 +99,8 @@ api.resultFun = function(promise,successCb,errorCb){
   errorCb = errorCb || function(){
     alert("系统繁忙，请稍后再试!");
   };
-  return promise.then(function(res){successCb.bind(this,res)},errorCb);
+  return promise.then(function(res){
+    successCb.call(this,res)},errorCb);
 };
 api.resultCode = function(){
   var code ={
