@@ -66,7 +66,7 @@
                                         </select>
                                         <label>标签：</label>
                                         <select style="margin-right: 60px;" id="labels" name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
-                          
+                                            <option value="">全部</option>
                                         </select>
 
                                       </span>
@@ -92,32 +92,7 @@
                                        <tbody>
                                        </tbody>
                                     </table>
-                                      <ul class="pagination" style="margin:0;">
-                                        <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
-                                            <a href="#">上一页</a>
-                                        </li>
-                                        <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
-                                            <a href="#">1</a>
-                                        </li>
-                                        <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                            <a href="#">2</a>
-                                        </li>
-                                        <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                            <a href="#">3</a>
-                                        </li>
-                                        <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                            <a href="#">4</a>
-                                        </li>
-                                        <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                            <a href="#">5</a>
-                                        </li>
-                                        <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                            <a href="#">6</a>
-                                        </li>
-                                        <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0">
-                                            <a href="#">下一页</a>
-                                        </li>
-                                    </ul>
+                                    
                                 </div>
 
                             </div>
@@ -126,6 +101,26 @@
       </div>
     </div>
     <!--Right End-->
+    <div   class="layer-box" style="display: none; ">
+    <div class="layer-bg"></div>
+    <div class="layer-cont">  
+        <input type="hidden" value="" id="goodId">
+        <input type="hidden" value="" id="nextState">   
+        
+        <div class="onlineTime">
+            <label>上架时间：</label> <input id="onlineTime" class="form-control" type="text"/>
+        </div>
+        <div class="expiredTime">
+            <label>下架时间：</label> <input id="expiredTime" class="form-control" type="text"/>
+        </div>
+
+        <div class="upload-btn-box mt20">
+            <button type="button" id="shelf_o" class="btn btn-default" >完成</button>
+             <button type="button" id="shelf_undo" class="btn btn-default" > 取消</button>
+        </div>
+    </div>
+</div>
+   
   </div>
 </div>
 <!--Wrap End-->

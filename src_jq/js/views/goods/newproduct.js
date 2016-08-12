@@ -6,7 +6,15 @@
     common.appendTo($('.sidebar'));
 
 
+    //获取商品详情
+    good.getGoodDetail(getGoodDetailCb);
 
+
+
+    //获取商品详情cb
+    function getGoodDetailCb(list){
+      
+    }
 
   });
 

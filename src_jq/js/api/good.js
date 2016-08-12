@@ -18,8 +18,17 @@ good.update= function(url,data){
 
 };
 //商品详情
-good.getGoodDetail= function(url,data){
-
+good.getGoodDetail= function(cb){
+  api.resultFun(
+    api.ajaxFun(config.getGoodDetail,{}),
+    function(res){
+      if(res.code && res.code=='E000'){
+        cb.call(this,res);
+      } else{
+        alert("系统繁忙");
+      }
+    }
+  );
 };
 //商品上下架
 good.shelf = function(){
@@ -47,7 +56,7 @@ good.queryChildPropByParentId = function(parentId,cb){
     function(res){
     if(res.code && res.code=='E000'){
       cb.call(this,res);
-      
+
     } else{
       alert("系统繁忙");
     }
