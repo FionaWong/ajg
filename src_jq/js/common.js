@@ -120,9 +120,7 @@ common.closeLogin= function(target){
 }
 common.login = function(){
 
-  alert(0);
 
-  
     $.ajax({
         type: "get",
         url: config.login,
@@ -133,8 +131,8 @@ common.login = function(){
         } ,
         success: function(res) {
             if("E000" == res.code){
-              alert(1);
-              //common.closeLogin(this);
+             
+              common.closeLogin(this);
               return ;
             }
             else if("E210" == res.code) {
@@ -190,7 +188,7 @@ api.resultCode = function(){
     'E000': '	Success'
   };
   return function(res,cb,error_cb){
-    res.code="E254";
+    //res.code="E254";
     if(res.code == 'E000'){
       cb.call(this,res);
     }else if(res.code == 'E254' || res.code == 'E253' ){

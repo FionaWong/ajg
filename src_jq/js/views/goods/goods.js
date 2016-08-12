@@ -11,7 +11,8 @@
       pageOperate.getTable(config.getGoodsList);
     })
     //get all main tags
-    good.queryAllMainTags(function(list){
+    good.queryAllMainTags(function(res){
+      var list = res.data.list;
       for(var x in list){
         $("#labels").append("<option value="+list[x].id+">"+list[x].name+"</option>");
       }
@@ -205,61 +206,6 @@ window.pageOperate={
                alert("系统繁忙");
           }
         )
-       //  if(res.code && res.code=='E000'){
-       //    list = res.data.list;
-       //    count = res.data.count;
-       //    var table=$('#dataTables').dataTable();
-       //    if(table){
-       //      table.fnDestroy();
-       //    }
-       //    $('#dataTables').dataTable({
-       //      "data": makeDatas(list),
-       //      "columns":[
-       //        {"data":"goodId"},
-       //        {"data":"goodName"},
-       //        {"data":"marketPriceDisplay"},
-       //        {"data":"lowestPriceDisplay"},
-       //        {"data":"status()"},
-       //        {"data":"tagName()"},
-       //        {"data":"operator()"}
-       //      ],
-       //      "aoColumnDefs":[
-       //        {"sWidth":"200px","aTargets":[]},
-       //        {"sWidth":"200px","aTargets":[]},
-       //        {"sWidth":"100px","aTargets":[]},
-       //        {"sWidth":"100px","aTargets":[]},
-       //        {"sWidth":"100px","aTargets":[]},
-       //        {"sWidth":"200px","aTargets":[]},
-       //        {"sWidth":"200px","aTargets":[]}
-       //      ],
-       //      "bSort":false,
-       //      'bFilter':false,
-       //      "processing": true,
-       //      "serverSide": false,
-       //      'autoWidth': false,
-       //      'pagingType': 'full_numbers',
-       //      "language": {
-       //        'lengthMenu': '',
-       //        'zeroRecords': '没有数据 - 抱歉',
-       //        'info': '',
-       //        'infoEmpty': '',
-       //        'infoFiltered': '',
-       //        'paginate': { "first":  " ", "last": "", "next": "下一页","previous": "上一页"}
-       //       },
-       //       "retrieve":true,
-       //       "paging":   true,
-       //       "ordering": true,
-       //       "info":     true
-             
-       //     });
-       //   } else{
-       //      var table=$('#dataTables').dataTable();
-       //      if(table){
-       //        table.fnDestroy();
-       //      }
-       //     alert("系统繁忙");
-       //   }
-       // }
       }
     });
        
@@ -306,24 +252,15 @@ window.pageOperate={
     // }else{
     //    data = {goodId:id,"status":status,'expiredTime':$("#expiredTime").val()};
     // }
-    api.resultFun(
-      api.ajaxFun(config.shelf,data),
-      function(res){
-        if(res.code && res.code=='E000'){
-          //成功后修改行属性
-          //pageOperate.modifyA_text();
-          alert("操作成功");
-          //关闭
-          pageOperate.closeLayer();
-          pageOperate.getTable(config.getGoodsList);
-        }else{
-         alert("系统繁忙");
-       }
-      },
-      function(error){
-         alert("系统繁忙");
+    good.shelf(
+      function(){
+        alert("操作成功");
+        //关闭
+        pageOperate.closeLayer();
+        pageOperate.getTable(config.getGoodsList);
       }
-      )
+    );
+    
   }
 }
 })(window,$);

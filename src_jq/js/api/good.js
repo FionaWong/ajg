@@ -22,8 +22,28 @@ good.getGoodDetail= function(url,data){
 
 };
 //商品上下架
-good.shelf = function(){
-
+good.shelf = function(successCb,errorCb){
+  api.resultFun(
+    //发送请求
+    api.ajaxFun(config.shelf,data),
+    //200 成功响应
+    function(res){
+      api.resultCode(res)(
+        res,
+        //code :E000 正常回调 
+        successCb,
+        //code :非E000 回调 
+        errorCb || function(){
+          alert("系统繁忙");
+        }
+      );
+    
+    },
+    //request error
+    function(error){
+       alert("系统繁忙");
+    }
+  )
 };
 
 good.queryAllParentProp= function(cb){
@@ -37,7 +57,7 @@ good.queryAllParentProp= function(cb){
         //   good.queryChildPropByParentId(list[x]['propertyParentId'],cb);
         // }
       } else{
-        alert("系统繁忙");
+        alert(res.message ||"系统繁忙");
       }
     }
   );
@@ -56,17 +76,27 @@ good.queryChildPropByParentId = function(parentId,cb){
 };
 
 //拿到所有标签信息
-good.queryAllMainTags = function(cb){
-	api.resultFun(
-	    api.ajaxFun(config.queryAllMainTags,{}),
-	    function(res){
-	      if(res.code && res.code=='E000'){
-	        var list = res.data.list;
-	        cb(list);
-	        
-	      } else{
-	        alert("系统繁忙");
-	      }
-	    }
-  );
+good.queryAllMainTags = function(cb,errorCb){
+  api.resultFun(
+  //发送请求
+    api.ajaxFun(config.queryAllMainTags,{}),
+    //200 成功响应
+    function(res){
+      api.resultCode(res)(
+        res,
+        //code :E000 正常回调 
+        cb,
+        //code :非E000 回调 
+        errorCb || function(){
+          alert("系统繁忙");
+        }
+      );
+    
+    },
+    //request error
+    function(error){
+       alert("系统繁忙");
+    }
+  )
+
 };
