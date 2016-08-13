@@ -9,7 +9,7 @@ var config ={};
 if(env== 'local'){
    domain_good = "http://10.28.122.11:8080";
    domain_supplier ="http://10.28.122.11:8080";
-   domain_order ="http://jkqsh-l0771:8080";
+   domain_order ="http://10.28.122.11:8080";
 }
 if(env == 'dev'){
     domain_good = dev_domain;

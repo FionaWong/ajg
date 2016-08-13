@@ -113,11 +113,11 @@ function goodLine(goodId,goodName,marketPriceDisplay,lowestPriceDisplay,status,t
   };
   this.operator = function(){
     var str ="",next_status;
-    if(status){next_status = 1;}else{next_status=0;}
+    if(status == '0'){next_status = 1;}else{next_status=0;}
     str += '<a id="'+ goodId+'" href="#" onClick=\'javascript:pageOperate.showLayer("'+goodId+'",'+next_status +');\'>';
     str += status=='0' ? "上架" :"下架" ;
     str += '</a>';
-    str += '<a href="./newproduct.html?goodId='+goodId+'" > 编辑</a>';
+    str += '<a href="./newgood.html?goodId='+goodId+'" > 编辑</a>';
     return str;
   }
 }
@@ -252,7 +252,7 @@ window.pageOperate={
     // }else{
     //    data = {goodId:id,"status":status,'expiredTime':$("#expiredTime").val()};
     // }
-    good.shelf(
+    good.shelf(data,
       function(){
         alert("操作成功");
         //关闭
