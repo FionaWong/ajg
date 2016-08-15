@@ -353,7 +353,123 @@ fieldset.question {
 }
 
 
+/* 20160812 */
+.label-box-main {
+    overflow: hidden;
+    color: #666;
+    width: 98%; 
+}
+.label-box-main p {
+    display: inline-block;
+    width: 130px;
+}
+.label-box-main p label {
+    font-weight: bold; 
+}
+.label-box-main p input {
+    width: 20px;
+    margin-right: 0;
+}
+
+.label-box-cont {
+    overflow: hidden;
+    padding: 8px;
+    border-top: #eee 1px solid;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background: #f9f9f9;
+    color: #666;
+    width: 98%;
+    margin-top: 20px; 
+}
+.label-box-cont p {
+    position: relative;
+    padding: 0 35px 0 15px;
+    line-height: inherit;
+    width: initial;
+    float: left;
+    margin-bottom: 10px; 
+}
+.label-box-cont p input {
+    position: absolute;
+    right: 15px;
+    top: -1px; 
+}
+.goodtag{
+    display: inline-block;
+}
+.goodtag p{
+    display: inline-block;
+    margin-right: 10px;
+}
+.goodtag p label{
+    width: auto;
+}
+.goodtag p input{
+    width: 20px;
+    margin-right: 0;
+}
+
+.prime_attribute,.prime_attributes,.prime_zi_attribute,.prime_zi_attributes{
+    display: inline-block;
+}
+.prime_attribute p,.prime_zi_attribute p,.prime_attributes p,.prime_zi_attributes p{
+    display: inline-block;
+    margin-right: 10px;
+}
+.prime_attribute p input,.prime_zi_attribute p input,.prime_attributes p input,.prime_zi_attributes p input{
+    width: 20px;
+    margin-right: 0;
+}
+.prime_attribute label,.prime_attributes label{
+    width: auto;
+}
+.update_attribute{
+    width: 100px;
+    color: #007fbf;
+    display: none;
+}
+.up_attribute{
+    display: none;
+}
 
 
 
 
+
+
+.webuploader-container {
+    position: relative;
+}
+.webuploader-element-invisible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: #00b7ee;
+    padding: 10px 15px;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.webuploader-pick-hover {
+    background: #00a2d4;
+}
+
+.webuploader-pick-disable {
+    opacity: 0.6;
+    pointer-events:none;
+}
+
+#profile .uploader-list div{
+    display: inline-block;
+}
+#profile .uploader-list div img{
+    display: inline-block;
+}

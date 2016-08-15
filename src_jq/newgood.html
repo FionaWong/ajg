@@ -48,8 +48,6 @@
               </li>
               <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">图片信息</a>
               </li>
-              <li class=""><a href="#profile2" data-toggle="tab" aria-expanded="false">商品属性标签信息</a>
-              </li>
             </ul>
 
             <div class="tab-content">
@@ -72,17 +70,145 @@
                   </span>
                   <span>
                       <label>限购数量：</label> <input id="limitNumber" class="form-control" type="text"/>
-                      <label>商品主标签：</label>
-                      <select name="dataTables-example_length" id="labels" aria-controls="dataTables-example" class="form-control input-sm">
-                        <option value="">全部</option>
-                      </select>
-                  </span>
-                  <span>
                       <label>品牌：</label>
                       <select name="dataTables-example_length" id="brandId" aria-controls="dataTables-example" class="form-control input-sm">
                         <option value="">全部</option>
                       </select>
                   </span>
+
+                  <span>
+                      <label>商品主标签：</label>
+                      <!-- <select name="dataTables-example_length" id="labels" aria-controls="dataTables-example" class="form-control input-sm">
+                        <option value="">全部</option>
+                      </select> -->
+                      <div class="goodtag">
+                        <!-- <p>
+                            <label>主标签名</label><input type="checkbox" value="checkbox" >
+                        </p>
+                        <p>
+                            <label>主标签名</label><input type="checkbox" value="checkbox">
+                        </p>
+                        <p>
+                            <label>主标签名</label><input type="checkbox" value="checkbox" >
+                        </p>
+                        <p>
+                            <label>主标签名</label><input type="checkbox" value="checkbox">
+                        </p>
+                        <p>
+                            <label>主标签名</label><input type="checkbox" value="checkbox">
+                        </p> -->
+                    </div>
+                  </span>
+                    <div class="add_attribute">
+                        <span>
+                            <label>商品主属性：</label>
+                              <div class="prime_attribute">
+                                  <!-- <p>
+                                      <label>主标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>主标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>主标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>主标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>主标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p> -->
+                              </div>
+                              <span style="display: none;" class="update_attribute">添加修改属性</span>
+                          </span>
+                          <span>
+                            <label>子属性：</label>
+                            <div class="prime_zi_attribute">
+                                  <!-- <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p> -->
+                              </div>
+                          </span>
+                    </div>
+                    <div class="up_attribute">
+                        <span>
+                            <label>商品主属性：</label>
+                              <div class="prime_attributes">
+                                  <!-- <p>
+                                      <label>主标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>主标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>主标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>主标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>主标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p> -->
+                              </div>
+                              <span style="width: 100px;color: #007fbf;display: inline-block;" class="ad_attribute">返回</span>
+                          </span>
+                          <span>
+                            <label>子属性：</label>
+                            <div class="prime_zi_attributes">
+                                  <!-- <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p>
+                                  <p>
+                                      <label>子标签名</label><input type="checkbox" value="checkbox" class="checkbox">
+                                  </p> -->
+                              </div>
+                          </span>
+                    </div>
                   <span>
                       <label class="fl">商品简介：</label>
                       <textarea id="goodDescription" class="form-control" rows="3"></textarea>
@@ -94,7 +220,41 @@
                 </div>
               </div>
               <div class="tab-pane fade" id="profile">
-                <p>添加主图：</p>
+                  <div>
+                      <!--用来存放item-->
+                      <p>添加商品主图：</p>
+                      <div id="fileList_goodslist" class="uploader-list"></div>
+                      <div id="filePicker_goodslist">选择图片</div>
+                  </div>
+
+                  <div>
+                      <!--用来存放item-->
+                      <p>添加首页图：</p>
+                      <div id="fileList_goodsmain" class="uploader-list"></div>
+                      <div id="filePicker_goodsmain">选择图片</div>
+                  </div>
+
+                  <div>
+                      <!--用来存放item-->
+                      <p>添加详情说明图：</p>
+                      <div id="fileList_goodsdetail" class="uploader-list"></div>
+                      <div id="filePicker_goodsdetail">选择图片</div>
+                  </div>
+
+                  <div>
+                      <!--用来存放item-->
+                      <p>添加缩略图：</p>
+                      <div id="fileList_goodspreview" class="uploader-list"></div>
+                      <div id="filePicker_goodspreview">选择图片</div>
+                  </div>
+
+                  <div>
+                      <!--用来存放item-->
+                      <p>添加列表图：</p>
+                      <div id="fileList_listpage" class="uploader-list"></div>
+                      <div id="filePicker_listpage">选择图片</div>
+                  </div>
+                <!-- <p>添加主图：</p>
                 <div>
                   <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzIwMHgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTYyNjJkMTk2YyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NjI2MmQxOTZjIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwNC41Ij4yMDB4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 200px; height: 200px;">
                   <p align="center" class="addimg-exit-sty"><a href="javascript:void(0)">修改</a><a href="javascript:void(0)">删除</a></p>
@@ -153,18 +313,11 @@
                 <p>添加缩略图：</p>
                 <div>
                   <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzIwMHgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTYyNjJkMTk2YyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NjI2MmQxOTZjIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwNC41Ij4yMDB4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 200px; height: 200px;">
-                </div>
+                </div> -->
                 <div class="upload-btn-box mt20" style="padding:0;width:100%;text-align:right;">
                   <button type="button" class="btn btn-default">预览</button>
-                  <button type="button" class="btn btn-default">保存</button>
+                  <button type="button" id="imguplad" class="btn btn-default">保存</button>
                   <button type="button" class="btn btn-default">完成</button>
-                </div>
-              </div>
-              <div class="tab-pane fade" id="profile2">
-                <div class="label-box">
-                  <p><b>商品标签属性：</b><a href="labelattr.html">添加标签</a></p>
-                  <p><b>尺寸：</b><a href="javascript:;">编辑</a></p>
-                  <p><b>颜色：</b><a href="javascript:;">编辑</a></p>
                 </div>
               </div>
             </div>
@@ -172,6 +325,9 @@
         </div>
       </div>
     </div>
+  </div>
+  <div  class="layer-login" style="display: none; ">
+      
   </div>
   <!--right end-->
 </div>
@@ -181,10 +337,12 @@
 <script src="js/libs/DataTables/jquery.dataTables.min.js"></script>
 <script src="js/libs/jquery-ui.js"></script>
 <script src="js/libs/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/libs/upload/webuploader.js"></script>
 <script src='js/config.js'></script>
 <script src='js/common.js'></script>
 <script src='js/api/good.js'></script>
 <script src='js/views/goods/newgoods.js'></script>
+<script src='js/views/goods/upload.js'></script>
 <!--<script src='../js/mock/newproduct.js'></script>-->
 
 </body>
