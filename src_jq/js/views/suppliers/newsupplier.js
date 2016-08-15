@@ -53,7 +53,7 @@
 		);
 	},
 	view = function(merchantId){
-		supplier.update(
+		supplier.view(
 			{merchantId:merchantId},
 			function(res){
 				if(!res){alert("数据返回错误.");return false;}
