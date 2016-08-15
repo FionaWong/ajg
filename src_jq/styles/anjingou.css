@@ -480,3 +480,14 @@ fieldset.question {
 #profile .uploader-list div img{
     display: inline-block;
 }
+.ipt_file{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+}
+.file_box{
+    position: relative;
+}

@@ -238,7 +238,7 @@ good.queryAllBrandInfo =function(successCb,errorCb){
 good.im_uploadpicture =function(data,successCb,errorCb){
     api.resultFun(
         //发送请求
-        api.ajaxFun(config.im_uploadpicture,{}),
+        api.ajaxFun(config.im_uploadpicture,data),
         //200 成功响应
         function(res){
             api.resultCode(res)(

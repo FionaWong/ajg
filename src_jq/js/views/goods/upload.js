@@ -9,12 +9,17 @@ $(document).ready(function(){
         swf:  './js/libs/upload/Uploader.swf',
 
         // 文件接收服务端。
-        server: 'http://webuploader.duapp.com/server/fileupload.php',
+        server: 'http://10.28.122.11:8080/gbd-anybuy/consolemanage/im_uploadpicture',
 
         // 选择文件的按钮。可选。
         // 内部根据当前运行是创建，可能是input元素，也可能是flash.
         pick: '#filePicker_goodslist',
 
+        formData: {  
+            goodsId:'3A143E96C2B15544E0531480140A6AD6',
+            index:0,
+            type:'goodslist'
+        },
         // 只允许选择图片文件。
         accept: {
             title: 'Images',
@@ -25,6 +30,7 @@ $(document).ready(function(){
 
     // 当有文件添加进来的时候
     filePicker_goodslist.on( 'fileQueued', function( file ) {
+        console.log(file);
         var $li = $(
                 '<div id="' + file.id + '" data-name="'+file.name+'" class="file-item thumbnail">' +
                 '<img>' +
@@ -32,7 +38,7 @@ $(document).ready(function(){
                 '</div>'
             ),
             $img = $li.find('img');
-
+            filePicker_goodslist.options.formData.filename = file.name;  
         // $list为容器jQuery实例
         $('#fileList_goodslist').append( $li );
 
@@ -280,23 +286,109 @@ $(document).ready(function(){
         $ele.parent().remove();
     });
 
-    $('#imguplad').on('click',function () {
-        // var $thumbnail=$('.thumbnail');
-        // for (var x in $thumbnail){
-        //     imgs+=$thumbnail[x].attr('data-name');
-        // }
-        // console.log(imgs)
 
-        var arr=document.getElementsByClassName("thumbnail");
 
-        for(var i=0;i<arr.length;i++)
-        {
 
-            arr[i].attributes["data-name"].value;
-            good.im_uploadpicture({},function () {
+    // 文件上传过程中创建进度条实时显示。
+    filePicker_goodslist.on( 'uploadProgress', function( file, percentage ) {
+        var $li = $( '#'+file.id ),
+            $percent = $li.find('.progress span');
 
+        // 避免重复创建
+        if ( !$percent.length ) {
+            $percent = $('<p class="progress"><span></span></p>')
+                    .appendTo( $li )
+                    .find('span');
+        }
+
+        $percent.css( 'width', percentage * 100 + '%' );
+    });
+
+    // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+    filePicker_goodslist.on( 'uploadSuccess', function( file ) {
+        $( '#'+file.id ).addClass('upload-state-done');
+    });
+
+    // 文件上传失败，显示上传出错。
+    filePicker_goodslist.on( 'uploadError', function( file ) {
+        var $li = $( '#'+file.id ),
+            $error = $li.find('div.error');
+
+        // 避免重复创建
+        if ( !$error.length ) {
+            $error = $('<div class="error"></div>').appendTo( $li );
+        }
+
+        $error.text('上传失败');
+    });
+
+    // 完成上传完了，成功或者失败，先删除进度条。
+    filePicker_goodslist.on( 'uploadComplete', function( file ) {
+        $( '#'+file.id ).find('.progress').remove();
+    });
+});
+
+
+
+jQuery.fn.extend({
+        uploadPreview: function (opts) {
+            var _self = this,
+                _this = $(this);
+            opts = jQuery.extend({
+                Img: "ImgPr",
+                Width: 150,
+                Height: 80,
+                ImgType: ["gif", "jpeg", "jpg", "png"],
+                Callback: function () {}
+            }, opts || {});
+            _self.getObjectURL = function (file) {
+                var url = null;
+                if (window.createObjectURL != undefined) {
+                    url = window.createObjectURL(file);
+                } else if (window.URL != undefined) {
+                    url = window.URL.createObjectURL(file);
+                } else if (window.webkitURL != undefined) {
+                    url = window.webkitURL.createObjectURL(file);
+                }
+                return url;
+            };
+            _this.change(function () {
+                if (this.value) {
+                    if (!RegExp("\.(" + opts.ImgType.join("|") + ")$", "i").test(this.value.toLowerCase())) {
+                        alert("选择文件错误,图片类型必须是" + opts.ImgType.join("，") + "中的一种");
+                        this.value = "";
+                        return false;
+                    }
+                    console.log($);
+                    if ($.browser.msie) {
+                        try {
+                            $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]));
+                        } catch (e) {
+                            var src = "";
+                            var obj = $("#" + opts.Img);
+                            var div = obj.parent("div")[0];
+                            _self.select();
+                            if (top != self) {
+                                window.parent.document.body.focus();
+                            } else {
+                                _self.blur();
+                            }
+                            src = document.selection.createRange().text;
+                            document.selection.empty();
+                            obj.hide();
+                            obj.parent("div").css({
+                                'filter': 'progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)',
+                                'width': opts.Width + 'px',
+                                'height': opts.Height + 'px'
+                            });
+                            div.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = src;
+                        }
+                    } else {
+                        $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]));
+                    }
+                    opts.Callback();
+                }
             });
         }
     });
-});
 

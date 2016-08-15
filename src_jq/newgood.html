@@ -220,45 +220,63 @@
                 </div>
               </div>
               <div class="tab-pane fade" id="profile">
-                  <div>
-                      <!--用来存放item-->
+
+                  <!-- <div>
                       <p>添加商品主图：</p>
                       <div id="fileList_goodslist" class="uploader-list"></div>
                       <div id="filePicker_goodslist">选择图片</div>
                   </div>
 
                   <div>
-                      <!--用来存放item-->
                       <p>添加首页图：</p>
                       <div id="fileList_goodsmain" class="uploader-list"></div>
                       <div id="filePicker_goodsmain">选择图片</div>
                   </div>
 
                   <div>
-                      <!--用来存放item-->
                       <p>添加详情说明图：</p>
                       <div id="fileList_goodsdetail" class="uploader-list"></div>
-                      <div id="filePicker_goodsdetail">选择图片</div>
-                  </div>
+                    </div>
 
                   <div>
-                      <!--用来存放item-->
                       <p>添加缩略图：</p>
                       <div id="fileList_goodspreview" class="uploader-list"></div>
                       <div id="filePicker_goodspreview">选择图片</div>
                   </div>
 
                   <div>
-                      <!--用来存放item-->
                       <p>添加列表图：</p>
                       <div id="fileList_listpage" class="uploader-list"></div>
                       <div id="filePicker_listpage">选择图片</div>
+                  </div> -->
+                <!-- <form  method="post"  id="tupian" accept-charset="utf-8" enctype="multipart/form-data">
+                  <div>
+                    <img src="" id="icon">
                   </div>
-                <!-- <p>添加主图：</p>
-                <div>
-                  <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzIwMHgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTYyNjJkMTk2YyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NjI2MmQxOTZjIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwNC41Ij4yMDB4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 200px; height: 200px;">
-                  <p align="center" class="addimg-exit-sty"><a href="javascript:void(0)">修改</a><a href="javascript:void(0)">删除</a></p>
-                </div>
+                  <input type="file"  id="filePicker_goodslist" name="filePicker_goodslist" value="">
+                  <input type="hidden" name="goodsId" value="3A143E96C2B15544E0531480140A6AD6">
+                  <input type="hidden" name="index" value="0">
+                  <input type="hidden" name="type" value="goodslist">
+                  <input type="button" id="sc" name="" value="">
+                  <img src="" id='imgurl'>
+                </form> -->
+
+                <form  method="post"  id="tupian" accept-charset="utf-8" enctype="multipart/form-data">
+                 
+                  
+                <p>添加主图：</p>
+                <div class="file_box">
+                  <div>
+                    <img id="file_goodslist_img" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzIwMHgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTYyNjJkMTk2YyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NjI2MmQxOTZjIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwNC41Ij4yMDB4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                  </div>
+                    <p align="center" class="addimg-exit-sty"><a href="javascript:void(0)">修改</a><a href="javascript:void(0)">删除</a></p>
+                    <input type="file" name="filename" id="file_goodslist" />
+                  </div>
+                  <input type="hidden" name="goodsId" value="3A143E96C2B15544E0531480140A6AD6">
+                  <input type="hidden" name="index" value="0">
+                  <input type="hidden" name="type" value="goodslist">
+                </form>
+                <!--
                 <p class="mt20">添加说明图：</p>
                 <div class="row">
                   <div class="col-xs-6 col-md-3">
@@ -333,10 +351,73 @@
 </div>
 <!--Wrap End-->
 
-<script src="js/libs/jquery-1.10.2.js"></script>
+<!-- <script src="js/libs/jquery-1.10.2.js"></script> -->
+<script type="text/javascript" src="http://events.pingan.com/script/jquery1.7.2.js"></script>
+<script type="text/javascript">
+  jQuery.fn.extend({
+    uploadPreview: function (opts) {
+        var _self = this,
+            _this = $(this);
+        opts = jQuery.extend({
+            Img: "ImgPr",
+            Width: 100,
+            Height: 100,
+            ImgType: ["gif", "jpeg", "jpg", "bmp", "png"],
+            Callback: function () {}
+        }, opts || {});
+        _self.getObjectURL = function (file) {
+            var url = null;
+            if (window.createObjectURL != undefined) {
+                url = window.createObjectURL(file)
+            } else if (window.URL != undefined) {
+                url = window.URL.createObjectURL(file)
+            } else if (window.webkitURL != undefined) {
+                url = window.webkitURL.createObjectURL(file)
+            }
+            return url
+        };
+        _this.change(function () {
+            if (this.value) {
+                if (!RegExp("\.(" + opts.ImgType.join("|") + ")$", "i").test(this.value.toLowerCase())) {
+                    alert("选择文件错误,图片类型必须是" + opts.ImgType.join("，") + "中的一种");
+                    this.value = "";
+                    return false
+                }
+                if ($.browser.msie) {
+                    try {
+                        $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]))
+                    } catch (e) {
+                        var src = "";
+                        var obj = $("#" + opts.Img);
+                        var div = obj.parent("div")[0];
+                        _self.select();
+                        if (top != self) {
+                            window.parent.document.body.focus()
+                        } else {
+                            _self.blur()
+                        }
+                        src = document.selection.createRange().text;
+                        document.selection.empty();
+                        obj.hide();
+                        obj.parent("div").css({
+                            'filter': 'progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)',
+                            'width': opts.Width + 'px',
+                            'height': opts.Height + 'px'
+                        });
+                        div.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = src
+                    }
+                } else {
+                    $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]))
+                }
+                opts.Callback()
+            }
+        })
+    }
+});
+</script>
 <script src="js/libs/DataTables/jquery.dataTables.min.js"></script>
 <script src="js/libs/jquery-ui.js"></script>
-<script src="js/libs/bootstrap.min.js"></script>
+<!-- <script src="js/libs/bootstrap.min.js"></script> -->
 <script type="text/javascript" src="js/libs/upload/webuploader.js"></script>
 <script src='js/config.js'></script>
 <script src='js/common.js'></script>
@@ -344,6 +425,7 @@
 <script src='js/views/goods/newgoods.js'></script>
 <script src='js/views/goods/upload.js'></script>
 <!--<script src='../js/mock/newproduct.js'></script>-->
+
 
 </body>
 </html>
