@@ -8,8 +8,8 @@ var domain_order ="";
 var config ={};
 if(env== 'local'){
    domain_good = "http://10.28.122.11:8080";
-   domain_supplier ="http://10.28.122.11:8080";
-   domain_order ="http://10.28.122.11:8080";
+   domain_supplier ="http://10.28.122.11:8080";//"http://10.28.152.33:8080";
+   domain_order = "http://jkqsh-l0771:8080";//"http://10.28.122.11:8080";
 }
 if(env == 'dev'){
     domain_good = dev_domain;
@@ -65,7 +65,7 @@ var config ={
     //订单列表
   orderList:domain_order+"/gbd-anybuy/manager/order/list",
     //更新订单物流信息接口
-  orderModifyLogistics:domain_order+"/gbd-anybuy/manager/order/list",
+  orderModifyLogistics:domain_order+"/gbd-anybuy/manager/order/modifyLogistics",
     //分页查询订单接口
   orderDetail:domain_order+"/gbd-anybuy/manager/order/detail"
 };

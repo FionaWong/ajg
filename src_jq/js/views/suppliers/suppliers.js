@@ -47,9 +47,8 @@
 			this.merchantId = data.merchantId;
 			this.merchantCode = data.merchantCode;
 			this.merchantName = data.merchantName;
-			this.operate = function(){
-				return "<a href='newsupplier.html?id="+data.merchantId+">编辑</a>";
-			};
+			this.operate =  "<a href='newsupplier.html?id="+data.merchantId+"'>编辑</a>";
+			
 		};
 		return new supplier(data);
 	},
@@ -63,7 +62,7 @@
             {"data":"merchantCode"},
             {"data":"channelName"},
             {"data":"channelCode"},
-            {"data":"operate()"}
+            {"data":"operate"}
           ],
           "aoColumnDefs":[
             {"sWidth":"200px","aTargets":[]},

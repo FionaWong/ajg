@@ -10,8 +10,8 @@ order.orderList = function(data,successCb,errorCb){
 		        //code :E000 正常回调
 		        successCb,
 		        //code :非E000 回调
-		        errorCb || function(){
-		          alert("系统繁忙");
+		        errorCb || function(res){
+		          alert(res.message);
 		        }
 		    );
 	    }
@@ -27,8 +27,8 @@ order.orderModifyLogistics = function(data,successCb,errorCb){
 		        //code :E000 正常回调
 		        successCb,
 		        //code :非E000 回调
-		        errorCb || function(){
-		          alert("系统繁忙");
+		        errorCb || function(res){
+		          alert(res.message);
 		        }
 		    );
 	    }
@@ -44,8 +44,8 @@ order.orderDetail = function(data,successCb,errorCb){
 		        //code :E000 正常回调
 		        successCb,
 		        //code :非E000 回调
-		        errorCb || function(){
-		          alert("系统繁忙");
+		        errorCb || function(res){
+		          alert(res.message);
 		        }
 		    );
 	    }

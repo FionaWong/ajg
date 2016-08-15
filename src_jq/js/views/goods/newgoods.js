@@ -1,156 +1,47 @@
 (function(window,$){
 
-$("#file_goodslist").uploadPreview({ Img: "file_goodslist_img" });          
+    $("#file_goodslist").uploadPreview({ Img: "file_goodslist_img" });
 
-var goodName=$('#goodName'),
-    goodTitle=$('#goodTitle'),
-    marketPrice=$('#marketPrice'),
-    lowestPrice=$('#lowestPrice'),
-    remainNum=$('#remainNum'),
-    merchantId=$('#pages'),
-    limitNumber=$('#limitNumber'),
-    brandId=$('#brandId'),
-    goodDescription=$('#goodDescription'),
-    goodID="";//添加成功后保存goodID
+    var goodName=$('#goodName'),
+        goodTitle=$('#goodTitle'),
+        marketPrice=$('#marketPrice'),
+        lowestPrice=$('#lowestPrice'),
+        remainNum=$('#remainNum'),
+        merchantId=$('#pages'),
+        limitNumber=$('#limitNumber'),
+        brandId=$('#brandId'),
+        goodDescription=$('#goodDescription'),
+        goodID="";//添加成功后保存goodID
     var _zi_attribute_id=[];
-  $(document).ready(function(){
-    var moduleId = '1';
-    //左菜单设置
-    common.setActive(moduleId,true);
-    common.appendTo($('.sidebar'));
+    $(document).ready(function(){
+        var moduleId = '1';
+        //左菜单设置
+        common.setActive(moduleId,true);
+        common.appendTo($('.sidebar'));
 
-    
-    //拿到地址栏的goodId
-    var goodId=urlPara('goodId=');
 
-    //判断是有商品id
-    if( goodId == ""){
-        //获取主标签
-        good.queryAllMainTags(function(res){
-            var list=res.data.list;
-            var html='';
-            for(var x in list){
-                html+="<p><label>"+list[x].name+"</label><input class='tagId' type='checkbox' value='"+list[x].id+"' ></p>";
-                //tagIds.append("<option value="+list[x].id+">"+list[x].name+"</option>");
-            }
-            //alert(html);
-            $('.goodtag').html(html);
-        });
+        //拿到地址栏的goodId
+        var goodId=urlPara('goodId=');
 
-        //获取供应商
-        good.listSupplier({pageSize:'100000',pageNum:'1'},function(res){
-            var list = res.data;
-            for(var x in list){
-                merchantId.append("<option value="+list[x].merchantId+">"+list[x].merchantName+"</option>");
-            }
-        });
-
-        //获取商品名牌
-        good.queryAllBrandInfo(function(res){
-            var list = res.data.list;
-            for(var x in list){
-                brandId.append("<option value="+list[x].id+">"+list[x].brandName+"</option>");
-            }
-        });
-
-        //获取主属性
-        good.queryAllParentProp(function(res){
-            var list = res.data.list;
-            var html='';
-            for(var x in list){
-                html+="<p><label>"+list[x].propertyName+"</label><input type='checkbox' value='"+list[x].propertyId+"' class='checkbox'></p>";
-            }
-            $('.prime_attribute').html(html);
-        });
-
-        //点击主属性查询子属性
-        $('.prime_attribute').on('click','input', function(event) {
-            var propertyParentId=$(this).val();
-            //获取子属性
-            good.queryChildPropByParentId({'propertyParentId':propertyParentId},function(res){
-                var list = res.data.list;
-                var html='';
-                for(var x in list){
-                    html+="<p><label>"+list[x].propertyName+"</label><input type='checkbox'  value='"+list[x].propertyId+"' class='propertyId'></p>";
-                }
-                $('.prime_zi_attribute').append(html);
-            });
-        });
-
-        
-
-    }else{
-        $('.update_attribute').css('display','inline-block').css('width','auto');
-        var data={
-            'goodId' : goodId 
-        };
-        //获取商品详情
-        good.getGoodDetail(data,function(res){
-            var goodDetailList = res.data.goodNewInfo;
-            goodName.val(goodDetailList.goodName),
-            goodTitle.val(goodDetailList.goodTitle),
-            marketPrice.val(goodDetailList.marketPrice),
-            lowestPrice.val(goodDetailList.lowestPrice),
-            remainNum.val(goodDetailList.remainNum),
-            limitNumber.val(goodDetailList.limitNumber),
-            //tagIds.val(goodDetailList.tagIds),
-            goodDescription.val(goodDetailList.goodDescription);
-            var goodsPicDownloadInfo=goodDetailList.goodsPicDownloadInfo;
-            var goodsPicDownloadInfo_html='';
-
-            //循环读取图片显示
-            if(goodsPicDownloadInfo !=""){
-                for(var x in goodsPicDownloadInfo){
-                    if(goodsPicDownloadInfo[x].fileType=='goodsdetail'){
-                        goodsPicDownloadInfo_html+="<p>添加主图：</p>"+
-                            "<div>"+
-                            "<img data-src='holder.js/200x200' class='img-thumbnail' alt='200x200' src='"+goodsPicDownloadInfo[x].fileUrl+"' data-holder-rendered='true' style='width: 200px; height: 200px;'>"+
-                            "<p align='center' class='addimg-exit-sty'><a href='javascript:void(0)''>修改</a><a href='javascript:void(0)'>删除</a></p>"+
-                            "</div>";
-
-                    }else if(goodsPicDownloadInfo[x].fileType=="goodslist"){
-                         goodsPicDownloadInfo_html+="<p>添加主图：</p>"+
-                            "<div>"+
-                            "<img data-src='holder.js/200x200' class='img-thumbnail' alt='200x200' src='"+goodsPicDownloadInfo[x].fileUrl+"' data-holder-rendered='true' style='width: 200px; height: 200px;'>"+
-                            "<p align='center' class='addimg-exit-sty'><a href='javascript:void(0)''>修改</a><a href='javascript:void(0)'>删除</a></p>"+
-                            "</div>";
-                    }else if(goodsPicDownloadInfo[x].fileType=="goodspreview"){
-
-                    }
-                }
-                alert(goodsPicDownloadInfo_html);
-                $('#profile').html(goodsPicDownloadInfo_html);
-            }
-
+        //判断是有商品id
+        if( goodId == ""){
             //获取主标签
             good.queryAllMainTags(function(res){
                 var list=res.data.list;
-                var tgs=[];
-                if(goodDetailList.tagId != null && goodDetailList.tagId !=""){
-                   tgs=goodDetailList.tagId.split(',');  
-                }
-                
                 var html='';
                 for(var x in list){
-                    if(tgs.indexOf(list[x].id) > -1){
-                       html+="<p><label>"+list[x].name+"</label><input  checked='checked'  class='tagId' type='checkbox' value='"+list[x].id+"' ></p>";
-                    }else{
-                        html+="<p><label>"+list[x].name+"</label><input class='tagId' type='checkbox' value='"+list[x].id+"' ></p>";
-                    }
-                    $('.goodtag').html(html);
+                    html+="<p><label>"+list[x].name+"</label><input class='tagId' type='checkbox' value='"+list[x].id+"' ></p>";
+                    //tagIds.append("<option value="+list[x].id+">"+list[x].name+"</option>");
                 }
+                //alert(html);
+                $('.goodtag').html(html);
             });
 
             //获取供应商
             good.listSupplier({pageSize:'100000',pageNum:'1'},function(res){
                 var list = res.data;
                 for(var x in list){
-                    if(list[x].merchantId == goodDetailList.merchantId){
-                        //alert(1);
-                        merchantId.append("<option selected value="+list[x].merchantId+">"+list[x].merchantName+"</option>");
-                    }else{
-                        merchantId.append("<option value="+list[x].merchantId+">"+list[x].merchantName+"</option>");
-                    }  
+                    merchantId.append("<option value="+list[x].merchantId+">"+list[x].merchantName+"</option>");
                 }
             });
 
@@ -158,35 +49,9 @@ var goodName=$('#goodName'),
             good.queryAllBrandInfo(function(res){
                 var list = res.data.list;
                 for(var x in list){
-                    if(list[x].id ==goodDetailList.brandId){
-                        brandId.append("<option selected value="+list[x].id+">"+list[x].brandName+"</option>");
-                    }else{
-                        brandId.append("<option value="+list[x].id+">"+list[x].brandName+"</option>");
-                    }
-                   
+                    brandId.append("<option value="+list[x].id+">"+list[x].brandName+"</option>");
                 }
             });
-
-
-
-            //主属性赋值
-            var goodProperties=goodDetailList.goodProperties;
-            if(goodProperties != "" || goodProperties != null){
-                var prime_attribute_html="";
-                var prime_zi_attribute_html='';
-                for(var x in goodProperties){
-                    prime_attribute_html+="<p><label>"+goodProperties[x].propertyName+"</label><input type='checkbox' onclick='return false'  checked='checked'   value='"+goodProperties[x].propertyId+"' class='checkbox'></p>";
-                    var goodPropertyChilds=goodProperties[x].goodPropertyChilds;
-                    for(var i in goodPropertyChilds){
-                        _zi_attribute_id.push(goodPropertyChilds[i].propertyParentId);
-                        prime_zi_attribute_html+="<p><label>"+goodPropertyChilds[i].propertyName+"</label><input type='checkbox' onclick='return false'  checked='checked'  value='"+goodPropertyChilds[i].propertyParentId+"' class='checkbox'></p>";
-                    }
-                }
-                //alert(prime_attribute_html);
-                $('.prime_attribute').html(prime_attribute_html);
-                $('.prime_zi_attribute').html(prime_zi_attribute_html);
-            }
-
 
             //获取主属性
             good.queryAllParentProp(function(res){
@@ -195,208 +60,343 @@ var goodName=$('#goodName'),
                 for(var x in list){
                     html+="<p><label>"+list[x].propertyName+"</label><input type='checkbox' value='"+list[x].propertyId+"' class='checkbox'></p>";
                 }
-                $('.prime_attributes').html(html);
+                $('.prime_attribute').html(html);
             });
 
             //点击主属性查询子属性
-            $('.prime_attributes').on('click','input', function(event) {
+            $('.prime_attribute').on('click','input', function(event) {
                 var propertyParentId=$(this).val();
                 //获取子属性
                 good.queryChildPropByParentId({'propertyParentId':propertyParentId},function(res){
                     var list = res.data.list;
                     var html='';
                     for(var x in list){
-                        html+="<p><label>"+list[x].propertyName+"</label><input type='checkbox' value='"+list[x].propertyId+"' class='propertyIds'></p>";
+                        html+="<p><label>"+list[x].propertyName+"</label><input type='checkbox'  value='"+list[x].propertyId+"' class='propertyId'></p>";
                     }
-                    $('.prime_zi_attributes').append(html);
+                    $('.prime_zi_attribute').append(html);
                 });
             });
+
+
+
+        }else{
+            $('.update_attribute').css('display','inline-block').css('width','auto');
+            var data={
+                'goodId' : goodId
+            };
+            //获取商品详情
+            good.getGoodDetail(data,function(res){
+                var goodDetailList = res.data.goodNewInfo;
+                goodName.val(goodDetailList.goodName),
+                    goodTitle.val(goodDetailList.goodTitle),
+                    marketPrice.val(goodDetailList.marketPrice),
+                    lowestPrice.val(goodDetailList.lowestPrice),
+                    remainNum.val(goodDetailList.remainNum),
+                    limitNumber.val(goodDetailList.limitNumber),
+                    //tagIds.val(goodDetailList.tagIds),
+                    goodDescription.val(goodDetailList.goodDescription);
+                var goodsPicDownloadInfo=goodDetailList.goodsPicDownloadInfo;
+                var goodsPicDownloadInfo_html='';
+
+                //循环读取图片显示
+                if(goodsPicDownloadInfo !=""){
+                    for(var x in goodsPicDownloadInfo){
+                        if(goodsPicDownloadInfo[x].fileType=='goodsdetail'){
+                            goodsPicDownloadInfo_html+="<p>添加主图：</p>"+
+                                "<div>"+
+                                "<img data-src='holder.js/200x200' class='img-thumbnail' alt='200x200' src='"+goodsPicDownloadInfo[x].fileUrl+"' data-holder-rendered='true' style='width: 200px; height: 200px;'>"+
+                                "<p align='center' class='addimg-exit-sty'><a href='javascript:void(0)''>修改</a><a href='javascript:void(0)'>删除</a></p>"+
+                                "</div>";
+
+                        }else if(goodsPicDownloadInfo[x].fileType=="goodslist"){
+                            goodsPicDownloadInfo_html+="<p>添加主图：</p>"+
+                                "<div>"+
+                                "<img data-src='holder.js/200x200' class='img-thumbnail' alt='200x200' src='"+goodsPicDownloadInfo[x].fileUrl+"' data-holder-rendered='true' style='width: 200px; height: 200px;'>"+
+                                "<p align='center' class='addimg-exit-sty'><a href='javascript:void(0)''>修改</a><a href='javascript:void(0)'>删除</a></p>"+
+                                "</div>";
+                        }else if(goodsPicDownloadInfo[x].fileType=="goodspreview"){
+
+                        }
+                    }
+                    alert(goodsPicDownloadInfo_html);
+                    $('#profile').html(goodsPicDownloadInfo_html);
+                }
+
+                //获取主标签
+                good.queryAllMainTags(function(res){
+                    var list=res.data.list;
+                    var tgs=[];
+                    if(goodDetailList.tagId != null && goodDetailList.tagId !=""){
+                        tgs=goodDetailList.tagId.split(',');
+                    }
+
+                    var html='';
+                    for(var x in list){
+                        if(tgs.indexOf(list[x].id) > -1){
+                            html+="<p><label>"+list[x].name+"</label><input  checked='checked'  class='tagId' type='checkbox' value='"+list[x].id+"' ></p>";
+                        }else{
+                            html+="<p><label>"+list[x].name+"</label><input class='tagId' type='checkbox' value='"+list[x].id+"' ></p>";
+                        }
+                        $('.goodtag').html(html);
+                    }
+                });
+
+                //获取供应商
+                good.listSupplier({pageSize:'100000',pageNum:'1'},function(res){
+                    var list = res.data;
+                    for(var x in list){
+                        if(list[x].merchantId == goodDetailList.merchantId){
+                            //alert(1);
+                            merchantId.append("<option selected value="+list[x].merchantId+">"+list[x].merchantName+"</option>");
+                        }else{
+                            merchantId.append("<option value="+list[x].merchantId+">"+list[x].merchantName+"</option>");
+                        }
+                    }
+                });
+
+                //获取商品名牌
+                good.queryAllBrandInfo(function(res){
+                    var list = res.data.list;
+                    for(var x in list){
+                        if(list[x].id ==goodDetailList.brandId){
+                            brandId.append("<option selected value="+list[x].id+">"+list[x].brandName+"</option>");
+                        }else{
+                            brandId.append("<option value="+list[x].id+">"+list[x].brandName+"</option>");
+                        }
+
+                    }
+                });
+
+
+
+                //主属性赋值
+                var goodProperties=goodDetailList.goodProperties;
+                if(goodProperties != "" || goodProperties != null){
+                    var prime_attribute_html="";
+                    var prime_zi_attribute_html='';
+                    for(var x in goodProperties){
+                        prime_attribute_html+="<p><label>"+goodProperties[x].propertyName+"</label><input type='checkbox' onclick='return false'  checked='checked'   value='"+goodProperties[x].propertyId+"' class='checkbox'></p>";
+                        var goodPropertyChilds=goodProperties[x].goodPropertyChilds;
+                        for(var i in goodPropertyChilds){
+                            _zi_attribute_id.push(goodPropertyChilds[i].propertyParentId);
+                            prime_zi_attribute_html+="<p><label>"+goodPropertyChilds[i].propertyName+"</label><input type='checkbox' onclick='return false'  checked='checked'  value='"+goodPropertyChilds[i].propertyParentId+"' class='checkbox'></p>";
+                        }
+                    }
+                    //alert(prime_attribute_html);
+                    $('.prime_attribute').html(prime_attribute_html);
+                    $('.prime_zi_attribute').html(prime_zi_attribute_html);
+                }
+
+
+                //获取主属性
+                good.queryAllParentProp(function(res){
+                    var list = res.data.list;
+                    var html='';
+                    for(var x in list){
+                        html+="<p><label>"+list[x].propertyName+"</label><input type='checkbox' value='"+list[x].propertyId+"' class='checkbox'></p>";
+                    }
+                    $('.prime_attributes').html(html);
+                });
+
+                //点击主属性查询子属性
+                $('.prime_attributes').on('click','input', function(event) {
+                    var propertyParentId=$(this).val();
+                    //获取子属性
+                    good.queryChildPropByParentId({'propertyParentId':propertyParentId},function(res){
+                        var list = res.data.list;
+                        var html='';
+                        for(var x in list){
+                            html+="<p><label>"+list[x].propertyName+"</label><input type='checkbox' value='"+list[x].propertyId+"' class='propertyIds'></p>";
+                        }
+                        $('.prime_zi_attributes').append(html);
+                    });
+                });
+            });
+
+
+            //详情的时候点击修改属性
+            $('.update_attribute').on('click',function () {
+                $('.add_attribute').hide();
+                $('.up_attribute').show();
+            })
+            //详情的时候点击返回
+            $('.ad_attribute').on('click',function () {
+                $('.add_attribute').show();
+                $('.up_attribute').hide();
+            })
+        }
+
+
+        //保存按钮事件
+        $('#addgood').on('click',function(){
+
+            var data={
+                'goodName':goodName.val(),
+                'goodTitle':goodTitle.val(),
+                'marketPrice':marketPrice.val(),
+                'lowestPrice':lowestPrice.val(),
+                'remainNum':remainNum.val(),
+                'merchantId':merchantId.val(),
+                'limitNumber':limitNumber.val(),
+                //'tagIds':tagIds.val(),
+                'brandId':brandId.val(),
+                'beginSellDate':"",
+                'endSellDate':"",
+                'goodDescription':goodDescription.val()
+            };
+
+            //判断是有商品id
+            if( goodId == ""){
+                //添加
+                var tagids=chk('.tagId');//主标签
+                var propertyIds=chk('.propertyId');//子属性
+
+                $.extend(data,{'tagIds':tagids,'propertyIds':propertyIds});
+                good.addGood(data,function(res){
+                    goodID = res.data.goodId;
+                    alert('添加成功');
+                });
+            }else{
+                var tagids=chk('.tagId');//主标签
+                var propertyIds='';
+                if($('.add_attribute').css('display') == 'block'){
+                    $.each(_zi_attribute_id, function(i,val){
+                        propertyIds+=val+',';
+                    });
+                }if($('.up_attribute').css('display') == 'block'){
+                    propertyIds=chk('.propertyIds');//子属性
+                }
+                alert(propertyIds);
+                $.extend(data,{'goodId':goodId,'tagIds':tagids,'propertyIds':propertyIds});
+                //修改
+                good.update(data,function(res){
+                    alert('修改成功');
+                });
+            }
+
         });
 
 
-        //详情的时候点击修改属性
-        $('.update_attribute').on('click',function () {
-            $('.add_attribute').hide();
-            $('.up_attribute').show();
-        })
-        //详情的时候点击返回
-        $('.ad_attribute').on('click',function () {
-            $('.add_attribute').show();
-            $('.up_attribute').hide();
-        })
-    }
+
+        $('#imguplad').on('click',function () {
 
 
-    //保存按钮事件
-    $('#addgood').on('click',function(){
-
-        var data={
-            'goodName':goodName.val(),
-            'goodTitle':goodTitle.val(),
-            'marketPrice':marketPrice.val(),
-            'lowestPrice':lowestPrice.val(),
-            'remainNum':remainNum.val(),
-            'merchantId':merchantId.val(),
-            'limitNumber':limitNumber.val(),
-            //'tagIds':tagIds.val(),
-            'brandId':brandId.val(),
-            'beginSellDate':"",
-            'endSellDate':"",
-            'goodDescription':goodDescription.val()
-        };
-        
-         //判断是有商品id
-        if( goodId == ""){
-            //添加
-            var tagids=chk('.tagId');//主标签
-            var propertyIds=chk('.propertyId');//子属性
-
-            $.extend(data,{'tagIds':tagids,'propertyIds':propertyIds});
-            good.addGood(data,function(res){
-                goodID = res.data.goodId;
-                alert('添加成功');
-            });
-        }else{
-            var tagids=chk('.tagId');//主标签
-            var propertyIds='';
-            if($('.add_attribute').css('display') == 'block'){
-                $.each(_zi_attribute_id, function(i,val){
-                    propertyIds+=val+',';
-                });
-            }if($('.up_attribute').css('display') == 'block'){
-                propertyIds=chk('.propertyIds');//子属性
-            }
-            alert(propertyIds);
-            $.extend(data,{'goodId':goodId,'tagIds':tagids,'propertyIds':propertyIds});
-            //修改
-            good.update(data,function(res){
-                alert('修改成功');
-            });
-        }
-        
-    });
+            $('#tupian').attr("action","http://10.28.122.11:8080/gbd-anybuy/consolemanage/im_uploadpicture")//更改属性
+            $('#tupian').submit();//提交
 
 
 
-    $('#imguplad').on('click',function () {
-        
+        });
 
-         $('#tupian').attr("action","http://10.28.122.11:8080/gbd-anybuy/consolemanage/im_uploadpicture")//更改属性
-         $('#tupian').submit();//提交
+        $('#sc').on('click',function(){
+            // $('#tupian').submit(function() {
+
+            //     var AjaxURL= "http://10.28.122.11:8080/gbd-anybuy/consolemanage/im_uploadpicture";
+            //     alert($('#tupian').serialize());
+            //         $.ajax({
+            //             type: "POST",
+            //             dataType: "html",
+            //             url: AjaxURL,
+            //             data: $('#tupian').serialize(),
+            //             success: function (data) {
+            //                 alert(1);
+            //             },
+            //             error: function(data) {
+            //                 alert("error:"+data.responseText);
+            //              }
+            //         });
+            //     }
+            // );
+
+            $('#tupian').attr("action","http://10.28.122.11:8080/gbd-anybuy/consolemanage/im_uploadpicture")//更改属性
+            $('#tupian').submit();//提交
+        });
+
 
 
 
     });
-
-    $('#sc').on('click',function(){
-        // $('#tupian').submit(function() {
-
-        //     var AjaxURL= "http://10.28.122.11:8080/gbd-anybuy/consolemanage/im_uploadpicture";       
-        //     alert($('#tupian').serialize());
-        //         $.ajax({
-        //             type: "POST",
-        //             dataType: "html",
-        //             url: AjaxURL,
-        //             data: $('#tupian').serialize(),
-        //             success: function (data) {
-        //                 alert(1);
-        //             },
-        //             error: function(data) {
-        //                 alert("error:"+data.responseText);
-        //              }
-        //         });
-        //     }
-        // );
-
-        $('#tupian').attr("action","http://10.28.122.11:8080/gbd-anybuy/consolemanage/im_uploadpicture")//更改属性
-        $('#tupian').submit();//提交
-    });
-
-    
-
-  
-  });
 
 //获取参数
-function urlPara(v){
-    var url = window.location.search;
-    if (url.indexOf(v) != -1){
-        var start = url.indexOf(v)+v.length,
-            end = url.indexOf('&',start) == -1 ? url.length : url.indexOf('&',start);
-        return url.substring(start,end);
-    } else {
-        return '';
-    }
-};
+    function urlPara(v){
+        var url = window.location.search;
+        if (url.indexOf(v) != -1){
+            var start = url.indexOf(v)+v.length,
+                end = url.indexOf('&',start) == -1 ? url.length : url.indexOf('&',start);
+            return url.substring(start,end);
+        } else {
+            return '';
+        }
+    };
 
 //获取ckb的值
-function chk(name){ 
-    var obj=$(name);
-    check_val = '';
-    for(k in obj){
-        if(obj[k].checked)
-            check_val+=obj[k].value+',';
+    function chk(name){
+        var obj=$(name);
+        check_val = '';
+        for(k in obj){
+            if(obj[k].checked)
+                check_val+=obj[k].value+',';
+        }
+        return check_val;
     }
-    return check_val;
-} 
-jQuery.fn.extend({
-    uploadPreview: function (opts) {
-        var _self = this,
-            _this = $(this);
-        opts = jQuery.extend({
-            Img: "ImgPr",
-            Width: 100,
-            Height: 100,
-            ImgType: ["gif", "jpeg", "jpg", "bmp", "png"],
-            Callback: function () {}
-        }, opts || {});
-        _self.getObjectURL = function (file) {
-            var url = null;
-            if (window.createObjectURL != undefined) {
-                url = window.createObjectURL(file)
-            } else if (window.URL != undefined) {
-                url = window.URL.createObjectURL(file)
-            } else if (window.webkitURL != undefined) {
-                url = window.webkitURL.createObjectURL(file)
-            }
-            return url
-        };
-        _this.change(function () {
-            if (this.value) {
-                if (!RegExp("\.(" + opts.ImgType.join("|") + ")$", "i").test(this.value.toLowerCase())) {
-                    alert("选择文件错误,图片类型必须是" + opts.ImgType.join("，") + "中的一种");
-                    this.value = "";
-                    return false
+    jQuery.fn.extend({
+        uploadPreview: function (opts) {
+            var _self = this,
+                _this = $(this);
+            opts = jQuery.extend({
+                Img: "ImgPr",
+                Width: 100,
+                Height: 100,
+                ImgType: ["gif", "jpeg", "jpg", "bmp", "png"],
+                Callback: function () {}
+            }, opts || {});
+            _self.getObjectURL = function (file) {
+                var url = null;
+                if (window.createObjectURL != undefined) {
+                    url = window.createObjectURL(file)
+                } else if (window.URL != undefined) {
+                    url = window.URL.createObjectURL(file)
+                } else if (window.webkitURL != undefined) {
+                    url = window.webkitURL.createObjectURL(file)
                 }
-                if ($.browser.msie) {
-                    try {
-                        $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]))
-                    } catch (e) {
-                        var src = "";
-                        var obj = $("#" + opts.Img);
-                        var div = obj.parent("div")[0];
-                        _self.select();
-                        if (top != self) {
-                            window.parent.document.body.focus()
-                        } else {
-                            _self.blur()
-                        }
-                        src = document.selection.createRange().text;
-                        document.selection.empty();
-                        obj.hide();
-                        obj.parent("div").css({
-                            'filter': 'progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)',
-                            'width': opts.Width + 'px',
-                            'height': opts.Height + 'px'
-                        });
-                        div.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = src
+                return url
+            };
+            _this.change(function () {
+                if (this.value) {
+                    if (!RegExp("\.(" + opts.ImgType.join("|") + ")$", "i").test(this.value.toLowerCase())) {
+                        alert("选择文件错误,图片类型必须是" + opts.ImgType.join("，") + "中的一种");
+                        this.value = "";
+                        return false
                     }
-                } else {
-                    $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]))
+                    if ($.browser.msie) {
+                        try {
+                            $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]))
+                        } catch (e) {
+                            var src = "";
+                            var obj = $("#" + opts.Img);
+                            var div = obj.parent("div")[0];
+                            _self.select();
+                            if (top != self) {
+                                window.parent.document.body.focus()
+                            } else {
+                                _self.blur()
+                            }
+                            src = document.selection.createRange().text;
+                            document.selection.empty();
+                            obj.hide();
+                            obj.parent("div").css({
+                                'filter': 'progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)',
+                                'width': opts.Width + 'px',
+                                'height': opts.Height + 'px'
+                            });
+                            div.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = src
+                        }
+                    } else {
+                        $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]))
+                    }
+                    opts.Callback()
                 }
-                opts.Callback()
-            }
-        })
-    }
-});
+            })
+        }
+    });
 })(window,$);

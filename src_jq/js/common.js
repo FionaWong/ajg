@@ -198,7 +198,7 @@ api.resultCode = function(){
       common.openlogin(common.loginTarget);
     }else{
       error_cb.call(this,res);
-      alert(res.message);
+      //alert(res.message);
     }
   };
 };

@@ -17,18 +17,18 @@
 		$(elm).dataTable({
           "data": data,
           "columns":[
-            {"data":"userType"},
-            {"data":"userId"},
-            {"data":"goodId"},
             {"data":"orderId"},
-            {"data":"userName"},
-            {"data":"cellphone"},
+            {"data":"goodId"},
             {"data":"goodName"},
-            {"data":"orderStatus"},
-            {"data":"startCreateTime"},
-            {"data":"endCreateTime"},
-            {"data":"goodName"},
-            {"data":"orderStatus"}
+            {"data":"userId"},
+            {"data":"buyName"},
+            {"data":"buyphone"},
+            {"data":"createTime"},           
+            {"data":"updateTime"},
+            {"data":"status"},
+            {"data":"price"},
+            {"data":"operate()"}
+            
           ],
           "aoColumnDefs":[
             {"sWidth":"80px","aTargets":[]},
@@ -69,7 +69,11 @@
 		var orderObj = {}
 		for(var x in order){
 			orderObj[x] = order[x] || '';
+			orderObj.operate = function(){
+				return "<a href='#' onClick='javascript:openLayerbox(\""+orderObj['orderId']+"\")'>查看</a>";
+			}
 		}
+
 		return orderObj;
 	},
 	//拿到orderlist参数
@@ -103,18 +107,23 @@
 				var datas =[],list = res.data.list;
 				for(var x in list){
 					datas.push(create_orderObj(list[x]));
-				}				
+				}
+				//清空datatable
+				var table=$('#dataTables').dataTable();
+	            if(table){
+	              table.fnDestroy();
+	            }				
 				datatable($("#dataTables"),datas);
 			}
 		);
 	},
 	modifyLogistics = function(){
-		order.modifyLogistics(
+		order.orderModifyLogistics(
 			//params
 			{
-				orderId:$("#orderId").val() || '',
-				logistics:$("#logistics").val() || '',
-				logisticsCompany:$("#logisticsCompany").val() || ''
+				orderId:$("#orderId_d").html() || '',
+				logistics:$("#logistics_d").val() || '',
+				logisticsCompany:$("#logisticsCompany_d").val() || ''
 			},
 			//successcallback
 			function(res){
@@ -147,6 +156,9 @@
 	window.openLayerbox =function(orderId){
 		//详情弹层
 		$(".layer-box").show();
+		$("input").val();
+		orderDetail(orderId);
+
 	};
 	window.hideLayerBox = function(){
 		$(".layer-box").hide();
@@ -155,13 +167,13 @@
 		if(!orderId){alert("订单号不能为空。"); return;} 
 		order.orderDetail(
 			//params
-			orderId,
+			{orderId:orderId},
 			//successcallback
 			function(res){
 				var detail = res.data.detail;
 				//设置值
 				for(var x in detail){
-					$("#"+x+"_d").val(detail[x]||"");
+					$("#"+x+"_d").html(detail[x]||"");
 					if(x == 'propList'){
 						for(var y in detail[x]) $("#"+y+"_dp").val(detail[x][y]||"");
 					}
