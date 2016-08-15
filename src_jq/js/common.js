@@ -71,7 +71,7 @@ common.getmoduleStr =function(modules){
  modStr += '</ul>';
  return modStr;
 }
-
+common.loginTarget = $(".layer-login");
 common.appendTo = function(target){
   var str = common.getmoduleStr(common.modulesList);
   target.append(str);
@@ -82,7 +82,9 @@ common.openlogin = function(target){
   var loginHtml = function(){
     return (
       '<div class="layer-bg_login"></div>'+
+
       '<div class="login content ng-scope">'+
+      '<a href="javascript:void(0);" class="layer_login-close">&times;</a>'+
       '<form >'+
         '<fieldset class="question">'+
           '<legend>安金购后台管理登录</legend>'+
@@ -119,8 +121,6 @@ common.closeLogin= function(target){
   target.hide();
 }
 common.login = function(){
-
-
     $.ajax({
         type: "get",
         url: config.login,
@@ -132,7 +132,7 @@ common.login = function(){
         success: function(res) {
             if("E000" == res.code){
              
-              common.closeLogin(this);
+              common.closeLogin(common.loginTarget);
               return ;
             }
             else if("E210" == res.code) {
@@ -151,6 +151,7 @@ common.login = function(){
         }
     })
 }
+
 //api 模块开始---------
 var api={};
 api.ajaxFun_noExe = function(url,data){
@@ -188,15 +189,16 @@ api.resultCode = function(){
     'E000': '	Success'
   };
   return function(res,cb,error_cb){
+    if(!res){alert("系统数据返回错误，请稍后重试");return false;}
     //res.code="E254";
-    if(res.code == 'E000'){
+    if(res && res.code == 'E000'){
       cb.call(this,res);
     }else if(res.code == 'E254' || res.code == 'E253' ){
       //登陆
-      common.openlogin($(".layer-login"));
+      common.openlogin(common.loginTarget);
     }else{
       error_cb.call(this,res);
-      alert(code[res.code]);
+      alert(res.message);
     }
   };
 };

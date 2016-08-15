@@ -84,7 +84,7 @@ good.getGoodDetail= function(data,successCb,errorCb){
 };
 
 //商品上下架
-good.shelf = function(successCb,errorCb){
+good.shelf = function(data,successCb,errorCb){
   api.resultFun(
     //发送请求
     api.ajaxFun(config.shelf,data),

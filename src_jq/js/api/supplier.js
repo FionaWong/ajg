@@ -1,9 +1,7 @@
-var order ={};
-
-//订单列表
-order.orderList = function(data,successCb,errorCb){
+var supplier ={};
+supplier.page=function(data,successCb,errorCb){
 	api.resultFun(
-	    api.ajaxFun(config.orderList,data),
+	    api.ajaxFun(config.listSupplier,data),
 		function(res){
 		    api.resultCode(res)(
 		        res,
@@ -17,11 +15,10 @@ order.orderList = function(data,successCb,errorCb){
 	    }
   	);
 }
-//物流信息
-order.orderModifyLogistics = function(data,successCb,errorCb){
+supplier.add=function(data,successCb,errorCb){
 	api.resultFun(
-	    api.ajaxFun(config.orderModifyLogistics,data),
-	    function(res){
+	    api.ajaxFun(config.addSupplier,data),
+		function(res){
 		    api.resultCode(res)(
 		        res,
 		        //code :E000 正常回调
@@ -32,13 +29,12 @@ order.orderModifyLogistics = function(data,successCb,errorCb){
 		        }
 		    );
 	    }
- 	 );
+  	);
 }
-//订单详情
-order.orderDetail = function(data,successCb,errorCb){
+supplier.update=function(data,successCb,errorCb){
 	api.resultFun(
-	    api.ajaxFun(config.orderDetail,data),
-	    function(res){
+	    api.ajaxFun(config.updateSupplier,data),
+		function(res){
 		    api.resultCode(res)(
 		        res,
 		        //code :E000 正常回调
@@ -49,5 +45,21 @@ order.orderDetail = function(data,successCb,errorCb){
 		        }
 		    );
 	    }
- 	);
+  	);
+}
+supplier.view=function(data,successCb,errorCb){
+	api.resultFun(
+	    api.ajaxFun(config.viewSupplier,data),
+		function(res){
+		    api.resultCode(res)(
+		        res,
+		        //code :E000 正常回调
+		        successCb,
+		        //code :非E000 回调
+		        errorCb || function(){
+		          alert("系统繁忙");
+		        }
+		    );
+	    }
+  	);
 }
