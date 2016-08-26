@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>订单详情</title>
+    <link rel="stylesheet" href="../styles/ajg.css"/>
+    <link rel="stylesheet" href="../styles/yhq.css"/>
+    <script src="../js/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--头部 Start-->
+<div class="header">
+    <span>安金购管理系统</span>
+</div>
+<!--头部 End-->
+
+<!--Wrap Start-->
+<div class="wrap">
+    <!--Sidebar Start-->
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">广告位管理</a></li>
+            <li><a href="product.html">商品管理</a></li>
+            <li><a href="label.html">商品标签管理</a></li>
+            <li><a href="order.html">订单管理</a></li>
+            <li><a href="supplier.html">供应商管理</a></li>
+            <li>
+                <a href="zhiquan.html" class="active">优惠券管理</a>
+                <div>
+                    <a href="zhiquan.html">制券管理</a>
+                    <a href="chengquan.html">成券管理</a>
+                    <a href="fenfa.html">分发管理</a>
+                    <a href="xiaoxi.html">消息管理</a>
+                    <a href="tongji.html">统计管理</a>
+                    <a href="dingdan.html" class="active">订单管理</a>
+                    <a href="zhuangtai.html">券状态变化</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--Sidebar End-->
+    <!--Right Start-->
+    <div class="right">
+        <div class="panel">
+            <div class="panel-heading">
+                订单详情
+            </div>
+            <div class="panel-body">
+                <ul class="nav-tabs">
+                    <li class="active"><a href="javascript:void(0);">订单信息</a></li>
+                    <li><a href="javascript:void(0);">商品信息</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade active in" id="home">
+                        <div class="upload-link" style="width: 100%;">
+                            <span class="zq-input">
+                                <label>订单号：</label> <input class="form-control" type="text">
+                                <label>User ID：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>收货人姓名：</label> <input class="form-control" type="text">
+                                <label>收货人手机：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>收货人地址：</label> <input class="form-control" type="text">
+                                <label>下单时间：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>支付时间：</label> <input class="form-control" type="text">
+                                <label>失效时间：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>支付状态：</label> <input class="form-control" type="text">
+                                <label>订单金额：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>使用优惠券：</label> <input class="form-control" type="text">
+                                <label>优惠金额：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>所属供应商：</label> <input class="form-control" type="text">
+                                <label>物流信息：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>物流单号：</label> <input class="form-control" type="text">
+                                <button type="button" class="btn btn-default" onclick="window.location.href='dingdan.html'">关闭</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade">
+                        <div class="upload-link dingdan-detail" style="width: 100%;">
+                            <span class="zq-input">
+                                <label>商品ID：</label> <input class="form-control" type="text">
+                                <label>商品名称：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>商品数量：</label> <input class="form-control" type="text">
+                                <label>所属品牌：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>商品属性标签：</label> <input class="form-control" type="text">
+                                <label>商品单价：</label> <input class="form-control" type="text">
+                            </span>
+                        </div>
+                        <div class="upload-link dingdan-detail" style="width: 100%;">
+                            <span class="zq-input">
+                                <label>商品ID：</label> <input class="form-control" type="text">
+                                <label>商品名称：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>商品数量：</label> <input class="form-control" type="text">
+                                <label>所属品牌：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>商品属性标签：</label> <input class="form-control" type="text">
+                                <label>商品单价：</label> <input class="form-control" type="text">
+                            </span>
+                        </div>
+                        <div class="upload-link dingdan-detail" style="width: 100%;">
+                            <span class="zq-input">
+                                <label>商品ID：</label> <input class="form-control" type="text">
+                                <label>商品名称：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>商品数量：</label> <input class="form-control" type="text">
+                                <label>所属品牌：</label> <input class="form-control" type="text">
+                            </span>
+                            <span>
+                                <label>商品属性标签：</label> <input class="form-control" type="text">
+                                <label>商品单价：</label> <input class="form-control" type="text">
+                            </span>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-default" onclick="window.location.href='dingdan.html'">关闭</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Right End-->
+</div>
+<!--Wrap End-->
+
+<script type="text/javascript">
+    $(function () {
+        $(".nav-tabs li").click(function () {
+            var index = $(this).index();
+            $(this).addClass("active");
+            $(this).siblings().removeClass("active");
+            $(".tab-content .tab-pane").eq(index).addClass("active");
+            $(".tab-content .tab-pane").eq(index).siblings().removeClass("active");
+        })
+    })
+</script>
+</body>
+</html>
