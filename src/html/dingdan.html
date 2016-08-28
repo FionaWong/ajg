@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>订单管理</title>
+    <link rel="stylesheet" href="../styles/ajg.css"/>
+    <link rel="stylesheet" href="../styles/yhq.css"/>
+    <script src="../js/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--头部 Start-->
+<div class="header">
+    <span>安金购管理系统</span>
+</div>
+<!--头部 End-->
+
+<!--Wrap Start-->
+<div class="wrap">
+    <!--Sidebar Start-->
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">广告位管理</a></li>
+            <li><a href="product.html">商品管理</a></li>
+            <li><a href="label.html">商品标签管理</a></li>
+            <li><a href="order.html">订单管理</a></li>
+            <li><a href="supplier.html">供应商管理</a></li>
+            <li>
+                <a href="zhiquan.html" class="active">优惠券管理</a>
+                <div>
+                    <a href="zhiquan.html">制券管理</a>
+                    <a href="chengquan.html">成券管理</a>
+                    <a href="fenfa.html">分发管理</a>
+                    <a href="xiaoxi.html">消息管理</a>
+                    <a href="tongji.html">统计管理</a>
+                    <a href="dingdan.html" class="active">订单管理</a>
+                    <a href="zhuangtai.html">券状态变化</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--Sidebar End-->
+    <!--Right Start-->
+    <div class="right">
+        <div class="panel">
+            <div class="panel-heading">
+                订单管理
+            </div>
+            <div class="panel-body">
+                <div class="tab-pane fade active in" id="home">
+                    <div class="upload-link" style="width: 100%;">
+                        <span class="zq-input">
+                            <label>优惠券ID：</label> <input class="form-control" type="text">
+                            <label>订单号：</label> <input class="form-control" type="text">
+                        </span>
+                        <span>
+                            <label>下单时间：</label> <input class="form-control" type="text">
+                            <label>优惠券名称：</label> <input class="form-control" type="text">
+                        </span>
+                        <span>
+                            <label>订单状态：</label> <input class="form-control" type="text">
+                            <button type="button" class="btn btn-default">查询</button>
+                            <button type="button" class="btn btn-default" >导出</button>
+                        </span>
+                        <span class="zq-input">
+                            <p>查询时间范围：2016.9.1--2016.10.1</p>
+                        </span>
+                    </div>
+                    <table class="table mt20" cellspacing="1">
+                        <thead>
+                        <tr role="row">
+                            <th class="sorting_asc">优惠券码</th>
+                            <th class="sorting">优惠券名称</th>
+                            <th class="sorting">订单号</th>
+                            <th class="sorting">订单原价</th>
+                            <th class="sorting">优惠实减</th>
+                            <th class="sorting">订单金额</th>
+                            <th class="sorting">下单时间</th>
+                            <th class="sorting">订单状态</th>
+                            <th class="sorting">操作员</th>
+                            <th class="sorting">操作</th>
+                        </tr></thead>
+                        <tbody>
+                        <tr class="gradeA even">
+                            <td>1</td>
+                            <td>全场满200减50</td>
+                            <td>728927492</td>
+                            <td>200</td>
+                            <td>50</td>
+                            <td>150</td>
+                            <td>2016.9.1</td>
+                            <td>已付款</td>
+                            <td>**@pingan.com.cn</td>
+                            <td>
+                                <a href="dingdan_detail.html">详情</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeA even">
+                            <td>1</td>
+                            <td>全场满200减50</td>
+                            <td>728927492</td>
+                            <td>200</td>
+                            <td>50</td>
+                            <td>150</td>
+                            <td>2016.9.1</td>
+                            <td>已付款</td>
+                            <td>**@pingan.com.cn</td>
+                            <td>
+                                <a href="dingdan_detail.html">详情</a>
+                            </td>
+                        </tr>
+                        <tr class="gradeA even">
+                            <td>1</td>
+                            <td>全场满200减50</td>
+                            <td>728927492</td>
+                            <td>200</td>
+                            <td>50</td>
+                            <td>150</td>
+                            <td>2016.9.1</td>
+                            <td>已付款</td>
+                            <td>**@pingan.com.cn</td>
+                            <td>
+                                <a href="dingdan_detail.html">详情</a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <ul class="pagination mt20">
+                        <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0">
+                            <a href="#">上一页</a>
+                        </li>
+                        <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
+                            <a href="#">1</a>
+                        </li>
+                        <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                            <a href="#">2</a>
+                        </li>
+                        <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                            <a href="#">3</a>
+                        </li>
+                        <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                            <a href="#">4</a>
+                        </li>
+                        <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                            <a href="#">5</a>
+                        </li>
+                        <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
+                            <a href="#">6</a>
+                        </li>
+                        <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0">
+                            <a href="#">下一页</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Right End-->
+</div>
+<!--Wrap End-->
+
+</body>
+</html>

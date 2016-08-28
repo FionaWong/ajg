@@ -12,25 +12,25 @@ common.modulesList =[
   {
     id:'1',
     name:'商品管理',
-    url:'advert.html',
+    url:'good.html',
     isActive:'false'
   },
   {
     id:'2',
     name:'商品标签管理',
-    url:'advert.html',
+    url:'label.html',
     isActive:'false'
   },
   {
     id:'3',
     name:'订单管理',
-    url:'advert.html',
+    url:'order.html',
     isActive:'false'
   },
   {
     id:'4',
     name:'供应商管理',
-    url:'advert.html',
+    url:'supplier.html',
     isActive:'false'
   }
 ];
@@ -71,10 +71,85 @@ common.getmoduleStr =function(modules){
  modStr += '</ul>';
  return modStr;
 }
-
+common.loginTarget = $(".layer-login");
 common.appendTo = function(target){
   var str = common.getmoduleStr(common.modulesList);
   target.append(str);
+}
+
+/*login*/
+common.openlogin = function(target){
+  var loginHtml = function(){
+    return (
+      '<div class="layer-bg_login"></div>'+
+
+      '<div class="login content ng-scope">'+
+      '<a href="javascript:void(0);" class="layer_login-close">&times;</a>'+
+      '<form >'+
+        '<fieldset class="question">'+
+          '<legend>安金购后台管理登录</legend>'+
+          '<div class="row">'+
+            '<div class="col-md-2 labletitle"><label>用户名:</label></div>'+
+            '<div class="col-md-10">'+
+              '<input type="text" maxlength="50" class="form-control login_username">'+
+            '</div>'+
+          '</div>'+
+          '<div class="row">'+
+            '<div class="col-md-2 labletitle"><label>密码:</label></div>'+
+            '<div class="col-md-10">'+
+              '<input type="password" maxlength="100" class="form-control login_password">'+
+            '</div>'+
+          '</div>'+
+          '<p ng-bind="errmessage" class="ng-binding"></p>'+
+          '<div class="row">'+
+            '<div class="col-md-12 text-center" style="line-height: 50px">'+
+              '<button class="btn btn-sm" onClick="common.login()">登录</button>'+
+            '</div>'+
+          '</div>'+
+        '</fieldset>'+
+      '</form>'+
+  '</div>');
+  };
+
+  target.find(".login").length>0 ? target.show() : 
+  (function(){
+    target.append(loginHtml());
+    target.show();
+  } )();
+}
+common.closeLogin= function(target){
+  target.hide();
+}
+common.login = function(){
+    $.ajax({
+        type: "get",
+        url: config.login,
+        dataType: "jsonp",
+        data:{
+          username:$('.login .login_username').val(),
+          password: $('.login .login_password').val()
+        } ,
+        success: function(res) {
+            if("E000" == res.code){
+             
+              common.closeLogin(common.loginTarget);
+              return ;
+            }
+            else if("E210" == res.code) {
+              alert("用户名密码有误");
+              return ;
+            }
+            else {
+              alert("系统繁忙，请稍后再试");
+              return ;
+            }
+            
+        },
+        error: function(err) {
+           alert("系统繁忙，请稍后再试");
+              return ;
+        }
+    })
 }
 
 //api 模块开始---------
@@ -90,6 +165,8 @@ api.ajaxFun = function(url,data){
   return $.ajax({
     url:url,
     type:'post',
+    dataType:'jsonp',
+    jsonp:'callback',
     data: data ||{}
   });
 };
@@ -97,7 +174,8 @@ api.resultFun = function(promise,successCb,errorCb){
   errorCb = errorCb || function(){
     alert("系统繁忙，请稍后再试!");
   };
-  return promise.then(successCb.bind(this,res),errorCb);
+  return promise.then(function(res){
+    successCb.call(this,res)},errorCb);
 };
 api.resultCode = function(){
   var code ={
@@ -110,11 +188,19 @@ api.resultCode = function(){
     'E851': '	参数不能空',
     'E000': '	Success'
   };
-  return function(res,cb){
-    if(res.code == 'E000'){
-      cb.bind(this,res);
+  return function(res,cb,error_cb){
+    if(!res){alert("系统数据返回错误，请稍后重试");return false;}
+    //res.code="E254";
+    if(res && res.code == 'E000'){
+      cb.call(this,res);
+    }else if(res.code == 'E254' || res.code == 'E253' ){
+      //登陆
+      common.openlogin(common.loginTarget);
     }else{
-      alert(code[res.code]);
+      error_cb.call(this,res);
+      //alert(res.message);
     }
   };
 };
+
+

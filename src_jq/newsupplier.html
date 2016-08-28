@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>安金购后管</title>
+    <link rel="stylesheet" href="styles/jquery-ui-1.10.4.custom.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles/dashboard.css"/>
+    <link rel="stylesheet" href="styles/anjingou.css"/>
+</head>
+<body>
+<!--头部 Start-->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">安金购管理系统</a>
+        </div>
+    </div>
+</nav>
+<!--头部 End-->
+<!--Wrap Start-->
+<div class="wrap">
+    <!--Sidebar Start-->
+    <div class="col-sm-3 col-md-2 sidebar"></div>
+    <!--Sidebar End-->
+    <!--Right Start-->
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="row">
+        <div class="col-md-6 col-sm-6">
+            <div class="panel panel-default">
+            <div class="panel-heading">
+                新建供应商
+            </div>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div class="upload-link" style="width: 100%;">
+                                <span>
+                                    <label>供应商名称：</label> <input class="form-control" type="text" value="" id="merchantName">
+                                </span>
+                        <p class="fb mt20">供应商支持的支付方式：</p>
+                        <p class="fb mt20" ><input id="pafCheck" type="checkbox" style="margin: 0; width: auto;" />&nbsp;平安付：</p>
+                                <span class="input-w140">
+                                    <label>平安付商户key：</label> <input class="form-control" type="text" value="" id="merchantKey">
+                                    <label>平安付子系统：</label> <input class="form-control" type="text" value="" id="systemId">
+                                </span>
+                        <p class="fb mt20" ><input type="checkbox" id="alipayCheck" style="margin: 0; width: auto;" />&nbsp;支付宝：</p>
+                                <span class="input-w140">
+                                    <label>合作身份id：</label> <input class="form-control" type="text" value="" id="alipayPartner">
+                                    <label>收款支付宝账号：</label> <input class="form-control" type="text" value="" id="alipaySellerId">
+                                </span>
+                                <span class="input-w140">
+                                    <label>商户私钥：</label> <input class="form-control" type="text" value="" id="alipayPrivateKey">
+                                    <label>公钥：</label> <input class="form-control" type="text" value="" id="alipayPublicKey">
+                                </span>
+                        <p class="fb mt20" >客服电话：</p>
+                                <span class="input-w140">
+                                    <label>客服电话：</label> <input class="form-control" type="text" value="" id="merchantPhone">
+                                </span>
+                    </div>
+                    <p align="right"><button type="button"  id="save" class="btn btn-default" style="margin-right: 20px;">保存</button></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Right End-->
+</div>
+<!--Wrap End-->
+
+<!--弹层-->
+<div class="layer-box">
+    <div class="layer-bg"></div>
+    <div class="layer-cont" style="height: 380px;width:800px;margin-top:-190px;margin-left:-400px;">
+        <a href="javascript:;" class="layer-close">&times;</a>
+       
+    </div>
+</div>
+<script src="js/libs/jquery-1.10.2.js"></script>
+<script src="js/libs/DataTables/jquery.dataTables.min.js"></script>
+<script src="js/libs/jquery-ui.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+<script src='js/config.js'></script>
+<script src='js/common.js'></script>
+<script src='js/api/supplier.js'></script>
+<script src='js/views/suppliers/newsupplier.js'></script>
+</body>
+</html>

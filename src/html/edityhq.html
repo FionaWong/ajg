@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>优惠券管理</title>
+    <link rel="stylesheet" href="../styles/ajg.css"/>
+    <link rel="stylesheet" href="../styles/yhq.css"/>
+    <script src="../js/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--头部 Start-->
+<div class="header">
+    <span>安金购管理系统</span>
+</div>
+<!--头部 End-->
+
+<!--Wrap Start-->
+<div class="wrap">
+    <!--Sidebar Start-->
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">广告位管理</a></li>
+            <li><a href="product.html">商品管理</a></li>
+            <li><a href="label.html">商品标签管理</a></li>
+            <li><a href="order.html">订单管理</a></li>
+            <li><a href="supplier.html">供应商管理</a></li>
+            <li>
+                <a href="zhiquan.html" class="active">优惠券管理</a>
+                <div>
+                    <a href="zhiquan.html">制券管理</a>
+                    <a href="chengquan.html" class="active">成券管理</a>
+                    <a href="fenfa.html">分发管理</a>
+                    <a href="xiaoxi.html">消息管理</a>
+                    <a href="tongji.html">统计管理</a>
+                    <a href="dingdan.html">订单管理</a>
+                    <a href="zhuangtai.html">券状态变化</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--Sidebar End-->
+    <!--Right Start-->
+    <div class="right">
+        <div class="panel">
+            <div class="panel-heading">
+                优惠券编辑
+            </div>
+            <div class="panel-body">
+                <div class="tab-pane fade active in" id="home">
+                    <div class="upload-link edit-yhq" style="width: 100%;">
+                        <span class="zq-input">
+                            <label>优惠券名称：</label> <b>花露水满200减20</b>
+                        </span>
+                        <span>
+                            <label>优惠券ID：</label> <b>1</b>
+                        </span>
+                        <span>
+                            <label>优惠券策略：</label> <b>满200减20</b>
+                        </span>
+                        <span>
+                            <label>是否支持叠加使用：</label> <b>不支持</b>
+                        </span>
+                        <span>
+                            <label>每用户最多可用：</label> <b>1张</b>
+                        </span>
+                        <span>
+                            <label>券的有效期：</label> <b>2016.9.1--2016.10.1</b>
+                        </span>
+                        <span>
+                            <label>券的使用范围：</label> <b>花露水</b>
+                        </span>
+                        <span>
+                            <label>成券数量：</label> <b>1000张</b>
+                        </span>
+                        <span class="zq-input">
+                            <label style="float: left;line-height: 74px;">使用说明：</label>
+                            <textarea rows="3" cols="20" class="textarea-w500">花露水满200减20</textarea>
+                        </span>
+                        <span>
+                            <button type="button" class="btn btn-default">更新</button>
+                            <button type="button" class="btn btn-default">取消</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Right End-->
+</div>
+<!--Wrap End-->
+
+</body>
+</html>

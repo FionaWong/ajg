@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>优惠券统计详情</title>
+    <link rel="stylesheet" href="../styles/ajg.css"/>
+    <link rel="stylesheet" href="../styles/yhq.css"/>
+    <script src="../js/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--头部 Start-->
+<div class="header">
+    <span>安金购管理系统</span>
+</div>
+<!--头部 End-->
+
+<!--Wrap Start-->
+<div class="wrap">
+    <!--Sidebar Start-->
+    <div class="sidebar">
+        <ul>
+            <li><a href="index.html">广告位管理</a></li>
+            <li><a href="product.html">商品管理</a></li>
+            <li><a href="label.html">商品标签管理</a></li>
+            <li><a href="order.html">订单管理</a></li>
+            <li><a href="supplier.html">供应商管理</a></li>
+            <li>
+                <a href="zhiquan.html" class="active">优惠券管理</a>
+                <div>
+                    <a href="zhiquan.html">制券管理</a>
+                    <a href="chengquan.html">成券管理</a>
+                    <a href="fenfa.html">分发管理</a>
+                    <a href="xiaoxi.html">消息管理</a>
+                    <a href="tongji.html" class="active">统计管理</a>
+                    <a href="dingdan.html">订单管理</a>
+                    <a href="zhuangtai.html">券状态变化</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--Sidebar End-->
+    <!--Right Start-->
+    <div class="right">
+        <div class="panel">
+            <div class="panel-heading">
+                优惠券统计详情
+            </div>
+            <div class="panel-body">
+                <div class="tab-pane fade active in" id="home">
+                    <div class="upload-link" style="width: 100%;">
+                        <span class="span-w300">
+                            <label>优惠券码：</label> <b>****</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>优惠券名称：</label> <b>满200减20</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>生成日期：</label> <b>2016.9.1</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>有效期：</label> <b>2016.9.1--2016.10.1</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>叠加使用：</label> <b>不支持</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>操作员：</label> <b>**@pingan.com.cn</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>优惠券状态：</label> <b>未开始</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>使用人群：</label> <b>白名单用户</b>
+                        </span>
+                        <span class="zq-input">
+                            <label>使用说明：</label> <b>单笔购买产品，订单金额满200立减50</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>发券量：</label> <b>1000</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>领券量：</label> <b>800</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>用券量：</label> <b>10</b>
+                        </span>
+                        <span class="span-w300">
+                            <label>完成订单量：</label> <b>8</b>
+                        </span>
+                        <span class="span-w300">
+                            <button type="button" class="btn btn-default" onclick="window.location.href='export_detail.html'" >导出明细</button>
+                            <button type="button" class="btn btn-default" >返回</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Right End-->
+</div>
+<!--Wrap End-->
+
+<!--弹层-->
+<div class="layer-box">
+    <div class="layer-bg"></div>
+    <div class="layer-cont" style="text-align: center;">
+        <a href="javascript:;" class="layer-close close">&times;</a>
+        <p style="margin: 0; font-size: 18px;">新生成批次号</p>
+        <!--<p style="padding: 10px 0;">批次号</p>-->
+        <p class="mt20">
+            <label>生成数量</label><input type="text" style="width: 40px;margin: 0 5px;"><b>张</b>
+            <span style="color: #999;width: 100px;">还可生成100张</span>
+        </p>
+        <p class="mt20">
+            <button type="button" class="btn btn-default close">生成批次</button>
+            <button type="button" class="btn btn-default close close">取消</button>
+        </p>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+
+        //layer
+        $(".layer-box").hide();
+        $(".yhqsc-btn").bind('click',function () {
+            $(".layer-box").fadeIn(500);
+        });
+        $(".close").click(function(){
+            $(".layer-box").fadeOut(500);
+        });
+    })
+</script>
+</body>
+</html>

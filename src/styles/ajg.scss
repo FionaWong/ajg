@@ -43,7 +43,6 @@
     li {
       float: $fl;
       width: $width;
-      height: 40px;
       a {
         line-height: 40px;
         display: $dl;
@@ -264,7 +263,7 @@ textarea.form-control {
     }
   }
 }
-input,select {
+input,select,textarea {
   width: 200px;
   display: inline-block;
   margin-right: 60px;

@@ -1,3 +1,11 @@
+table{
+    table-layout: fixed;
+}
+.table>tbody>tr>td{
+    width: 100px;
+    word-break: break-all;
+}
+
 .mt20 {
     margin-top: 20px;
 }
@@ -15,7 +23,7 @@
 /** 广告位管理  **/
 .tab-content {
     overflow: hidden;
-    padding-top: 20px;
+
 }
 .imgbox {
     width: 100%;
@@ -35,8 +43,8 @@
 }
 .upload-link label {
     font: normal 14px/24px Microsoft Yahei;
-    width: 100px;
-    text-align: right;
+    min-width: 100px;
+    text-align: left;
 }
 .upload-link input {
     width: 200px;
@@ -63,12 +71,14 @@
 
 /* layer style */
 .layer-box {
+    display:none;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1100;
     width: 100%;
     height: 100%;
+    overflow-y: scroll;
 }
 .layer-bg {
     position: fixed;
@@ -91,9 +101,8 @@
     padding: 20px;
     border:#ccc 1px solid;
     width: 400px;
-    height: 460px;
     margin-left: -200px;
-    margin-top: -230px;
+    margin-top: -100px;
 }
 .layer-close {
     position: absolute;
@@ -104,7 +113,56 @@
 .layer-close:hover {
     text-decoration: none;
 }
+p.line{
+    height: 1px;
+    width: 90%;
+    background-color: #ccc;
+    margin: 20px 0;
+}
+/* layer style */
+.layer-login {
+    display:none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    width: 100%;
+    height: 100%;
+}
+.layer-bg_login {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .3;
+}
 
+.layer-cont {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    padding: 20px;
+    border:#ccc 1px solid;
+    width: 400px;
+    margin-left: -200px;
+    margin-top: -100px;
+
+}
+.layer-close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font: normal 24px/24px Arial;
+}
+.layer-close:hover {
+    text-decoration: none;
+}
 select.input-sm {
     display: inline-block;
     width: 200px;
@@ -144,7 +202,7 @@ textarea.form-control {
 }
 .col-md-3:hover p a {
     display: inline-block;
-} 
+}
 /* 标签属性 */
 .labelattr {
     overflow: hidden;
@@ -201,14 +259,14 @@ textarea.form-control {
     width: 100%;
 }
 .upload-link2 input,.upload-link2 select {
-    margin: 0;
+    margin: 0 10px;
     width: 160px;
 }
 .upload-link3 {
     width: 100%;
 }
 .upload-link3 input,.upload-link2 select {
-    margin: 0;
+    margin: 0 10px;
     width: 140px;
 }
 .upload-link3 label {
@@ -218,6 +276,96 @@ textarea.form-control {
 .upload-link .input-w140 label{
     width: 140px;
 }
+/* pagination*/
+.dataTables_paginate a {
+    display:inline-block;
+    padding:6px 12px;
+    margin:1px;
+    color: #777;
+    background-color: #fff;
+    border-color: #ddd;
+    cursor:pointer;
+    text-decoration: none;
+    border: 1px solid #ddd;
+
+}
+.dataTables_paginate a:hover{
+    background-color:#eee;
+}
+.dataTables_paginate a.current{
+    background-color:#337ab7;
+    color:#fff;
+}
+.dataTables_paginate a.disabled{
+    display:inline-block;
+    color: #777;
+    background-color: #fff;
+    border-color: #ddd;
+    cursor:not-allowed;
+}
+.dataTables_paginate a.previous,
+.dataTables_paginate a.next {
+    width: 70px;
+}
+.dataTables_paginate a.first ,
+.dataTables_paginate a.last {
+    width:0px;
+    border:0;
+    padding:0;
+}
+
+#ui-datepicker-div{
+    width:300px;
+}
+
+/* login */
+#gonlinebtn,.row {
+    margin-top: 20px
+}
+.content {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    padding: 20px;
+    width: 580px;
+    background: #fff;
+}
+
+fieldset {
+    padding: 5px 20px;
+    margin: 0 2px
+}
+
+legend {
+    width: 40%;
+    line-height: inherit;
+    color: #333;
+    border: 1px;
+    border-bottom: 0;
+    margin-left: 20px
+}
+
+.label-header {
+    padding: 5px
+}
+
+fieldset.question {
+    border: 1px solid #d5d5d5
+}
+
+.container-table {
+    min-height: 873px;
+    display: table
+}
+
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle
+}
+
+.btn-circle,.gonline,.placeholders,.supplier .btnbox {
+    text-align: center
+}
 
 
 
@@ -225,5 +373,134 @@ textarea.form-control {
 
 
 
+/* 20160812 */
+.label-box-main {
+    overflow: hidden;
+    color: #666;
+    width: 98%;
+}
+.label-box-main p {
+    display: inline-block;
+    width: 130px;
+}
+.label-box-main p label {
+    font-weight: bold;
+}
+.label-box-main p input {
+    width: 20px;
+    margin-right: 0;
+}
+
+.label-box-cont {
+    overflow: hidden;
+    padding: 8px;
+    border-top: #eee 1px solid;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background: #f9f9f9;
+    color: #666;
+    width: 98%;
+    margin-top: 20px;
+}
+.label-box-cont p {
+    position: relative;
+    padding: 0 35px 0 15px;
+    line-height: inherit;
+    width: initial;
+    float: left;
+    margin-bottom: 10px;
+}
+.label-box-cont p input {
+    position: absolute;
+    right: 15px;
+    top: -1px;
+}
+.goodtag{
+    display: inline-block;
+}
+.goodtag p{
+    display: inline-block;
+    margin-right: 10px;
+}
+.goodtag p label{
+    width: auto;
+}
+.goodtag p input{
+    width: 20px;
+    margin-right: 0;
+}
+
+.prime_attribute,.prime_attributes,.prime_zi_attribute,.prime_zi_attributes{
+    display: inline-block;
+}
+.prime_attribute p,.prime_zi_attribute p,.prime_attributes p,.prime_zi_attributes p{
+    display: inline-block;
+    margin-right: 10px;
+}
+.prime_attribute p input,.prime_zi_attribute p input,.prime_attributes p input,.prime_zi_attributes p input{
+    width: 20px;
+    margin-right: 0;
+}
+.prime_attribute label,.prime_attributes label{
+    width: auto;
+}
+.update_attribute{
+    width: 100px;
+    color: #007fbf;
+    display: none;
+}
+.up_attribute{
+    display: none;
+}
 
 
+
+
+
+
+.webuploader-container {
+    position: relative;
+}
+.webuploader-element-invisible {
+    position: absolute !important;
+    clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+    clip: rect(1px,1px,1px,1px);
+}
+.webuploader-pick {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background: #00b7ee;
+    padding: 10px 15px;
+    color: #fff;
+    text-align: center;
+    border-radius: 3px;
+    overflow: hidden;
+}
+.webuploader-pick-hover {
+    background: #00a2d4;
+}
+
+.webuploader-pick-disable {
+    opacity: 0.6;
+    pointer-events:none;
+}
+
+#profile .uploader-list div{
+    display: inline-block;
+}
+#profile .uploader-list div img{
+    display: inline-block;
+}
+.ipt_file{
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    width: 200px;
+    height: 200px;
+}
+.file_box{
+    position: relative;
+}
