@@ -51,6 +51,7 @@ table{
     display: inline-block;
     margin-right: 60px;
 }
+
 .upload-btn-box {
     width: 89%;
     float: left;
@@ -425,6 +426,7 @@ fieldset.question {
 }
 .goodtag p label{
     width: auto;
+    min-width: auto;
 }
 .goodtag p input{
     width: 20px;
@@ -444,6 +446,7 @@ fieldset.question {
 }
 .prime_attribute label,.prime_attributes label{
     width: auto;
+    min-width: auto;
 }
 .update_attribute{
     width: 100px;
@@ -504,3 +507,31 @@ fieldset.question {
 .file_box{
     position: relative;
 }
+
+.required{
+    display: initial;
+    width: auto;
+    color: red;
+    margin-right: 5px;
+    font-style: normal;
+}
+.filled{
+    width: 220px;
+    display: inline-block;
+    color: red;
+    font-size: 12px;
+    font-family: 'Microsoft Yahei';
+    list-style: none;
+    margin-left: -30px;
+}
+.lable-style{
+    width: 500px;
+    float: left;
+}
+.lable-style input{
+    margin-right: 0;
+}
+.goodsdetail_input{
+    width: 280px;
+    height: 175px;
+} 

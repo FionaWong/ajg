@@ -6,36 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <title>安金购后管</title>
-    <link rel="stylesheet" href="../styles/ajg.css"/>
-    <script src="../js/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="styles/jquery-ui-1.10.4.custom.min.css">
+    <link rel="stylesheet" href="styles/bootstrap.min.css"/>
+    <link rel="stylesheet" href="styles/dashboard.css"/>
+    <link rel="stylesheet" href="styles/anjingou.css"/>
 </head>
 <body>
 <!--头部 Start-->
-<div class="header">
-    <span>安金购管理系统</span>
-</div>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">安金购管理系统</a>
+        </div>
+    </div>
+</nav>
 <!--头部 End-->
 
-<!--Wrap Start-->
+<!--头部 End-->
+
 <div class="wrap">
     <!--Sidebar Start-->
-    <div class="sidebar">
-        <ul>
-            <li><a href="index.html" class="active">广告位管理</a></li>
-            <li><a href="product.html">商品管理</a></li>
-            <li><a href="label.html">商品标签管理</a></li>
-            <li><a href="order.html">订单管理</a></li>
-            <li><a href="supplier.html">供应商管理</a></li>
-        </ul>
-    </div>
+    <div class="col-sm-3 col-md-2 sidebar"></div>
     <!--Sidebar End-->
     <!--Right Start-->
-    <div class="right">
-        <div class="panel">
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+      <div class="row">
+      <div class="col-md-6 col-sm-6">
+        <div class="panel panel-default">
             <div class="panel-heading">
                 广告位管理
             </div>
-            <div class="panel-body">
+            <!-- <div class="panel-body">
                 <ul class="nav-tabs">
                     <li class="active"><a href="javascript:void(0);">广告位上传</a></li>
                     <li><a href="javascript:void(0);">广告位上架</a></li>
@@ -43,7 +50,7 @@
                 <div class="tab-content">
                     <div class="tab-pane fade active in" id="home">
                         <div class="imgbox">
-                            <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzIwMHgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTYyNjJkMTk2YyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NjI2MmQxOTZjIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwNC41Ij4yMDB4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 200px; height: 200px;">
+                            <img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="" data-holder-rendered="true" style="width: 200px; height: 200px;">
                         </div>
                         <div class="upload-link">
                             <span><label>跳转链接：</label> <input class="form-control" type="text"></span>
@@ -113,6 +120,9 @@
                         </div>
                     </div>
                 </div>
+            </div> -->
+            <div style="    margin: 10px; font: bold 20px 'microsoft yahei';color: #ccc;">
+                coming soon...    
             </div>
         </div>
     </div>
@@ -120,16 +130,16 @@
 </div>
 <!--Wrap End-->
 
-<script type="text/javascript">
-    $(function () {
-        $(".nav-tabs li").click(function () {
-            var index = $(this).index();
-            $(this).addClass("active");
-            $(this).siblings().removeClass("active");
-            $(".tab-content .tab-pane").eq(index).addClass("active");
-            $(".tab-content .tab-pane").eq(index).siblings().removeClass("active");
-        })
-    })
+<script src="js/libs/jquery-1.10.2.js"></script>
+<script src="js/libs/DataTables/jquery.dataTables.min.js"></script>
+<script src="js/libs/jquery-ui.js"></script>
+<script src="js/libs/bootstrap.min.js"></script>
+<script src='js/config.js'></script>
+<script src='js/common.js'></script>
+<script >
+    //左菜单设置
+        common.setActive("0",true);
+        common.appendTo($('.sidebar'));
 </script>
 </body>
 </html>

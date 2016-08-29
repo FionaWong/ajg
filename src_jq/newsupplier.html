@@ -38,14 +38,17 @@
         <div class="col-md-6 col-sm-6">
             <div class="panel panel-default">
             <div class="panel-heading">
-                新建供应商
+                新建/修改供应商
             </div>
             <div class="panel-body">
                 <div class="tab-content">
                     <div class="upload-link" style="width: 100%;">
-                                <span>
-                                    <label>供应商名称：</label> <input class="form-control" type="text" value="" id="merchantName">
-                                </span>
+                    <input type="hidden" value="" id="merchantId"/>
+                     
+                      <input type="hidden" value="" id="merchantCode"/>
+                    <span>
+                        <label>供应商名称：</label> <input class="form-control" type="text" value="" id="merchantName">
+                    </span>
                         <p class="fb mt20">供应商支持的支付方式：</p>
                         <p class="fb mt20" ><input id="pafCheck" type="checkbox" style="margin: 0; width: auto;" />&nbsp;平安付：</p>
                                 <span class="input-w140">

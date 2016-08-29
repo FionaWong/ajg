@@ -54,19 +54,18 @@
                                     <input class="form-control" type="text">-<input class="form-control" type="text"> -->
                                     <label>订单状态：</label>
                                     <select style="width: 160px;" name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm" id="orderStatus">
-                                        <option value="">全部</option>
-                                        <option value="">支付成功</option>
-                                        <option value="1">支付成功</option>
-                                        <option value="2">未支付</option>
-                                        <option value="3">已失效</option>
+                                        <option value="">全部</option>                                        
+                                        <option value="nopay">未付款</option>
+                                        <option value="PAYED">已付款</option>
+                                        <option value="payfailed">付款失败</option>
+                                        <option value="expiry">已失效</option>
+
                                     </select>
                                     <label>电话：</label><input id="cellphone" class="form-control" type="text">
                                 </span>
                                 <span>
                                     <label>用户ID：</label><input id="userId" class="form-control" type="text">
                                     <label>用户姓名：</label><input id="userName" class="form-control" type="text">
-                                    
-                                    
                                 </span>
                                 <span>
                                      <label>商品ID：</label><input id="goodId" class="form-control" type="text">
@@ -86,7 +85,7 @@
                                 <th class="sorting">电话</th>
                                 <th class="sorting">下单时间</th>
                                 <th class="sorting">支付时间</th>
-                                <th class="sorting">支付状态</th>
+                                <th class="sorting">订单状态</th>
                                 <th class="sorting">金额</th>
                                 <th class="sorting">详情</th>
                             </tr></thead>
@@ -110,7 +109,7 @@
         <a href="javascript:void(0);" class="layer-close">&times;</a>
         <p style="font: bold 20px 'Microsoft yahei';">订单详情页</p>
 
-        <div class="upload-link upload-link3" style="padding-top: 0;">
+        <div class="upload-link" style="padding-top: 0;">
             <span>
                 <label>订单号：</label>
                 <label id="orderId_d"></label>
@@ -128,11 +127,10 @@
             <span>
                 <label>User ID：</label>
                 <label  id= "userId_d"></label>
-              
-                <label>收货人姓名：</label>
-                <label  id= "buyName_d"></label>
             </span>
             <span>
+                <label>收货人姓名：</label>
+                <label  id= "buyName_d"></label>
                 <label>收货人手机号：</label>
                 <label  id= "buyphone_d"></label>       
             </span>
@@ -144,8 +142,8 @@
             <span>
                 <label>下单时间：</label>
                 <label  id= "orderTime_d"></label>  
-                 <label>失效时间：</label>
-                <label  id= "startCreateTime_d"></label>  
+                <label>失效时间：</label>
+                <label  id= "expireDate_d"></label>   
                 
             </span>
             <span>
@@ -158,30 +156,30 @@
             <p class="line"></p>
             <span>
                  <label>商品主标签：</label>
-                 <label  id= "startCreateTime_d"></label>  
+                 <label  id= "mainTag_d"></label>  
                 <label>商品属性标签：</label>
-                <label  id= "startCreateTime_d"></label>  
+                <label  id= "subTag_d"></label>  
                
             </span>
             <span>
-                 <label>属性品牌：</label>
-                 <label  id= "startCreateTime_d"></label>  
-                <label>属性供应商：</label>
-                 <label  id= "startCreateTime_d"></label>  
+                 <label>所属品牌：</label>
+                 <label  id= "brandName_d"></label>  
+                <label>所属供应商：</label>
+                 <label  id= "merchantName_d"></label>  
             </span>
             <p class="line"></p>
             <span>
                 <label>购买数量：</label>
                  <label  id= "buyNum_d"></label>  
                 <label>合计金额：</label>
-                <label  id= "buyNum_d"></label>  
+                <label  id= "totalAmount_d"></label>  
                
                 
             </span>
             <p class="line"></p>
             <span>
-                <label>物流信息：</label><input id= "logisticsCompany_d" class="form-control" type="text">
-                <label>物流单号：</label><input id="logistics_d" class="form-control" type="text">
+                <label>物流信息：</label><input id= "logisticsCompany_d" class="form-control" type="text" style="width:100%;">
+                <label>物流单号：</label><input id="logistics_d" class="form-control" type="text" style="width:100%;">
             </span>
             
             <span style=" margin-top:20px; text-align: center;">

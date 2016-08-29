@@ -1,13 +1,28 @@
 //商品管理模块
 var good={};
 //所有商品列表
-good.getGoodsList = function(){
-    resultFun(ajaxFun(url,data),function(res){
-      resultCode()(res,function(){//callback
-
-      });
-    });
-
+good.getGoodsList = function(data,successCb,errorCb){
+    api.resultFun(
+        //发送请求
+        api.ajaxFun(config.getGoodsList,data),
+        //200 成功响应
+        function(res){
+            api.resultCode(res)(
+                res,
+                //code :E000 正常回调
+                successCb,
+                //code :非E000 回调
+                errorCb || function(){
+                    alert("系统繁忙");
+                }
+            );
+        },
+        //request error
+        function(error){
+            alert("系统繁忙");
+        }
+    )  
+ 
 };
 //添加商品
 good.addGood= function(data,successCb,errorCb){
@@ -239,6 +254,31 @@ good.im_uploadpicture =function(data,successCb,errorCb){
     api.resultFun(
         //发送请求
         api.ajaxFun(config.im_uploadpicture,data),
+        //200 成功响应
+        function(res){
+            api.resultCode(res)(
+                res,
+                //code :E000 正常回调
+                successCb,
+                //code :非E000 回调
+                errorCb || function(){
+                    alert("系统繁忙");
+                }
+            );
+
+        },
+        //request error
+        function(error){
+            alert("系统繁忙");
+        }
+    )
+}
+
+//删除图片
+good.del_picture =function(data,successCb,errorCb){
+    api.resultFun(
+        //发送请求
+        api.ajaxFun(config.del_picture,data),
         //200 成功响应
         function(res){
             api.resultCode(res)(

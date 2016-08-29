@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+  <title>安金购后管</title>
+  <link rel="stylesheet" href="styles/jquery-ui-1.10.4.custom.min.css">
+  <link rel="stylesheet" href="styles/bootstrap.min.css"/>
+  <link rel="stylesheet" href="styles/dashboard.css"/>
+  <link rel="stylesheet" href="styles/anjingou.css"/>
+</head>
+<body>
+<div class="layer-bg_login"></div>
+      <div class="login content ng-scope">
+      <form action="../consolemanage/admin/login" method="post">
+        <fieldset class="question">
+          <legend>安金购后台管理登录</legend>
+          <div class="row">
+            <div class="col-md-2 labletitle"><label>用户名:</label></div>
+            <div class="col-md-10">
+              <input type="text" name="username" maxlength="50" class="form-control login_username">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2 labletitle"><label>密码:</label></div>
+            <div class="col-md-10">
+              <input type="password" name="password" maxlength="100" class="form-control login_password">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 text-center" style="line-height: 50px">
+              <input type="submit" name="" class="btn btn-sm" value="登录">
+            </div>
+          </div>
+        </fieldset>
+      </form>
+  </div>'
+<script src="js/libs/jquery-1.10.2.js"></script>
+<script src="js/libs/jquery-ui.js"></script>
+</html>

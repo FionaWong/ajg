@@ -33,405 +33,420 @@
     <div class="col-sm-3 col-md-2 sidebar"></div>
     <!--Sidebar End-->
     <!--Right Start-->
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-      <div class="row">
-      <div class="col-md-6 col-sm-6">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                商品标签管理
-            </div>
-            <div class="panel-body">
-                <ul class="nav-tabs">
-                    <li class="active"><a href="javascript:void(0);">主标签管理</a></li>
-                    <li><a href="javascript:void(0);">商品属性标签管理</a></li>
-                    <li><a href="javascript:void(0);">限时抢购标签管理</a></li>
-                    <li><a href="javascript:void(0);">限量抢购标签管理</a></li>
-                    <li><a href="javascript:void(0);">品牌推荐标签管理</a></li>
-                </ul>
-                <div class="tab-content">
-                    <div class="tab-pane fade active in" id="home">
-                        <div class="upload-link" style="width: 100%;">
-                                        <span>
-                                            <label>标签：</label>
-                                            <select style="margin-right: 60px;" name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
-                                                <option value="10">全部</option>
-                                                <option value="10">男性</option>
-                                                <option value="10">女性</option>
-                                                <option value="10">家庭</option>
-                                                <option value="10">主推</option>
-                                            </select>
-                                            <button type="button" class="btn btn-default" style="margin-right: 20px;">筛选</button>
-                                            <button type="button" class="btn btn-default" >导出</button>
-                                        </span>
+      <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            商品标签管理
                         </div>
-                        <table class="table mt20 fl " cellspacing="1" >
-                            <thead>
-                            <tr role="row">
-                                <th class="sorting_asc">标签</th>
-                                <th class="sorting">商品ID</th>
-                                <th class="sorting">商品标题</th>
-                                <th class="sorting">主图</th>
-                                <th class="sorting">操作</th>
-                            </tr></thead>
-                            <tbody>
-                            <tr class="gradeA even">
-                                <td class="sorting_1">男性</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td><img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzIwMHgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTYyNjJkMTk2YyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NjI2MmQxOTZjIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwNC41Ij4yMDB4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 50px; height: 50px;"></td>
-                                <td class="center "><a href="javascript:;" class="modify-label">修改标签</a></td>
-                            </tr>
-                            <tr class="gradeA even">
-                                <td class="sorting_1">女性</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td><img data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzIwMHgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTYyNjJkMTk2YyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NjI2MmQxOTZjIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwNC41Ij4yMDB4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 50px; height: 50px;"></td>
-                                <td class="center "><a href="javascript:;" class="modify-label">修改标签</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <ul class="pagination" style="margin:0;">
-                            <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">上一页</a>
-                            </li>
-                            <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">1</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">2</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">3</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">4</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">5</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">6</a>
-                            </li>
-                            <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" >
-                                <a href="#">下一页</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade">
-                        <table class="table mt20" cellspacing="1" >
-                            <thead>
-                            <tr role="row even">
-                                <th class="sorting_asc" style="width: 151px;">标签属性编码</th>
-                                <th class="sorting" style="width: 235px;">标签属性名称</th>
-                                <th class="sorting" style="width: 214px;">操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr class="gradeA odd">
-                                <td class="sorting_1">1</td>
-                                <td class=" ">颜色</td>
-                                <td class="center "><a href="label_view.html" class="edit">查看编辑</a></td>
-                            </tr>
-                            <tr class="gradeA odd">
-                                <td class="sorting_1">2</td>
-                                <td class=" ">尺码</td>
-                                <td class="center "><a href="label_view.html" class="edit">查看编辑</a></td>
-                            </tr>
-                            <tr class="gradeA odd">
-                                <td class="sorting_1">3</td>
-                                <td class=" ">鞋码</td>
-                                <td class="center "><a href="label_view.html" class="edit">查看编辑</a></td>
-                            </tr>
-                            <tr class="gradeA odd">
-                                <td class="sorting_1">4</td>
-                                <td class=" "><input type="text" value="请输入标签名" class="input-sty" /></td>
-                                <td class="center "><a href="javascript:;" class="edit">保存</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <p align="right" class="wof mt20"><button type="button" class="btn" style="margin-right: 0;">新增</button></p>
-                        <ul class="pagination" >
-                            <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" >
-                                <a href="#">上一页</a>
-                            </li>
-                            <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">1</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">2</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">3</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">4</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">5</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">6</a>
-                            </li>
-                            <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">下一页</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade">
-                        <div class="upload-link" style="width: 100%;">
+                        <div class="panel-body">
+                            <ul class="nav nav-tabs">
+                                <li class="active" data-id="home"><a href="#home"   data-toggle="tab" aria-expanded="true">主标签管理</a>
+                                </li>
+                                <li class="" data-id="profile1"><a href="#profile1"   data-toggle="tab" aria-expanded="false">商品属性标签管理</a>
+                                </li>
+                                <li class="" data-id="profile2" ><a href="#profile2"   data-toggle="tab" aria-expanded="false">限时限量抢购标签管理</a>
+                                </li>
+                               
+                                <li class="" data-id="profile3"><a href="#profile3"    data-toggle="tab" aria-expanded="false">品牌推荐标签管理</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active in" id="home">
+                                    <div class="upload-link" style="width: 100%;">
                                         <span>
-                                            <label>商品ID：</label> <input class="form-control" type="text"/>
-                                            <label>抢购时间：</label> <input class="form-control" type="text"/>
+                                             <label>标签名：</label> <input class="form-control" type="text" id="mainTag">
+                                            <button type="button" class="btn btn-default" id="mainAdd" >添加</button>
                                         </span>
-                                        <span>
-                                            <label>标签状态：</label>
-                                            <select style="margin-right: 60px;" name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
-                                                <option value="10">未上架</option>
-                                                <option value="10">已上架</option>
-                                            </select>
-                                            <button type="button" class="btn btn-default" style="margin-right: 20px;">查询</button>
+                                    </div>
+                                    <table class="table mt20 fl table-striped table-bordered table-hover dataTable no-footer td-line" id="mainTable" aria-describedby="dataTables-example_info" >
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc">ID</th>
+                                            <th class="sorting_asc">标签</th>
+                                            
+                                            <!-- <th class="sorting">操作</th> -->
+                                        </tr></thead>
+                                        <tbody> </tbody>
+                                    </table>
+                                   
+                                </div>
+                                <div class="tab-pane" id="profile1">
+                                    <p align="right"><button type="button" class="btn btn-default" style="margin-right: 20px;" onclick="javascript:openNewPropertyDialog();">新增</button></p>
+                                    <table class="table table-striped table-bordered table-hover dataTable no-footer mt20" id="attrTable" >
+                                        <thead>
+                                        <tr role="row even">
+                                            <th class="sorting_asc" style="width: 151px;">标签属性编码</th>
+                                            <th class="sorting" style="width: 235px;">标签属性名称</th>
+                                            <th class="sorting" style="width: 214px;">操作</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                       
+                                        </tbody>
+                                    </table>
+                                                                        
+                                </div>
+                                <div class="tab-pane" id="profile2">
+                                    <div class="upload-link" style="width: 100%;">
+                                        <spapn>
+                                            <label>商品ID：</label> <input class="form-control" type="text" id="limitId"/>
+                                            <label>抢购时间：</label> <input style="margin-right:0px;" class="form-control" type="text" id="limitTimeFrom"/>-<input class="form-control" type="text" id="limitTimeTo"/>
                                         </span>
-                        </div>
-                        <table class="table mt20 fl" cellspacing="1">
-                            <thead>
-                            <tr role="row">
-                                <th class="sorting">商品ID</th>
-                                <th class="sorting">商品名称</th>
-                                <th class="sorting">限时抢购</th>
-                                <th class="sorting">抢购排序</th>
-                                <th class="sorting">参加时间</th>
-                                <th class="sorting">&nbsp;</th>
-                            </tr></thead>
-                            <tbody>
-                            <tr class="gradeA even">
-                                <td>12345</td>
-                                <td>榨汁机限时抢购</td>
-                                <td><input type="checkbox" value="checkbox" class="checkbox"></td>
-                                <td><input type="text" value="请输入序号（1-5）" class="td-input"/></td>
-                                <td><input type="text" value="" class="td-input" />-<input type="text" value="" class="td-input" /></td>
-                                <td><a href="javascript:;">保存</a></td>
-                            </tr>
-                            <tr class="gradeA even">
-                                <td>12345</td>
-                                <td>榨汁机限时抢购</td>
-                                <td><input type="checkbox" value="checkbox" class="checkbox"></td>
-                                <td><input type="text" value="未参加" class="td-input"/></td>
-                                <td><input type="text" value="" class="td-input" />-<input type="text" value="" class="td-input" /></td>
-                                <td><a href="javascript:;">保存</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <ul class="pagination" >
-                            <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="">
-                                <a href="#">上一页</a>
-                            </li>
-                            <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">1</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">2</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">3</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">4</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">5</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">6</a>
-                            </li>
-                            <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" >
-                                <a href="#">下一页</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade">
-                        <div class="upload-link" style="width: 100%;">
-                                        <span>
-                                            <label>商品ID：</label> <input class="form-control" type="text"/>
-                                            <label>抢购数量：</label> <input class="form-control" type="text"/>
-                                        </span>
-                                        <span>
-                                            <label>标签状态：</label>
-                                            <select style="margin-right: 60px;" name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
-                                                <option value="10">未上架</option>
-                                                <option value="10">已上架</option>
-                                            </select>
-                                            <button type="button" class="btn btn-default" style="margin-right: 20px;">查询</button>
-                                        </span>
-                        </div>
-                        <table class="table mt20 fl" cellspacing="1">
-                            <thead>
-                            <tr role="row">
-                                <th class="sorting">商品ID</th>
-                                <th class="sorting">商品名称</th>
-                                <th class="sorting">限量抢购</th>
-                                <th class="sorting">抢购排序</th>
-                                <th class="sorting">抢购数量</th>
-                                <th class="sorting">&nbsp;</th>
-                            </tr></thead>
-                            <tbody>
-                            <tr class="gradeA even">
-                                <td>12345</td>
-                                <td>榨汁机限时抢购</td>
-                                <td><input type="checkbox" value="checkbox" class="checkbox"></td>
-                                <td><input type="text" value="请输入序号（1-5）" class="td-input" /></td>
-                                <td><input type="text" value="" class="td-input" />-<input type="text" value="" class="td-input" /></td>
-                                <td><a href="javascript:;">保存</a></td>
-                            </tr>
-                            <tr class="gradeA even">
-                                <td>12345</td>
-                                <td>榨汁机限时抢购</td>
-                                <td><input type="checkbox" value="checkbox" class="checkbox"></td>
-                                <td><input type="text" value="未参加" class="td-input" /></td>
-                                <td><input type="text" value="" class="td-input" />-<input type="text" value="" class="td-input" /></td>
-                                <td><a href="javascript:;">保存</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <ul class="pagination" >
-                            <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">上一页</a>
-                            </li>
-                            <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">1</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">2</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">3</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">4</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">5</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">6</a>
-                            </li>
-                            <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" >
-                                <a href="#">下一页</a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane fade">
-                        <div class="upload-link" style="width: 100%;">
-                                        <span>
-                                            <label>品牌名称：</label> <input class="form-control" type="text"/>
-                                            <label>品牌编码：</label> <input class="form-control" type="text"/>
-                                        </span>
-                                        <span>
-                                            <label>标签状态：</label>
-                                            <select style="margin-right: 60px;" name="dataTables-example_length" aria-controls="dataTables-example" class="form-control input-sm">
-                                                <option value="10">未上架</option>
-                                                <option value="10">已上架</option>
-                                            </select>
-                                            <button type="button" class="btn btn-default" style="margin-right: 20px;">查询</button>
-                                            <button type="button" class="btn btn-default" style="margin-right: 20px;" onclick="window.location.href='newbrand.html'">新建品牌</button>
-                                        </span>
-                        </div>
-                        <table class="table mt20 fl" cellspacing="1">
-                            <thead>
-                            <tr role="row">
-                                <th class="sorting">品牌编码</th>
-                                <th class="sorting">品牌名称</th>
-                                <th class="sorting">品牌推荐</th>
-                                <th class="sorting">推荐序号</th>
-                                <th class="sorting">参加时间</th>
-                                <th class="sorting">操作</th>
-                            </tr></thead>
-                            <tbody>
-                            <tr class="gradeA even">
-                                <td>1</td>
-                                <td>XX</td>
-                                <td><input type="checkbox" value="checkbox" class="checkbox"></td>
-                                <td><input type="text" value="请输入序号(1-5)" class="td-input" /></td>
-                                <td><input type="text" value="" class="td-input"/>-<input type="text" value="" class="td-input"/></td>
-                                <td><a href="editbrand.html">编辑</a><a href="javascript:;">删除</a></td>
-                            </tr>
-                            <tr class="gradeA even">
-                                <td>12345</td>
-                                <td>榨汁机限时抢购</td>
-                                <td><input type="checkbox" value="checkbox" class="checkbox"></td>
-                                <td><input type="text" value="未参加" class="td-input"/></td>
-                                <td><input type="text" value="" class="td-input"/>-<input type="text" value="" class="td-input"/></td>
-                                <td><a href="javascript:;">保存</a></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                        <ul class="pagination">
-                            <li class="paginate_button previous disabled" aria-controls="dataTables-example" tabindex="0" id="dataTables-example_previous">
-                                <a href="#">上一页</a>
-                            </li>
-                            <li class="paginate_button active" aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">1</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">2</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">3</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">4</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">5</a>
-                            </li>
-                            <li class="paginate_button " aria-controls="dataTables-example" tabindex="0">
-                                <a href="#">6</a>
-                            </li>
-                            <li class="paginate_button next" aria-controls="dataTables-example" tabindex="0" >
-                                <a href="#">下一页</a>
-                            </li>
-                        </ul>
-                    </div>
 
+                                        <span>
+                                            <label>抢购数量：</label> 
+                                            <input class="form-control" type="text" id="limitAmount1" style="margin-right: 0;"/>-
+                                            <input class="form-control" type="text" id="limitAmount"/>
+                                            <label>标签状态：</label>
+                                            <select style="margin-right: 60px;" name="dataTables-example_length"  class="form-control input-sm" id="limitState">
+                                                <option value="">未选中</option>
+                                                <option value="1">限时抢购</option>
+                                                <option value="2">限量抢购</option>
+                                            </select>
+                                            <button type="button" class="btn btn-default" style="margin-right: 20px;" id="limitSearch">查询</button>
+                                        </span>
+                                    </div>
+                                    <table class="table mt20 fl table-striped table-bordered table-hover dataTable no-footer" id="limitTable" >
+                                        <thead>
+                                        <tr role="row">
+                                            <th class="sorting">商品ID</th>
+                                            <th class="sorting">商品名称</th>
+                                            <th class="sorting">状态</th>
+                                            <th class="sorting">抢购开始时间</th>
+                                            <th class="sorting">抢购结束时间</th>
+                                            <th class="sorting"> 参加抢购的商品数量</th>
+                                            <th class="sorting"> 剩余参加抢购的商品数量</th>
+                                            <th class="sorting"> 编辑</th>
+                                        </tr></thead>
+                                        <tbody>
+                                        
+                                        </tbody>
+                                    </table>
+                                  
+                                </div>
+                                
+                                <div class="tab-pane" id="profile3">
+                                    <div class="upload-link" style="width: 100%;">
+                                        <span>
+                                            <label>品牌名称：</label> <input id="brandName" class="form-control" type="text"/>
+                                            <label>品牌编码：</label> <input id="brandCode" class="form-control" type="text"/>
+                                        </span>
+                                        <span>
+                                            <label>品牌状态：</label>
+                                            <select style="margin-right: 60px;" id="brandStatus"  class="form-control input-sm">
+                                                <option value="">全部</option>
+                                                <option value="1">已推荐</option>
+                                                <option value="0">未推荐</option>
+                                            </select>
+                                            <button type="button" id="brandSearch" class="btn btn-default" style="margin-right: 20px;">查询</button>
+                                            <button type="button" class="btn btn-default" style="margin-right: 20px;" onclick="javascript:openNewbrandDialog();">新建品牌</button>
+                                        </span>
+                                    </div>
+                                    <br><br><br><br>
+                                    <table class="table table-striped table-bordered table-hover dataTable no-footer mt20" id="brandTable" >
+                                    
+                                        <thead>
+                                        <tr role="row">            
+                                            <!-- <th >ID</th> -->
+                                            <th >品牌名称</th>
+                                            <th >品牌编码</th>
+                                            <th >开始时间</th>
+                                            <th >结束时间</th>
+                                            <th >状态</th>
+                                            <th >描述</th>
+                                           <!--  <th >创建人</th>
+                                            <th >创建时间</th>
+                                            <th >修改人</th>
+                                            <th >修改时间</th> -->
+                                            <th >操作</th>
+                                        </tr></thead>
+                                        <tbody>
+                                        
+                                        </tbody>
+                                    </table>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     <!--Right End-->
 </div>
 <!--Wrap End-->
 
 <!--弹层-->
-<div class="layer-box">
+<div class="layer-box layer-box-1imit " style="display:none;">
     <div class="layer-bg"></div>
-    <div class="layer-cont" style="height: 200px;margin-top:-100px;">
+    <div class="layer-cont" style="margin-top:-100px;">
         <a href="javascript:;" class="layer-close">&times;</a>
-        <p>已有标签</p>
-        <div class="checkbox-box mt20">
-            <label>
-                <input type="checkbox" value="" class="checkbox">男性
-            </label>
-            <label>
-                <input type="checkbox" value="" class="checkbox">女性
-            </label>
-            <label>
-                <input type="checkbox" value="" class="checkbox">家庭
-            </label>
-            <label>
-                <input type="checkbox" value="" class="checkbox">主推
-            </label>
-            <label>
-                <i class="Symbol">&#43;</i>
-            </label>
+        <p>修改限时限量商品</p>
+        <input type="hidden" id="goodId_d" value="">
+        <input type="hidden" id="idRygGoodLimitTag_d" value="">
+        <span>
+            <label>标签状态：</label> 
+            <select style="margin-right: 60px;" id="limitType_d"  class="form-control input-sm">
+                <option value="">未选中</option>
+                <option value="1">限时购买</option>
+                <option value="2">限量购买</option>
+            </select>
+        </span>
+<!--         <span>
+            <label>抢购序号：</label> 
+            <input id="limitTagOrderNumber_d" class="form-control" type="text"/>
+        </span> -->
+        <span>
+            <label>排序：</label> 
+            <input id="limitSort_d" class="form-control" type="text"/>
+        </span>
+        <span>
+            <label>抢购时间开始：</label> 
+            <!-- <input id="beginTime_d" class="form-control" type="text"/> -->
+            <input id="beginTime_d" class="form-control" type="text"/>
+        </span>
+        <span>
+            <label>抢购时间结束：</label> 
+            <!-- <input id="endTime_d" class="form-control" type="text"/> -->
+            <input id="endTime_d" class="form-control" type="text"/>
+
+        </span>
+        <span>
+            <label>参加抢购的商品数量：</label> 
+            <input id="limitNumber_d" class="form-control" type="text"/>
+        </span>
+        <span>
+            <label>剩余参加抢购的商品数量：</label> 
+            <input id="remainLimitNumber_d" class="form-control" type="text"/>
+        </span>
+        <!-- <span>
+            <label>修改人：</label> 
+            <input id="updatedBy_d" class="form-control" type="text"/>
+        </span>
+        <span>
+            <label>创建人：</label> 
+            <input id="createdBy_d" class="form-control" type="text"/>
+        </span>
+        <span>
+            <label>备注：</label> 
+            <input id="mark_d" class="form-control" type="text"/>
+        </span> -->
+        <br>
+        <button type="button" id="limitAdd" class="btn btn-default" style="float:right;">添加</button>
+    </div>
+</div>
+<div class="layer-box layer-box-brand" style="display:none;">
+    <div class="layer-bg"></div>
+    <div class="layer-cont" style="margin-top:-300px;">
+        <a href="javascript:void(0);" class="layer-close">&times;</a>
+        <p>修改品牌标签</p>
+        <input type="hidden" id="brand_Id_d" value="">
+        <span>
+            <label>标签状态：</label> 
+            <select style="margin-right: 60px;"  id="brandType_d" class="form-control input-sm">
+                <option value="">未选中</option>
+                <option value="1">推荐</option>
+                <option value="0">未推荐</option>
+            </select>
+        </span>
+        <span>
+            <label>品牌名称：</label> 
+            <input id="brandName_d" class="form-control" type="text"/>
+        </span>
+        <span>
+            <label>品牌编码：</label> 
+            <input id="brandCode_d" class="form-control" type="text"/>
+        </span>
+        <span>
+            <label>推荐序号：</label> 
+            <input id="brandOrderNumber_d" class="form-control" type="text"/>
+        </span>
+        <span>
+            <label>推荐开始时间：</label> 
+            <input id="brandBeginTime_d" class="form-control" type="text"/>
+        </span>
+        <span>
+            <label>推荐结束时间：</label> 
+            <input id="brandEndTime_d" class="form-control" type="text"/>
+        </span>
+        <span>
+            <label>备注：</label> 
+            <input id="brandMark_d" class="form-control" type="text"/>
+        </span>
+         <button type="button" id="brandUpdate" class="btn btn-default" style="float:right;">添加</button>
+         <br>
+         <br>
+         <br>
+        <div id="brand_img_up">
+            <!-- <img id="file_brand_up_img" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzIwMHgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTYyNjJkMTk2YyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NjI2MmQxOTZjIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwNC41Ij4yMDB4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 200px; height: 200px;">
+            <p align="center" class="addimg-exit-sty"><a href="javascript:void(0)">修改</a><a href="javascript:void(0)">删除</a></p>
+            <input type="file" name="filename" style="bottom: 70px;top: inherit;left: 20px;" id="file_brands" class="ipt_file" /> -->
+        </div>
+        <div style="width: 100%; text-align: center" class="fl mt20"><button type="button" id="file_brand_up" class="btn btn-default">上传</button></div>
+    </div>
+</div>
+<div class="layer-box layer-box-newbrand" style="display:none;">
+    <div class="layer-bg"></div>
+    <div class="layer-cont" style="margin-top:-300px;">
+        <a href="javascript:void(0);" class="layer-close">&times;</a>
+        <p>新建品牌标签</p>
+        <div class="upload-link" style="width: 100%;">
+            <span><label>品牌名称：</label> <input id="brandName_a" class="form-control" type="text" style="margin-right:0;"></span>
+            <span><label>品牌编码：</label> <input id="brandCode_a" class="form-control" type="text" style="margin-right:0;"></span>
+            <span><label>品牌描述：</label> <input id="mark_a" class="form-control" type="text" style="margin-right:0;"></span>
+        </div>
+        <div style="width: 100%; text-align: center" class="fl mt20">
+        <button type="button" class="btn btn-default" id="newBrandAdd">新增</button></div>
+        <br>
+        <div>
+            <img id="file_brand_img" data-src="holder.js/200x200" class="img-thumbnail" alt="200x200" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzIwMHgyMDAKQ3JlYXRlZCB3aXRoIEhvbGRlci5qcyAyLjYuMC4KTGVhcm4gbW9yZSBhdCBodHRwOi8vaG9sZGVyanMuY29tCihjKSAyMDEyLTIwMTUgSXZhbiBNYWxvcGluc2t5IC0gaHR0cDovL2ltc2t5LmNvCi0tPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PCFbQ0RBVEFbI2hvbGRlcl8xNTYyNjJkMTk2YyB0ZXh0IHsgZmlsbDojQUFBQUFBO2ZvbnQtd2VpZ2h0OmJvbGQ7Zm9udC1mYW1pbHk6QXJpYWwsIEhlbHZldGljYSwgT3BlbiBTYW5zLCBzYW5zLXNlcmlmLCBtb25vc3BhY2U7Zm9udC1zaXplOjEwcHQgfSBdXT48L3N0eWxlPjwvZGVmcz48ZyBpZD0iaG9sZGVyXzE1NjI2MmQxOTZjIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9Ijc0LjA1NDY4NzUiIHk9IjEwNC41Ij4yMDB4MjAwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="width: 200px; height: 200px;">
+            <!-- <p align="center" class="addimg-exit-sty"><a href="javascript:void(0)">修改</a><a href="javascript:void(0)">删除</a></p> -->
+            <input type="file" name="filename" style="bottom: 70px;top: inherit;left: 20px;" id="file_brand" data-index='0' data-type='listpage' class="ipt_file" />
+        </div>
+       
+        <div style="width: 100%; text-align: center" class="fl mt20"><button type="button" id="file_brand_add" class="btn btn-default">上传</button></div>
+    </div>
+
+</div>
+
+<div class="layer-box layer-box-newproperty" style="display:none;">
+    <div class="layer-bg"></div>
+    <div class="layer-cont" style="margin-top:-100px;">
+        <a href="javascript:void(0);" class="layer-close">&times;</a>
+        <p>新建/修改属性标签</p>
+        <div class="upload-link" style="width: 100%;">
+            <input type="hidden" name="" id="propertyId" value="">
+            <span><label>属性名称：</label> <input class="form-control" id="propertyName" type="text" style="margin-right:0;"></span>
+            <span><label>属性编码：</label> <input class="form-control" id="propertyCode"  type="text" style="margin-right:0;"></span>
+        </div>
+        <div style="width: 100%; text-align: center" class="fl mt20">
+        <button type="button" class="btn btn-default" id="newPropertyAdd">保存</button></div>
+    </div>
+</div>
+
+<!-- <div class="layer-box layer-box-upProperty" style="display:none;">
+    <div class="layer-bg"></div>
+    <div class="layer-cont" style="margin-top:-100px;">
+        <a href="javascript:void(0);" class="layer-close">&times;</a>
+        <p>修改属性标签</p>
+        <div class="upload-link" style="width: 100%;">
+            <span><label>属性名称：</label> <input class="form-control" id="propertyName" type="text" style="margin-right:0;"></span>
+            <span><label>属性编码：</label> <input class="form-control" id="propertyCode"  type="text" style="margin-right:0;"></span>
+        </div>
+        <div style="width: 100%; text-align: center" class="fl mt20">
+        <button type="button" class="btn btn-default" id="newPropertyAdd">新增</button></div>
+    </div>
+</div> -->
+
+<div class="layer-box layer-box-newChildsProperty" style="display:none;">
+    <div class="layer-bg"></div>
+    <div class="layer-cont" style="margin-top:-100px;">
+        <a href="javascript:void(0);" class="layer-close">&times;</a>
+        <p>添加子属性标签</p>
+        <div class="upload-link" style="width: 100%;">
+            <input type="hidden" name="" id="propertyParentId" value="">
+            
+            <span><label>子属性名称：</label> <input class="form-control" id="propertyChildsName" type="text" style="margin-right:0;"></span>
+            <span><label>子属性编码：</label> <input class="form-control" id="propertyChildsCode"  type="text" style="margin-right:0;"></span>
+        </div>
+        <div style="width: 100%; text-align: center" class="fl mt20">
+        <button type="button" class="btn btn-default" id="newChildsPropertyAdd">新增</button></div>
+    </div>
+</div>
+
+
+<div class="layer-box layer-box-ChildsProperty" style="display:none;">
+    <div class="layer-bg"></div>
+    <div class="layer-cont" style="margin-top:-100px;width: 800px;margin-left: -400px;">
+        <a href="javascript:void(0);" class="layer-close">&times;</a>
+        <p>编辑子属性标签</p>
+        <div class="upload-link" style="width: 100%;" id="ChildsPropertyDetail">
+            <input type="hidden" name="" id="propertyChildsNames" value="">
+            <span><label>属性名称：</label> <input class="form-control" id="propertyChildsNames" type="text" style="margin-right:0;"><label>属性编码：</label> <input class="form-control" id="propertyCode"  type="text" style="margin-right:0;">
+            <a href='javascript:;' onClick='javascript:(\""+list[x].propertyId+"\");'>修改</a>&nbsp;
+            <a href='javascript:;' onClick='javascript:(\""+list[x].propertyId+"\");'>删除</a>
+            </span>
         </div>
     </div>
 </div>
-<script src="js/libs/jquery-1.10.2.js"></script>
+</div>
+<script src="js/libs/jquery-1.8.3.min.js"></script>
+<!-- <script src="js/libs/jquery-1.10.2.js"></script> -->
+<script type="text/javascript">
+  jQuery.fn.extend({
+    uploadPreview: function (opts) {
+        var _self = this,
+            _this = $(this);
+        opts = jQuery.extend({
+            Img: "ImgPr",
+            Width: 100,
+            Height: 100,
+            ImgType: ["gif", "jpeg", "jpg", "bmp", "png"],
+            Callback: function () {}
+        }, opts || {});
+        _self.getObjectURL = function (file) {
+            var url = null;
+            if (window.createObjectURL != undefined) {
+                url = window.createObjectURL(file)
+            } else if (window.URL != undefined) {
+                url = window.URL.createObjectURL(file)
+            } else if (window.webkitURL != undefined) {
+                url = window.webkitURL.createObjectURL(file)
+            }
+            return url
+        };
+        _this.change(function () {
+            if (this.value) {
+                if (!RegExp("\.(" + opts.ImgType.join("|") + ")$", "i").test(this.value.toLowerCase())) {
+                    alert("选择文件错误,图片类型必须是" + opts.ImgType.join("，") + "中的一种");
+                    this.value = "";
+                    return false
+                }
+                if ($.browser.msie) {
+                    try {
+                        $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]))
+                    } catch (e) {
+                        var src = "";
+                        var obj = $("#" + opts.Img);
+                        var div = obj.parent("div")[0];
+                        _self.select();
+                        if (top != self) {
+                            window.parent.document.body.focus()
+                        } else {
+                            _self.blur()
+                        }
+                        src = document.selection.createRange().text;
+                        document.selection.empty();
+                        obj.hide();
+                        obj.parent("div").css({
+                            'filter': 'progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)',
+                            'width': opts.Width + 'px',
+                            'height': opts.Height + 'px'
+                        });
+                        div.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = src
+                    }
+                } else {
+                    $("#" + opts.Img).attr('src', _self.getObjectURL(this.files[0]))
+                }
+                opts.Callback()
+            }
+        })
+    }
+});
+</script>
+<script type="text/javascript" src="js/views/goods/ajaxfileupload.js"></script>
+<script type="text/javascript" src="js/libs/upload/webuploader.js"></script>
 <script src="js/libs/DataTables/jquery.dataTables.min.js"></script>
 <script src="js/libs/jquery-ui.js"></script>
-<script src="js/libs/bootstrap.min.js"></script>
+<!-- <script src="js/libs/bootstrap.min.js"></script>  -->
 <script src='js/config.js'></script>
 <script src='js/common.js'></script>
-<script src='js/api/order.js'></script>
-<script src='js/views/orders/order.js'></script>
+<script src='js/api/label.js'></script>
+<script src='js/api/good.js'></script>
+<script src='js/views/labels/labels.js'></script>
+<script src='js/views/labels/propertys.js'></script>
+
 </body>
 </html>

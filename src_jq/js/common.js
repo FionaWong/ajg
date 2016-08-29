@@ -44,40 +44,53 @@ common.setAttr = function(attr,val,id){
     }
   }
   modulesList[id][attr] = val ||'';
-}
+};
 //设置active属性
 common.setActive = function(id,val){
   modulesList = common.modulesList;
   for(var x in modulesList){
-    modulesList[x]['isActive'] = false;
+    modulesList[x].isActive = false;
   }
-  modulesList[id]['isActive'] = true;
-}
+  modulesList[id].isActive = true;
+};
 //左边菜单
 common.getmoduleStr =function(modules){
  modules = modules ||[];
  var modStr = "";
  var i=0,l= modules.length;
- //排序根据id
- modules = modules.sort(function(a,b){
-   return (parseInt(a.id) - parseInt(b.id));
- });
- modStr += '<ul class="nav nav-sidebar">';
- for( ; i<l ; i++){
+ var sort = function(modules){
+   return modules.sort(function(a,b){
+     return (parseInt(a.id) - parseInt(b.id));
+   });
+ },
+ mainMenu = function(module){
+   var modStr = "";
+   modStr +=  "<li class =";
+   modStr += module.isActive ?'active':'';
+   modStr += " ><a href="+module.url+">"+module.name+"</a></li>";
+   return modStr;
+ },
+ subMenu = function(module,str){
+   var modStr = str;
    modStr +=  "<li class =";
    modStr += modules[i].isActive ?'active':'';
    modStr += " ><a href="+modules[i].url+">"+modules[i].name+"</a></li>";
- }
- modStr += '</ul>';
+   return modStr;
+ };
+ //排序根据id
+ modules = sort(modules);
+modStr += '<ul class="nav nav-sidebar">';
+modStr += '</ul>';
  return modStr;
-}
-common.loginTarget = $(".layer-login");
+};
+
 common.appendTo = function(target){
   var str = common.getmoduleStr(common.modulesList);
   target.append(str);
-}
+};
 
 /*login*/
+common.loginTarget = $(".layer-login");
 common.openlogin = function(target){
   var loginHtml = function(){
     return (
@@ -111,7 +124,7 @@ common.openlogin = function(target){
   '</div>');
   };
 
-  target.find(".login").length>0 ? target.show() : 
+  target.find(".login").length>0 ? target.show() :
   (function(){
     target.append(loginHtml());
     target.show();
@@ -131,7 +144,7 @@ common.login = function(){
         } ,
         success: function(res) {
             if("E000" == res.code){
-             
+
               common.closeLogin(common.loginTarget);
               return ;
             }
@@ -143,7 +156,7 @@ common.login = function(){
               alert("系统繁忙，请稍后再试");
               return ;
             }
-            
+
         },
         error: function(err) {
            alert("系统繁忙，请稍后再试");
@@ -202,5 +215,3 @@ api.resultCode = function(){
     }
   };
 };
-
-

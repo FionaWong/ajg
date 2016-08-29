@@ -26,7 +26,7 @@
             {"data":"createTime"},           
             {"data":"updateTime"},
             {"data":"status"},
-            {"data":"price"},
+            {"data":"totalAmount"},
             {"data":"operate()"}
             
           ],
@@ -66,15 +66,58 @@
 	},
 	//根据接口返回list生成order 对象
 	create_orderObj = function(order){
-		var orderObj = {}
+		var orderObj = {};
 		for(var x in order){
-			orderObj[x] = order[x] || '';
-			orderObj.operate = function(){
-				return "<a href='#' onClick='javascript:openLayerbox(\""+orderObj['orderId']+"\")'>查看</a>";
-			}
+			if(x == 'status'){
+				orderObj[x] = switchStatus(order[x]);
+			}else{
+				orderObj[x] = order[x] || '';
+				orderObj.operate = function(){
+					return "<a href='#' onClick='javascript:openLayerbox(\""+orderObj['orderId']+"\",\""+orderObj['status']+"\")'>查看</a>";
+				}
+			}			
 		}
 
 		return orderObj;
+	},
+	switchStatus=function(status){
+		var state="";
+		switch(status){
+			case 'nopay':
+				state ="未付款";
+				break;
+			case 'PAYED':
+				state ="已付款";
+				break;
+			case 'payfailed':
+				state ="付款失败";
+				break;
+			case 'expiry':
+				state ="已失效";
+				break;
+		}
+		return state;
+	},
+	switchPayStatus = function(status){
+		var state="";
+		switch(status){
+			case '0':
+				state ="支付失败";
+				break;
+			case '1':
+				state ="支付成功";
+				break;
+			case '2':
+				state ="未知";
+				break;
+			case '3':
+				state ="支付中";
+				break;
+			case '4':
+				state ="未付款";
+				break;
+		}
+		return state;
 	},
 	//拿到orderlist参数
 	getOrderListParam = function(){
@@ -87,14 +130,15 @@
 			cellphone:$("#cellphone").val() ||　"",
 			goodName:$("#goodName").val() ||　"",
 			orderStatus:$("#orderStatus").val() ||　"",
-			dateStart: formateDate($("#startCreateTime").val()),
-			dateEnd: formateDate($("#endCreateTime").val()),
+			startCreateTimeStr: formateDate($("#startCreateTime").val()),
+			endCreateTimeStr: formateDate($("#endCreateTime").val(),1),
 			pageSize:1000,
 			pageNum:1
 		};
 	},
-	formateDate = function(val){
+	formateDate = function(val,to){
 		if(!val) return "";	
+		if(to) return val+" 23:59:59";
 		return val+" 00:00:00";
 	},
 	//拿到Orderlist数据
@@ -153,17 +197,17 @@
 	    	hideLayerBox();
 	    })
 	})
-	window.openLayerbox =function(orderId){
+	window.openLayerbox =function(orderId,expiryFlg){
 		//详情弹层
 		$(".layer-box").show();
 		$("input").val();
-		orderDetail(orderId);
+		orderDetail(orderId,expiryFlg);
 
 	};
 	window.hideLayerBox = function(){
 		$(".layer-box").hide();
 	};
-	window.orderDetail = function(orderId){
+	window.orderDetail = function(orderId,expiryFlg){
 		if(!orderId){alert("订单号不能为空。"); return;} 
 		order.orderDetail(
 			//params
@@ -173,10 +217,37 @@
 				var detail = res.data.detail;
 				//设置值
 				for(var x in detail){
-					$("#"+x+"_d").html(detail[x]||"");
-					if(x == 'propList'){
-						for(var y in detail[x]) $("#"+y+"_dp").val(detail[x][y]||"");
+					if(x =='payStatus'){
+						if(expiryFlg == '已失效'){
+							$("#"+x+"_d").html("已失效");
+						}else{
+							$("#"+x+"_d").html(switchPayStatus(detail[x] || ""));
+						}
+						
+					}else if(x == 'propList'){
+						var i=0,l=detail[x].length,
+						propObj ={},
+						mainTag ='',
+						subTag =''
+						;
+						for(;i<l;i++) {
+							propObj = detail[x][i];
+							if(propObj.goodPropertyType == '1'){//主属性
+								mainTag += propObj.goodPropertyValue;
+							}
+							if(propObj.goodPropertyType == '2'){//副属性
+								subTag  += propObj.goodPropertyValue;
+							}
+						}
+						$("#mainTag_d").html( mainTag ||"");
+						$("#subTag_d").html( subTag ||"");
+					}else if(x == 'logisticsCompany' ||　x == 'logistics'){
+						$("#"+x+"_d").val(detail[x] || "");
+					}else{
+						$("#"+x+"_d").html(detail[x]||"");
 					}
+					
+					
 				}
 			}
 		);
