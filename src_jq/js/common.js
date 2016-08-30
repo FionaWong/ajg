@@ -7,61 +7,61 @@ common.modulesList =[
     id:'0',
     name:'广告位管理',
     url:'advert.html',
-    isActive:'false'
+    isActive:false
   },
   {
     id:'1',
     name:'商品管理',
     url:'good.html',
-    isActive:'false'
+    isActive:true
   },
   {
     id:'2',
     name:'商品标签管理',
     url:'label.html',
-    isActive:'false'
+    isActive:false
   },
   {
     id:'3',
     name:'订单管理',
     url:'order.html',
-    isActive:'false'
+    isActive:false
   },
   {
     id:'4',
     name:'供应商管理',
     url:'supplier.html',
-    isActive:'false'
+    isActive:false
   },
   {
     id:'5',
     name:'优惠券管理',
     url:'supplier.html',
-    isActive:'false',
+    isActive:false,
     children:[
       {
-        id:'1',
+        id:'0',
         name:'成券管理',
         url:'supplier.html',
-        isActive:'false'
+        isActive:false
+      },
+      {
+        id:'1',
+        name:'分发管理',
+        url:'supplier.html',
+        isActive:false
       },
       {
         id:'2',
-        name:'分发管理',
+        name:'消息管理',
         url:'supplier.html',
-        isActive:'false'
+        isActive:false
       },
       {
         id:'3',
-        name:'消息管理',
-        url:'supplier.html',
-        isActive:'false'
-      },
-      {
-        id:'4',
         name:'统计管理',
         url:'supplier.html',
-        isActive:'false'
+        isActive:false
       }
     ]
   }
@@ -78,12 +78,25 @@ common.setAttr = function(attr,val,id){
   modulesList[id][attr] = val ||'';
 };
 //设置active属性
+/* id format 5_1 */
 common.setActive = function(id,val){
   modulesList = common.modulesList;
   for(var x in modulesList){
     modulesList[x].isActive = false;
   }
-  modulesList[id].isActive = true;
+  var ids = id.split('_');
+
+  modulesList[ids[0]].isActive = true;
+  var module = modulesList[ids[0]];
+  if(ids.length > 1){
+    for(var i=0,l=ids.length;i<l;i++){
+      if(ids[i+1]){
+        module.children[ids[i+1]].isActive = true;
+        module = module.children[ids[i+1]];
+      }
+    }
+  }
+
 };
 //左边菜单
 common.getmoduleStr =function(modules){

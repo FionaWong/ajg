@@ -538,12 +538,19 @@ fieldset.question {
 
 
 .sidebar ul li div {
-  margin: 10px 15px 0 15px; }
+  margin: 0px 15px 0 35px;
+  }
   .sidebar ul li div a {
     display: block;
     line-height: 34px;
     font-size: 13px;
     color: #666; }
+
+    .sidebar ul li div a:hover{
+          text-decoration: none;
+            background: #eee;
+            color: #23527c;
+    }
   .sidebar ul li div .active {
     color: #23527c;
     background: #eee; }
