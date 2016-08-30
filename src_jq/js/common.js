@@ -32,6 +32,38 @@ common.modulesList =[
     name:'供应商管理',
     url:'supplier.html',
     isActive:'false'
+  },
+  {
+    id:'5',
+    name:'优惠券管理',
+    url:'supplier.html',
+    isActive:'false',
+    children:[
+      {
+        id:'1',
+        name:'成券管理',
+        url:'supplier.html',
+        isActive:'false'
+      },
+      {
+        id:'2',
+        name:'分发管理',
+        url:'supplier.html',
+        isActive:'false'
+      },
+      {
+        id:'3',
+        name:'消息管理',
+        url:'supplier.html',
+        isActive:'false'
+      },
+      {
+        id:'4',
+        name:'统计管理',
+        url:'supplier.html',
+        isActive:'false'
+      }
+    ]
   }
 ];
 //设置属性
@@ -67,20 +99,35 @@ common.getmoduleStr =function(modules){
    var modStr = "";
    modStr +=  "<li class =";
    modStr += module.isActive ?'active':'';
-   modStr += " ><a href="+module.url+">"+module.name+"</a></li>";
+   modStr += " ><a href="+module.url+">"+module.name+"</a>";
+   if(module.children && module.children.length >0 ){
+     modStr += "<div>";
+     modStr += forElm("",module.children,true);
+     modStr += "</div>";
+   }
+   modStr +="</li>";
    return modStr;
  },
- subMenu = function(module,str){
-   var modStr = str;
-   modStr +=  "<li class =";
-   modStr += modules[i].isActive ?'active':'';
-   modStr += " ><a href="+modules[i].url+">"+modules[i].name+"</a></li>";
+ subMenu = function(module){
+   var modStr = "";
+   modStr += "<a href='"+module.url+"' class='";
+   modStr += module.isActive ? 'active' : '';
+   modStr += "'>" +module.name+"</a>";
    return modStr;
+ },
+ forElm = function(str,modules,isSub){
+   str = str || "";
+   for(var x in modules){
+     if(isSub) str += subMenu(modules[x]);
+     else str += mainMenu(modules[x]);
+   }
+   return str;
  };
  //排序根据id
  modules = sort(modules);
-modStr += '<ul class="nav nav-sidebar">';
-modStr += '</ul>';
+ modStr += '<ul class="nav nav-sidebar">';
+ modStr += forElm('',modules,false);
+ modStr += '</ul>';
  return modStr;
 };
 
@@ -90,7 +137,7 @@ common.appendTo = function(target){
 };
 
 /*login*/
-common.loginTarget = $(".layer-login");
+/*common.loginTarget = $(".layer-login");
 common.openlogin = function(target){
   var loginHtml = function(){
     return (
@@ -164,7 +211,7 @@ common.login = function(){
         }
     })
 }
-
+*/
 //api 模块开始---------
 var api={};
 api.ajaxFun_noExe = function(url,data){

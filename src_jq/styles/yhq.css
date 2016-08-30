@@ -1,0 +1,93 @@
+.sidebar ul li div {
+  margin: 10px 15px 0 15px; }
+  .sidebar ul li div a {
+    line-height: 34px;
+    font-size: 13px;
+    color: #666; }
+  .sidebar ul li div .active {
+    color: #23527c;
+    background: #eee; }
+
+.zq-input .checkbox {
+  position: relative;
+  top: 3px; }
+
+.zq-input b {
+  line-height: 36px;
+  padding: 0 5px;
+  display: inline-block;
+  font-weight: normal; }
+
+.zq-input .w-60 {
+  width: 60px;
+  padding: 6px 0;
+  text-align: center;
+  margin: 0; }
+
+.zq-input p {
+  display: inline-block;
+  font-style: normal;
+  color: #ccc;
+  font-size: 12px; }
+
+.zq-input .m-r-60 {
+  margin-right: 60px; }
+
+.zq-input .textarea-w500 {
+  width: 500px;
+  height: 60px;
+  margin-right: 0; }
+
+.textarea-box {
+  padding-left: 100px;
+  margin-top: 15px; }
+  .textarea-box div {
+    width: 180px;
+    float: left; }
+  .textarea-box .sep {
+    width: 60px;
+    text-align: center;
+    height: 214px;
+    line-height: 200px;
+    float: left;
+    color: #ccc;
+    font-size: 40px;
+    margin-top: 20px; }
+  .textarea-box p {
+    text-align: center;
+    color: #666; }
+  .textarea-box textarea {
+    height: 200px;
+    width: 150px;
+    margin: 0; }
+
+.edit-yhq label {
+  width: 130px;
+  text-align: right;
+  display: inline-block; }
+
+.edit-yhq b {
+  font-weight: normal; }
+
+.upload-link .span-w300 {
+  width: 300px;
+  float: left; }
+  .upload-link .span-w300 b {
+    font-weight: normal;
+    width: 200px;
+    display: inline-block; }
+  .upload-link .span-w300 label {
+    width: 80px;
+    text-align: right; }
+
+.filestyle {
+  width: 160px;
+  margin-right: 0;
+  border: none;
+  padding: 0;
+  box-shadow: inset 0 1px 1px transparent; }
+
+.dingdan-detail {
+  border-bottom: #ddd 1px solid;
+  padding-bottom: 20px;
+  margin-bottom: 20px; }
